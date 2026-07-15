@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Videoposter Flowstate AI Solutions">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="80%">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="46%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <!-- abstrakte, ruhige Geometrie: dünne goldene Linien (Marken-Bildsprache) -->
+  <g fill="none" stroke="#C9A84C" stroke-width="1">
+    <circle cx="1040" cy="150" r="120" opacity="0.10"/>
+    <circle cx="1040" cy="150" r="180" opacity="0.06"/>
+    <circle cx="1040" cy="150" r="240" opacity="0.04"/>
+    <line x1="0" y1="600" x2="1280" y2="600" opacity="0.05"/>
+    <line x1="0" y1="640" x2="1280" y2="640" opacity="0.03"/>
+  </g>
+  <!-- Marken-Wortmarke, dezent -->
+  <g transform="translate(80,72)" fill="#8A8A8A" font-family="Inter, Arial, sans-serif">
+    <rect x="0" y="8" width="26" height="3" rx="1.5" fill="#C9A84C"/>
+    <text x="40" y="14" font-size="17" letter-spacing="5" font-weight="700" fill="#FFFFFF">FLOWSTATE</text>
+    <text x="40" y="36" font-size="12" letter-spacing="5" font-weight="500">AI SOLUTIONS</text>
+  </g>
+  <!-- Caption unten links -->
+  <text x="80" y="648" fill="#8A8A8A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">Lukas Sehorz — Die KI-Effizienz-Analyse in 80 Sekunden</text>
+</svg>

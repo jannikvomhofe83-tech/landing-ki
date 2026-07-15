@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Claude Code Konfiguration (nicht Teil der Website)
+.claude/
+
+# Editor / OS
+Thumbs.db
+*.log

@@ -1,0 +1,1506 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Kostenlose KI-Effizienz-Analyse für Kanzleien mit Firmenmandanten | Flowstate AI Solutions</title>
+<meta name="description" content="Kostenlose KI-Effizienz-Analyse für Anwaltskanzleien mit Firmenmandanten. In 60 Minuten Ihre drei größten Wissens- und Prozessverluste identifizieren – in 48 Stunden ein priorisierter Maßnahmenplan. Verarbeitung nach DSGVO, Hosting in Deutschland." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#000000" />
+<link rel="canonical" href="https://flowstate-ai.de/ki-effizienz-analyse" />
+
+<!-- Open Graph / Meta Ads -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="Flowstate AI Solutions" />
+<meta property="og:title" content="88 % der Unternehmen nutzen KI. Nur 7 % nutzen sie erfolgreich." />
+<meta property="og:description" content="Kostenlose KI-Effizienz-Analyse für Anwaltskanzleien mit Firmenmandanten. 60 Minuten Analyse, in 48 Stunden ein priorisierter Maßnahmenplan. Kein Verkaufsgespräch." />
+<meta property="og:image" content="https://flowstate-ai.de/media/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+<!-- Self-hosted Inter (DSGVO-konform, kein Google-Fonts-CDN) -->
+<link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+
+<script>document.documentElement.classList.add('js');</script>
+
+<style>
+/* ============================================================
+   FLOWSTATE AI SOLUTIONS — KI-Effizienz-Analyse Landingpage
+   Marke: Silent Luxury (Schwarz / Gold / Weiß)
+   Hybrid: dunkle Bühnen (emotionale Anker) + helle Lesestrecken
+   ============================================================ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/inter-variable.woff2') format('woff2');
+}
+
+/* ---------- Design Tokens ---------- */
+:root {
+  --black:#000000; --surface:#121212; --gold:#C9A84C; --gold-hover:#BC9A3F;
+  --white:#FFFFFF; --paper:#F5F5F5; --ink:#1A1A1A; --muted:#5B5B5B;
+  --hairline:#E4E4E4; --success:#2E7D32; --error:#C62828;
+  --on-dark:#FFFFFF; --on-dark-muted:#BFBFBF; --on-dark-subtle:#8A8A8A;
+
+  --maxw-content:1200px; --maxw-prose:720px; --maxw-video:720px;
+  --maxw-form:560px; --maxw-narrow:640px;
+
+  --r-btn:8px; --r-card:12px; --r-field:8px;
+  --shadow-card:0 1px 3px rgba(0,0,0,.06);
+  --shadow-form:0 4px 24px rgba(0,0,0,.08);
+  --shadow-lift:0 12px 40px rgba(0,0,0,.10);
+
+  --pad-x:20px;
+  --sec-y:clamp(3.5rem, 2rem + 7vw, 6rem);   /* 56px → 96px */
+}
+@media (min-width:768px){ :root{ --pad-x:32px; } }
+@media (min-width:1024px){ :root{ --pad-x:48px; } }
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Inter','Helvetica Neue',Arial,sans-serif;
+  font-size:clamp(1.0625rem,1.02rem + .2vw,1.125rem); /* 17 → 18 */
+  line-height:1.55; font-weight:400;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  overflow-wrap:break-word; /* lange dt. Komposita brechen auf sehr schmalen Screens */
+}
+img,svg,video{ display:block; max-width:100%; }
+a{ color:inherit; }
+h1,h2,h3{ margin:0; text-wrap:balance; }
+p{ margin:0; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; border-radius:2px; }
+
+/* ---------- Layout ---------- */
+.container{ width:100%; max-width:var(--maxw-content); margin-inline:auto; padding-inline:var(--pad-x); }
+.section{ padding-block:var(--sec-y); }
+.prose{ max-width:var(--maxw-prose); margin-inline:auto; }
+.narrow{ max-width:var(--maxw-narrow); margin-inline:auto; }
+.center{ text-align:center; }
+
+.sec--black{ background:var(--black); color:var(--on-dark); }
+.sec--surface{ background:var(--surface); color:var(--on-dark); }
+.sec--paper{ background:var(--paper); color:var(--ink); }
+.sec--white{ background:var(--white); color:var(--ink); }
+
+/* ---------- Typography ---------- */
+.h1{ font-size:clamp(2rem,1.15rem + 3.9vw,3.5rem); line-height:1.1; font-weight:700; letter-spacing:-.02em; }
+.h2{ font-size:clamp(1.625rem,1.1rem + 2.3vw,2.5rem); line-height:1.2; font-weight:600; letter-spacing:-.01em; }
+.h3{ font-size:clamp(1.25rem,1.15rem + .45vw,1.5rem); line-height:1.3; font-weight:600; }
+.body-lg{ font-size:clamp(1.1875rem,1.12rem + .3vw,1.375rem); line-height:1.45; }
+.small{ font-size:clamp(.8125rem,.8rem + .05vw,.875rem); line-height:1.5; }
+.lead{ color:var(--muted); }
+.sec--black .lead,.sec--surface .lead{ color:var(--on-dark-muted); }
+
+/* Eyebrow / Kicker */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:.8125rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:18px;
+}
+.sec--black .eyebrow,.sec--surface .eyebrow{ color:var(--gold); }
+.eyebrow::before{ content:""; width:24px; height:3px; background:var(--gold); border-radius:2px; }
+.sec--black .eyebrow::before,.sec--surface .eyebrow::before{ display:none; }
+
+.section-head{ margin-bottom:clamp(2rem,1.4rem + 2.5vw,3rem); }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  background:var(--gold); color:#000; font-family:inherit;
+  font-size:clamp(1.0625rem,1.02rem + .2vw,1.125rem); font-weight:600; letter-spacing:.01em;
+  padding:16px 32px; border:none; border-radius:var(--r-btn); cursor:pointer;
+  text-decoration:none; line-height:1; text-align:center;
+  transition:background 150ms ease-out, transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+.btn:hover{ background:var(--gold-hover); transform:translateY(-1px); box-shadow:0 8px 22px rgba(201,168,76,.28); }
+.btn:active{ transform:translateY(0); box-shadow:none; }
+.btn:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+.sec--paper .btn:focus-visible,.sec--white .btn:focus-visible{ outline-color:#000; }
+.btn--full{ width:100%; }
+.btn[disabled]{ opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
+.btn .icon{ width:20px; height:20px; }
+
+/* ---------- Hero ---------- */
+.hero{
+  background:var(--black); color:var(--on-dark); text-align:center;
+  padding-block:clamp(2rem,1.2rem + 4vw,4rem) clamp(3.5rem,2rem + 7vw,6rem);
+  position:relative; overflow:hidden;
+}
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse 90% 70% at 50% 32%, #111 0%, #050505 46%, #000 78%);
+  pointer-events:none;
+}
+.hero > .container{ position:relative; }
+.logo{
+  display:inline-flex; align-items:center; gap:9px; margin-bottom:clamp(2.5rem,1.5rem + 4vw,4rem);
+  font-size:.8125rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#fff;
+}
+.logo .dot{ width:7px; height:7px; border-radius:999px; background:var(--gold); box-shadow:0 0 14px rgba(201,168,76,.6); }
+.logo .sub{ font-weight:500; letter-spacing:.22em; color:var(--on-dark-subtle); }
+
+.hero h1{ max-width:920px; margin-inline:auto; color:#fff; }
+.hero .subline{ max-width:var(--maxw-prose); margin:22px auto 0; color:var(--on-dark-muted); }
+
+.video-wrap{ max-width:var(--maxw-video); margin:clamp(2rem,1.4rem + 3vw,2.75rem) auto 0; }
+.video-frame{
+  position:relative; aspect-ratio:16/9; border-radius:var(--r-card); overflow:hidden;
+  border:1px solid rgba(201,168,76,.3); background:#0a0a0a; cursor:pointer;
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
+}
+.video-frame img{ width:100%; height:100%; object-fit:cover; }
+.video-frame iframe,.video-frame video{ width:100%; height:100%; border:0; }
+.play-btn{
+  position:absolute; inset:0; margin:auto; width:72px; height:72px; border-radius:999px;
+  background:var(--gold); border:none; cursor:pointer; display:grid; place-items:center;
+  transition:background 150ms ease-out, transform 150ms ease-out; box-shadow:0 6px 30px rgba(0,0,0,.45);
+}
+.play-btn:hover{ background:var(--gold-hover); transform:scale(1.05); }
+.play-btn::after{ content:""; width:0; height:0; margin-left:5px;
+  border-top:14px solid transparent; border-bottom:14px solid transparent; border-left:22px solid #000; }
+.video-caption{ margin-top:14px; font-size:.875rem; color:var(--on-dark-subtle); }
+
+.hero-cta{ margin-top:clamp(1.75rem,1.2rem + 2vw,2.5rem); }
+.trust-line{ margin-top:20px; font-size:.875rem; color:var(--on-dark-subtle); line-height:1.6; }
+.trust-line b{ color:var(--on-dark-muted); font-weight:500; }
+
+/* ---------- Stat wall ---------- */
+.stat-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px){ .stat-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px){ .stat-grid{ grid-template-columns:repeat(3,1fr); } }
+.stat-card{
+  background:var(--white); border:1px solid var(--hairline); border-radius:var(--r-card);
+  padding:32px; box-shadow:var(--shadow-card); display:flex; flex-direction:column; height:100%;
+}
+.stat-card .topline{ width:40px; height:3px; background:var(--gold); border-radius:2px; margin-bottom:22px; }
+.stat-num{
+  font-size:clamp(2.75rem,2rem + 3.4vw,4rem); line-height:1; font-weight:700; letter-spacing:-.02em;
+  color:var(--ink); margin-bottom:14px;
+}
+.stat-text{ color:var(--ink); flex:1; }
+.stat-src{ margin-top:20px; padding-top:14px; border-top:1px solid var(--hairline); font-size:.8125rem; line-height:1.5; color:var(--muted); }
+.abbinder{
+  margin-top:clamp(2rem,1.4rem + 2.5vw,3rem); max-width:760px; margin-inline:auto; text-align:center;
+  font-size:clamp(1.125rem,1.05rem + .35vw,1.3rem); line-height:1.5; color:var(--ink);
+}
+.abbinder b{ font-weight:600; }
+
+/* ---------- Pain cards ---------- */
+.pain-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+@media (min-width:640px){ .pain-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1024px){ .pain-grid{ grid-template-columns:repeat(4,1fr); } }
+.pain-card{
+  background:var(--white); border:1px solid var(--hairline); border-radius:var(--r-card);
+  padding:32px; box-shadow:var(--shadow-card); height:100%;
+}
+.pain-card .icon-badge{ color:var(--gold); margin-bottom:20px; }
+.pain-card .icon-badge svg{ width:28px; height:28px; }
+.pain-card h3{ margin-bottom:12px; }
+.pain-card p{ color:var(--muted); font-size:1.0625rem; line-height:1.55; }
+.pain-card .src{ color:var(--muted); }
+
+/* ---------- Cost block ---------- */
+.equation{ text-align:center; max-width:820px; margin:0 auto; }
+.eq-line{ font-size:clamp(1.1875rem,1.05rem + .6vw,1.5rem); line-height:1.5; color:#fff; font-weight:500; }
+.eq-line .x{ color:var(--on-dark-subtle); padding:0 .35em; }
+.eq-results{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:clamp(1.75rem,1.2rem + 2vw,2.5rem); }
+.eq-result{
+  border:1px solid rgba(201,168,76,.28); border-radius:var(--r-card); padding:24px 32px; min-width:220px; flex:1;
+  background:rgba(201,168,76,.05);
+}
+.eq-result .num{ font-size:clamp(2.25rem,1.6rem + 2.6vw,3.25rem); line-height:1; font-weight:700; letter-spacing:-.02em; color:var(--gold); }
+.eq-result .unit{ margin-top:10px; font-size:.9375rem; letter-spacing:.04em; text-transform:uppercase; color:var(--on-dark-muted); }
+.warnbox{
+  margin:clamp(2rem,1.4rem + 2.5vw,3rem) auto 0; max-width:760px;
+  background:rgba(201,168,76,.08); border-left:3px solid var(--gold); border-radius:0 8px 8px 0;
+  padding:20px 24px; font-size:.9375rem; line-height:1.6; color:#fff;
+}
+.warnbox b{ color:#fff; font-weight:700; }
+.cost-abbinder{ margin:clamp(1.75rem,1.2rem + 2vw,2.5rem) auto 0; max-width:760px; text-align:center; color:var(--on-dark-muted); font-size:clamp(1.0625rem,1rem + .3vw,1.1875rem); }
+.cost-abbinder b{ color:#fff; font-weight:600; }
+
+/* ---------- Comparison table ---------- */
+.compare{ max-width:920px; margin:clamp(2rem,1.4rem + 2.5vw,3rem) auto 0; border:1px solid var(--hairline); border-radius:var(--r-card); overflow:hidden; background:var(--white); }
+.compare-head,.compare-row{ display:grid; grid-template-columns:1fr 1fr; }
+.compare-row{ border-top:1px solid var(--hairline); }
+.c-problem,.c-solution{ padding:18px 22px; display:flex; align-items:center; font-size:1rem; line-height:1.45; }
+.c-problem{ color:var(--muted); border-right:1px solid var(--hairline); }
+.c-solution{ color:var(--ink); background:#fcfbf7; }
+.c-head{ font-weight:600; font-size:.9375rem; letter-spacing:.02em; padding-block:16px; }
+.c-head.c-problem{ color:var(--ink); background:var(--paper); }
+.c-head.c-solution{ color:var(--ink); background:var(--paper); border-top:3px solid var(--gold); }
+.compare-row:last-child .c-problem,.compare-row:last-child .c-solution{ font-weight:600; }
+@media (max-width:639px){
+  .compare-head,.compare-row{ grid-template-columns:1fr; }
+  .c-problem{ border-right:none; border-bottom:1px solid var(--hairline); }
+  .c-head.c-solution{ border-top:1px solid var(--hairline); }
+}
+
+/* ---------- Offer ---------- */
+.offer-grid{ display:grid; grid-template-columns:1fr; gap:20px; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); }
+@media (min-width:768px){ .offer-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
+.offer-col{ border:1px solid var(--hairline); border-radius:var(--r-card); padding:32px; background:var(--white); min-width:0; }
+.offer-col.is-primary{ background:var(--paper); }
+.offer-col h3{ margin-bottom:20px; }
+.offer-list{ list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+.offer-list li{ display:flex; gap:12px; align-items:flex-start; line-height:1.5; color:var(--ink); min-width:0; }
+.offer-list li span{ min-width:0; }
+.offer-list .icon{ width:22px; height:22px; color:var(--gold); flex:0 0 auto; margin-top:2px; }
+.offer-col.is-primary .offer-list li{ font-weight:500; }
+
+/* ---------- Risk reversal ---------- */
+.risk-box{
+  max-width:var(--maxw-prose); margin-inline:auto; text-align:center;
+  border:1px solid rgba(201,168,76,.4); border-radius:var(--r-card);
+  padding:clamp(2rem,1.4rem + 3vw,3rem); background:rgba(201,168,76,.03);
+}
+.risk-box .shield{ color:var(--gold); width:44px; height:44px; margin:0 auto 22px; }
+.risk-box p{ color:#fff; font-size:clamp(1.125rem,1.02rem + .45vw,1.25rem); line-height:1.55; }
+.risk-box p + p{ margin-top:20px; color:var(--on-dark-muted); }
+
+/* ---------- Process ---------- */
+.steps{ display:grid; grid-template-columns:1fr; gap:32px; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); position:relative; }
+@media (min-width:768px){ .steps{ grid-template-columns:repeat(3,1fr); gap:24px; } }
+.step{ text-align:center; position:relative; }
+.step .num{
+  width:48px; height:48px; border-radius:999px; background:var(--gold); color:#000;
+  display:grid; place-items:center; font-weight:700; font-size:1.25rem; margin:0 auto 20px; position:relative; z-index:1;
+}
+.step h3{ margin-bottom:10px; }
+.step p{ color:var(--muted); max-width:320px; margin-inline:auto; }
+@media (min-width:768px){
+  .step:not(:last-child)::after{
+    content:""; position:absolute; top:24px; left:calc(50% + 34px); right:calc(-50% + 34px);
+    height:1px; background:var(--hairline);
+  }
+}
+
+/* ---------- Trust ---------- */
+.trust-body{ color:var(--on-dark-muted); }
+.badges{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); }
+.badge{
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(255,255,255,.06); border:1px solid rgba(201,168,76,.3); border-radius:999px;
+  padding:10px 18px; font-size:.9375rem; color:#fff; line-height:1.3;
+}
+.badge .icon{ width:16px; height:16px; color:var(--gold); flex:0 0 auto; }
+.bitkom{ margin-top:clamp(1.75rem,1.2rem + 2vw,2.25rem); text-align:center; font-size:.875rem; line-height:1.6; color:var(--on-dark-subtle); max-width:640px; margin-inline:auto; }
+
+/* ---------- Scope (Abgrenzung) ---------- */
+.scope{ max-width:var(--maxw-narrow); margin-inline:auto; border-left:3px solid var(--hairline); padding:6px 0 6px 24px; }
+.scope h3{ margin-bottom:14px; font-size:1.25rem; }
+.scope p{ color:var(--muted); font-size:1rem; line-height:1.6; }
+
+/* ---------- Form ---------- */
+.form-card{
+  max-width:var(--maxw-form); margin-inline:auto; background:var(--white);
+  border-radius:var(--r-card); padding:clamp(24px,16px + 3vw,40px); box-shadow:var(--shadow-form);
+}
+.form-legend{ font-size:.8125rem; color:var(--muted); margin-bottom:22px; }
+.form-legend .req{ color:var(--error); }
+.field{ margin-bottom:24px; }
+.field > label,.field-label{ display:block; font-weight:600; font-size:.9375rem; color:var(--ink); margin-bottom:9px; }
+.field-label .req{ color:var(--error); }
+.field-hint{ font-weight:400; color:var(--muted); font-size:.875rem; }
+.input,.select{
+  width:100%; height:52px; padding:0 16px; border:1px solid #CFCFCF; border-radius:var(--r-field);
+  font-family:inherit; font-size:1.0625rem; background:var(--white); color:var(--ink);
+  transition:border-color 120ms ease, box-shadow 120ms ease;
+}
+.input::placeholder{ color:#9a9a9a; }
+.select{
+  appearance:none; -webkit-appearance:none; padding-right:44px; cursor:pointer;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235B5B5B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat:no-repeat; background-position:right 14px center;
+}
+.input:focus,.select:focus{ border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,.25); outline:none; }
+.field.has-error .input,.field.has-error .select{ border-color:var(--error); }
+.field.has-error .radio-cards{ outline:1px solid transparent; }
+.error-msg{ display:none; margin-top:8px; font-size:.875rem; color:var(--error); }
+.field.has-error .error-msg{ display:block; }
+
+.radio-cards{ display:grid; gap:10px; }
+@media (min-width:480px){ .radio-cards.cols-2{ grid-template-columns:1fr 1fr; } }
+.radio-card{
+  display:flex; align-items:center; gap:12px; min-height:52px; padding:12px 16px;
+  border:1px solid #CFCFCF; border-radius:var(--r-field); cursor:pointer; background:var(--white);
+  transition:border-color 120ms ease, background 120ms ease; font-size:1rem; line-height:1.35;
+}
+.radio-card:hover{ border-color:#b8b8b8; }
+.radio-card input{ position:absolute; opacity:0; width:0; height:0; }
+.radio-card .rc-mark{
+  width:22px; height:22px; border-radius:999px; border:2px solid #CFCFCF; flex:0 0 auto; position:relative; transition:border-color 120ms ease;
+}
+.radio-card input:checked ~ .rc-mark{ border-color:var(--gold); }
+.radio-card input:checked ~ .rc-mark::after{
+  content:""; position:absolute; inset:0; margin:auto; width:11px; height:11px; border-radius:999px; background:var(--gold);
+}
+.radio-card:has(input:checked){ border-color:var(--gold); background:rgba(201,168,76,.06); }
+.radio-card input:focus-visible ~ .rc-mark{ box-shadow:0 0 0 3px rgba(201,168,76,.35); border-radius:999px; }
+
+.consent{ display:flex; gap:12px; align-items:flex-start; margin-bottom:8px; cursor:pointer; }
+.consent input{ position:absolute; opacity:0; width:0; height:0; }
+.consent .cb{
+  width:22px; height:22px; flex:0 0 auto; border:2px solid #CFCFCF; border-radius:5px; margin-top:2px;
+  display:grid; place-items:center; transition:background 120ms ease, border-color 120ms ease;
+}
+.consent .cb svg{ width:14px; height:14px; opacity:0; color:#000; transition:opacity 120ms ease; }
+.consent input:checked ~ .cb{ background:var(--gold); border-color:var(--gold); }
+.consent input:checked ~ .cb svg{ opacity:1; }
+.consent input:focus-visible ~ .cb{ box-shadow:0 0 0 3px rgba(201,168,76,.35); }
+.consent .cb-text{ font-size:.875rem; line-height:1.55; color:var(--muted); }
+.consent .cb-text a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
+.field.has-error .consent .cb{ border-color:var(--error); }
+
+.form-submit{ margin-top:8px; }
+.form-microcopy{ margin-top:14px; text-align:center; font-size:.875rem; color:var(--muted); }
+.privacy-note{ max-width:var(--maxw-form); margin:22px auto 0; font-size:.8125rem; line-height:1.6; color:var(--muted); text-align:center; }
+.privacy-note a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
+
+/* Form success */
+.form-success{
+  display:none; max-width:var(--maxw-form); margin-inline:auto; background:var(--white);
+  border-radius:var(--r-card); padding:clamp(28px,18px + 3vw,44px); box-shadow:var(--shadow-form); text-align:center;
+}
+.form-success .ok{ width:56px; height:56px; border-radius:999px; background:rgba(46,125,50,.1); color:var(--success); display:grid; place-items:center; margin:0 auto 20px; }
+.form-success .ok svg{ width:30px; height:30px; }
+.form-success h3{ margin-bottom:12px; }
+.form-success p{ color:var(--muted); }
+.form-error-banner{ display:none; margin-bottom:20px; background:rgba(198,40,40,.07); border:1px solid rgba(198,40,40,.3); border-radius:8px; padding:14px 16px; font-size:.9375rem; color:var(--error); line-height:1.5; }
+
+/* ---------- FAQ ---------- */
+.faq{ max-width:var(--maxw-prose); margin-inline:auto; }
+.faq-item{ border-top:1px solid var(--hairline); }
+.faq-item:last-child{ border-bottom:1px solid var(--hairline); }
+.faq-q{
+  width:100%; background:none; border:none; cursor:pointer; text-align:left; font-family:inherit;
+  display:flex; justify-content:space-between; align-items:center; gap:20px;
+  padding:22px 0; font-size:1.125rem; font-weight:600; color:var(--ink); line-height:1.4;
+}
+.faq-q .chev{ flex:0 0 auto; width:22px; height:22px; color:var(--muted); transition:transform 200ms ease; }
+.faq-item.open .faq-q .chev{ transform:rotate(180deg); color:var(--gold); }
+.faq-a{ overflow:hidden; max-height:0; transition:max-height 200ms ease; }
+.faq-a-inner{ padding:0 0 24px; color:var(--muted); font-size:1.0625rem; line-height:1.6; max-width:640px; }
+.faq-item.open .faq-a{ max-height:520px; }
+
+/* ---------- Final CTA ---------- */
+.final-cta{ text-align:center; }
+.final-cta h2{ color:#fff; max-width:760px; margin-inline:auto; }
+.final-cta p{ max-width:640px; margin:20px auto 0; color:var(--on-dark-muted); }
+.final-cta .btn{ margin-top:clamp(1.75rem,1.2rem + 2vw,2.5rem); }
+
+/* ---------- Footer ---------- */
+.footer{ background:var(--surface); color:var(--on-dark-subtle); border-top:1px solid rgba(255,255,255,.1); }
+.footer .container{ padding-block:clamp(2rem,1.4rem + 2vw,3rem); }
+.footer .f-brand{ font-size:.9375rem; color:var(--on-dark-muted); line-height:1.6; }
+.footer nav{ margin-top:16px; display:flex; flex-wrap:wrap; gap:14px 24px; }
+.footer nav a,.footer nav button{
+  background:none; border:none; padding:0; font-family:inherit; cursor:pointer;
+  color:var(--on-dark-subtle); font-size:.875rem; text-decoration:none; transition:color 120ms ease;
+}
+.footer nav a:hover,.footer nav button:hover{ color:#fff; }
+.footer .f-legal{ margin-top:18px; font-size:.8125rem; line-height:1.6; color:#6a6a6a; }
+
+/* ---------- Sticky mobile CTA ---------- */
+.sticky-cta{
+  position:fixed; left:0; right:0; bottom:0; z-index:60; padding:8px 16px calc(8px + env(safe-area-inset-bottom));
+  background:rgba(0,0,0,.6); backdrop-filter:blur(8px); transform:translateY(120%); transition:transform 220ms ease;
+}
+.sticky-cta.show{ transform:translateY(0); }
+.sticky-cta .btn{ height:52px; padding-block:0; }
+@media (min-width:768px){ .sticky-cta{ display:none; } }
+
+/* ---------- Cookie banner ---------- */
+.cookie{
+  position:fixed; left:0; right:0; bottom:0; z-index:80; background:var(--surface); color:#fff;
+  border-top:1px solid rgba(201,168,76,.3); transform:translateY(120%); transition:transform 260ms ease;
+}
+.cookie.show{ transform:translateY(0); }
+.cookie .inner{ max-width:var(--maxw-content); margin-inline:auto; padding:20px var(--pad-x) calc(20px + env(safe-area-inset-bottom));
+  display:flex; flex-direction:column; gap:16px; }
+@media (min-width:900px){ .cookie .inner{ flex-direction:row; align-items:center; justify-content:space-between; } }
+.cookie p{ font-size:.875rem; line-height:1.55; color:var(--on-dark-muted); max-width:640px; }
+.cookie p a{ color:#fff; text-decoration:underline; text-underline-offset:2px; }
+.cookie .actions{ display:flex; gap:12px; flex-shrink:0; }
+.cookie .actions .btn{ padding:12px 22px; font-size:1rem; }
+.btn-ghost{
+  display:inline-flex; align-items:center; justify-content:center; background:transparent; color:#fff;
+  border:1px solid rgba(255,255,255,.5); border-radius:var(--r-btn); padding:12px 22px; font-size:1rem;
+  font-weight:600; font-family:inherit; cursor:pointer; transition:border-color 120ms ease, background 120ms ease;
+}
+.btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,.06); }
+.btn-ghost:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+
+/* ---------- Skip link ---------- */
+.skip{ position:absolute; left:-999px; top:0; z-index:100; background:var(--gold); color:#000; padding:12px 20px; border-radius:0 0 8px 0; font-weight:600; }
+.skip:focus{ left:0; }
+
+/* ---------- Scroll reveal ---------- */
+.js .reveal{ opacity:0; transform:translateY(12px); }
+.js .reveal.is-visible{ opacity:1; transform:none; transition:opacity 400ms ease-out, transform 400ms ease-out; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  .js .reveal{ opacity:1; transform:none; }
+}
+
+/* ============================================================
+   GLOBAL DARK THEME — komplette Seite auf Schwarz
+   Umsetzung über Token-Redefinition + gezielte Overrides,
+   damit WCAG-Kontraste und die Gold-Regeln erhalten bleiben.
+   (Gold-Text ist auf Schwarz/Surface AAA-konform.)
+   ============================================================ */
+:root{
+  --ink:#FFFFFF;                     /* Fließtext -> weiß */
+  --white:#141414;                   /* Karten-/Panel-Fläche (elevated) */
+  --paper:#000000;                   /* Seiten-/Sektionsgrund */
+  --hairline:rgba(255,255,255,0.10); /* Rahmen / Divider */
+  --muted:#A6A6A6;                   /* Sekundärtext (AA+ auf Schwarz) */
+  --error:#F87171;                   /* Fehler heller für Dark */
+  --success:#66BB6A;                 /* Erfolg heller für Dark */
+}
+html,body{ background:#000000; }
+
+/* Helle Sektionen -> Schwarz; #121212-Anker (Kostenblock/Trust/Footer) bleiben */
+.sec--paper{ background:#000000; }
+.sec--white{ background:#000000; }
+.section{ border-top:1px solid rgba(255,255,255,0.05); } /* dezente Trennung */
+
+/* Eyebrow durchgängig Gold (Akzent), ohne hellen Balken */
+.eyebrow{ color:var(--gold); }
+.eyebrow::before{ display:none; }
+
+/* Karten heben sich vom schwarzen Grund ab (Rahmen statt Schatten) */
+.stat-card,.pain-card,.offer-col,.compare{ border-color:rgba(255,255,255,0.08); box-shadow:none; }
+.form-card,.form-success{ border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.5); }
+
+/* Vergleichstabelle */
+.c-solution{ background:rgba(201,168,76,0.06); }
+.c-head.c-problem,.c-head.c-solution{ background:#0d0d0d; }
+.c-problem{ border-right-color:rgba(255,255,255,0.08); }
+.compare-row{ border-top-color:rgba(255,255,255,0.08); }
+@media (max-width:639px){ .c-problem{ border-bottom-color:rgba(255,255,255,0.08); } }
+
+/* Angebot: rechte Spalte goldakzentuiert hervorgehoben */
+.offer-col.is-primary{ background:rgba(201,168,76,0.06); border-color:rgba(201,168,76,0.28); }
+
+/* Abgrenzung: Linie bewusst hell/neutral (nicht Gold) */
+.scope{ border-left-color:rgba(255,255,255,0.16); }
+
+/* Formularfelder: dunkel und leicht vertieft im Karten-Panel
+   (background-COLOR, nicht background-Shorthand — sonst würde der Select-Pfeil zurückgesetzt/gekachelt) */
+.input,.select,.radio-card{ background-color:#0d0d0d; border-color:rgba(255,255,255,0.18); }
+.input::placeholder{ color:#7d7d7d; }
+.radio-card:hover{ border-color:rgba(255,255,255,0.32); }
+.radio-card .rc-mark,.consent .cb{ border-color:rgba(255,255,255,0.30); }
+.select option{ background:#141414; color:#fff; }
+.select{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23A6A6A6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+  background-repeat:no-repeat; background-position:right 14px center;
+}
+
+/* FAQ-Divider hell */
+.faq-item{ border-top-color:rgba(255,255,255,0.10); }
+.faq-item:last-child{ border-bottom-color:rgba(255,255,255,0.10); }
+
+/* ---------- Sticky Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(0,0,0,0.80);
+  -webkit-backdrop-filter:saturate(140%) blur(10px); backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:68px; padding-block:12px; }
+.brand{ display:inline-flex; align-items:center; gap:12px; text-decoration:none; flex:0 0 auto; }
+.brand:focus-visible{ outline:3px solid var(--gold); outline-offset:4px; border-radius:4px; }
+.brand img{ display:block; width:auto; }
+.brand-mark{ height:34px; }
+.brand-word{ height:19px; }
+.header-cta{ flex:0 0 auto; padding:12px 22px; font-size:1rem; white-space:nowrap; }
+.header-cta .cta-short{ display:none; }
+#top,#formular{ scroll-margin-top:84px; }
+/* Header ersetzt den unteren Sticky-CTA (kein doppelter CTA-Balken bei dieser ruhigen Zielgruppe) */
+.sticky-cta{ display:none !important; }
+@media (max-width:560px){
+  .header-inner{ min-height:58px; }
+  .brand{ gap:10px; }
+  .brand-mark{ height:29px; }
+  .brand-word{ height:15px; }
+  .header-cta{ padding:10px 16px; font-size:.9rem; }
+  .header-cta .cta-full{ display:none; }
+  .header-cta .cta-short{ display:inline; }
+}
+@media (max-width:360px){ .brand-word{ display:none; } }
+
+/* ---------- Hero: Stat-Headline ---------- */
+.hero .hl{ color:var(--gold); white-space:nowrap; }
+.hero-source{
+  margin:20px auto 0; max-width:660px; font-size:.8125rem; line-height:1.55;
+  color:var(--on-dark-subtle);
+}
+.hero-source em{ font-style:italic; color:var(--on-dark-muted); }
+
+/* ---------- Hero: schwebende Eck-Winkel um den Videokasten ---------- */
+.video-box{ position:relative; }
+.vcorner{ position:absolute; width:28px; height:28px; --g:13px; pointer-events:none; z-index:2; }
+.vc-tl{ top:calc(-1 * var(--g)); left:calc(-1 * var(--g)); border-top:1.5px solid rgba(255,255,255,.9); border-left:1.5px solid rgba(255,255,255,.9); border-top-left-radius:4px; }
+.vc-tr{ top:calc(-1 * var(--g)); right:calc(-1 * var(--g)); border-top:1.5px solid rgba(255,255,255,.9); border-right:1.5px solid rgba(255,255,255,.9); border-top-right-radius:4px; }
+.vc-bl{ bottom:calc(-1 * var(--g)); left:calc(-1 * var(--g)); border-bottom:1.5px solid rgba(255,255,255,.9); border-left:1.5px solid rgba(255,255,255,.9); border-bottom-left-radius:4px; }
+.vc-br{ bottom:calc(-1 * var(--g)); right:calc(-1 * var(--g)); border-bottom:1.5px solid rgba(255,255,255,.9); border-right:1.5px solid rgba(255,255,255,.9); border-bottom-right-radius:4px; }
+@media (max-width:560px){ .vcorner{ --g:9px; width:22px; height:22px; } }
+
+/* ---------- Section 2: redaktionelle Kennzahlen-Liste ---------- */
+.stat-list{ margin-top:clamp(2rem,1.4rem + 2.5vw,3rem); border-top:1px solid rgba(255,255,255,.12); }
+.stat-row{ display:grid; grid-template-columns:minmax(180px,240px) 1fr; gap:clamp(20px,4vw,64px); padding-block:clamp(26px,2.4vw,42px); border-bottom:1px solid rgba(255,255,255,.12); align-items:start; }
+.stat-rule{ display:block; width:40px; height:3px; background:var(--gold); border-radius:2px; margin-bottom:18px; }
+.stat-big{ display:block; font-size:clamp(2.75rem,2rem + 3.4vw,4rem); line-height:1; font-weight:700; letter-spacing:-.02em; color:#fff; }
+.stat-body{ max-width:640px; }
+.stat-lead{ font-size:clamp(1.0625rem,1rem + .4vw,1.25rem); line-height:1.5; color:#fff; }
+.stat-lead i{ font-style:italic; color:var(--gold); }
+.stat-cite{ margin-top:12px; font-size:.8125rem; line-height:1.5; color:var(--muted); }
+.stat-cite em{ font-style:italic; }
+@media (max-width:767px){
+  .stat-row{ grid-template-columns:1fr; gap:12px; padding-block:24px; }
+  .stat-rule{ margin-bottom:14px; }
+}
+
+/* ---------- Linksbündige Section-Headlines (redaktionell, seriös) ---------- */
+.prose{ margin-inline:0; }
+.section-head .lead{ margin-inline:0; max-width:var(--maxw-prose); }
+.abbinder{ text-align:left; margin-inline:0; max-width:820px; }
+.badges{ justify-content:flex-start; }
+.bitkom{ text-align:left; margin-inline:0; }
+
+/* ---------- Section 3: Pain-Karten (hochwertiges Redesign) ---------- */
+.pain-grid{ display:grid; grid-template-columns:1fr; gap:20px; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); }
+@media (min-width:768px){ .pain-grid{ grid-template-columns:1fr 1fr; gap:24px; } }
+.pain-card{
+  position:relative; overflow:hidden; height:100%;
+  background:linear-gradient(158deg,#1a1a1a 0%,#0d0d0d 100%);
+  border:1px solid rgba(255,255,255,0.08); border-radius:18px;
+  padding:clamp(28px,2.4vw,40px); box-shadow:none;
+  transition:border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+.pain-card:hover{ border-color:rgba(201,168,76,0.42); transform:translateY(-3px); box-shadow:0 20px 48px rgba(0,0,0,0.5); }
+.pain-index{
+  position:absolute; top:8px; right:20px; z-index:0; pointer-events:none;
+  font-size:clamp(84px,7vw,128px); line-height:1; font-weight:800; letter-spacing:-.04em;
+  color:transparent; -webkit-text-stroke:1.5px rgba(201,168,76,0.16);
+}
+.pain-icon{
+  position:relative; z-index:1; display:inline-grid; place-items:center;
+  width:56px; height:56px; border-radius:14px; color:var(--gold);
+  background:rgba(201,168,76,0.10); border:1px solid rgba(201,168,76,0.28);
+  margin-bottom:24px;
+}
+.pain-icon svg{ width:26px; height:26px; }
+.pain-card h3{ position:relative; z-index:1; margin-bottom:12px; }
+.pain-card p{ position:relative; z-index:1; color:var(--muted); font-size:1.0625rem; line-height:1.6; }
+@media (max-width:767px){ .pain-index{ font-size:78px; top:6px; right:16px; } }
+
+/* ---------- Durchgängig linksbündig: Inhalte unter den linken Headlines ---------- */
+.equation{ text-align:left; margin-inline:0; }
+.eq-results{ justify-content:flex-start; }
+.warnbox{ margin-inline:0; }
+.cost-abbinder{ text-align:left; margin-inline:0; }
+.compare{ margin-inline:0; }
+.faq{ margin-inline:0; }
+.scope{ margin-inline:0; }
+.form-card,.form-success{ margin-inline:0; }
+.privacy-note{ margin-inline:0; text-align:left; }
+.form-microcopy{ text-align:left; }
+
+/* ---------- Section 5: Öffentliche KI vs. Kanzlei-KI ---------- */
+.vs-grid{ display:grid; grid-template-columns:1fr; gap:20px; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); }
+@media (min-width:820px){ .vs-grid{ grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; } }
+.vs-card{ position:relative; height:100%; border-radius:18px; padding:clamp(28px,2.4vw,40px); border:1px solid rgba(255,255,255,0.08); }
+.vs-card--problem{ background:#111111; }
+.vs-card--solution{ background:linear-gradient(160deg, rgba(201,168,76,0.10) 0%, rgba(201,168,76,0.02) 55%, transparent 100%), #121212; border-color:rgba(201,168,76,0.35); border-top:3px solid var(--gold); }
+.vs-top{ display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+.vs-badge{ display:grid; place-items:center; width:48px; height:48px; border-radius:12px; flex:0 0 auto; }
+.vs-badge svg{ width:24px; height:24px; }
+.vs-badge--x{ background:rgba(240,120,120,0.12); border:1px solid rgba(240,120,120,0.30); color:#f08a8a; }
+.vs-badge--check{ background:rgba(201,168,76,0.14); border:1px solid rgba(201,168,76,0.35); color:var(--gold); }
+.vs-title{ font-size:1.25rem; font-weight:600; color:#fff; line-height:1.2; }
+.vs-sub{ font-size:.875rem; color:var(--muted); margin-top:3px; }
+.vs-line{ color:#fff; font-size:1.0625rem; line-height:1.5; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.09); }
+.vs-list{ list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+.vs-list li{ display:flex; gap:12px; align-items:flex-start; line-height:1.5; font-size:1.0625rem; }
+.vs-list li svg{ width:20px; height:20px; flex:0 0 auto; margin-top:2px; }
+.vs-list--x li{ color:var(--muted); }
+.vs-list--x li svg{ color:#f08a8a; }
+.vs-list--check li{ color:#fff; }
+.vs-list--check li svg{ color:var(--gold); }
+.vs-bridge{ margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); font-size:clamp(1.0625rem,1rem + .3vw,1.25rem); line-height:1.5; color:#fff; max-width:820px; }
+.vs-bridge a{ color:var(--gold); text-decoration:none; font-weight:600; white-space:nowrap; }
+.vs-bridge a:hover{ text-decoration:underline; text-underline-offset:3px; }
+
+/* ---------- Section 6: Angebot — Wert-Stack + Preis-Karte ---------- */
+.offer-layout{ display:grid; grid-template-columns:1fr; gap:24px; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); align-items:start; }
+@media (min-width:900px){ .offer-layout{ grid-template-columns:1.5fr 1fr; gap:44px; } }
+.offer-value h3{ margin-bottom:22px; }
+.offer-value .offer-list li strong{ color:#fff; font-weight:600; }
+.offer-effort{ margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); color:var(--muted); font-size:.9375rem; line-height:1.6; }
+.offer-effort strong{ color:#fff; font-weight:600; }
+.offer-price{
+  position:relative; border-radius:18px; padding:clamp(28px,2.4vw,36px);
+  background:linear-gradient(160deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.03) 60%, transparent 100%), #121212;
+  border:1px solid rgba(201,168,76,0.40); border-top:3px solid var(--gold);
+  box-shadow:0 20px 48px rgba(0,0,0,0.5);
+}
+.op-label{ font-size:.8125rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+.op-figures{ display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+.op-old{ font-size:clamp(1.5rem,1.2rem + 1vw,1.875rem); font-weight:600; color:var(--on-dark-subtle); text-decoration:line-through; text-decoration-color:rgba(240,120,120,.85); text-decoration-thickness:2px; }
+.op-arrow{ color:var(--on-dark-subtle); font-size:1.375rem; }
+.op-new{ font-size:clamp(3rem,2.2rem + 3vw,4rem); font-weight:800; letter-spacing:-.02em; color:var(--gold); line-height:1; }
+.op-note{ margin-top:14px; color:#fff; font-size:1.0625rem; }
+.op-note strong{ font-weight:700; }
+.offer-price .btn{ margin-top:24px; }
+.op-micro{ margin-top:14px; text-align:center; font-size:.8125rem; color:var(--muted); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Hauptinhalt springen</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="Flowstate AI Solutions — zum Seitenanfang">
+      <img class="brand-mark" src="media/logo-mark.png" width="194" height="227" alt="" decoding="async" />
+      <img class="brand-word" src="media/logo-word.png" width="424" height="84" alt="Flowstate AI" decoding="async" />
+    </a>
+    <a class="btn header-cta" href="#formular">
+      <span class="cta-full">Kostenlose Analyse anfragen</span>
+      <span class="cta-short">Analyse anfragen</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 1 · HERO (dunkel) ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="container">
+      <h1 class="h1" id="hero-title"><span class="hl">88&nbsp;%</span> der Unternehmen nutzen KI. Nur <span class="hl">7&nbsp;%</span> nutzen sie erfolgreich.</h1>
+
+      <p class="hero-source">McKinsey, <em>The State of AI 2025</em> — weltweite Unternehmensbefragung. 88 % nutzen KI regelmäßig in mindestens einem Bereich, nur 7 % haben sie vollständig im Unternehmen skaliert.</p>
+
+      <p class="subline body-lg">Damit Ihre Kanzlei zu den 7 % gehört. Kostenlose KI-Effizienz-Analyse für Kanzleien mit Firmenmandanten.</p>
+
+      <div class="video-wrap">
+        <div class="video-box">
+          <span class="vcorner vc-tl" aria-hidden="true"></span>
+          <span class="vcorner vc-tr" aria-hidden="true"></span>
+          <span class="vcorner vc-bl" aria-hidden="true"></span>
+          <span class="vcorner vc-br" aria-hidden="true"></span>
+          <div class="video-frame" id="videoFrame" data-video-src="" role="button" tabindex="0" aria-label="Video abspielen: Lukas Sehorz erklärt die KI-Effizienz-Analyse (1:20 Min)">
+            <img src="media/poster.svg" width="1280" height="720" alt="Lukas Sehorz, Gründer von Flowstate AI Solutions" fetchpriority="high" decoding="async" />
+            <button class="play-btn" type="button" aria-hidden="true" tabindex="-1"></button>
+          </div>
+        </div>
+        <p class="video-caption">1:20 Min · Lukas Sehorz, Flowstate AI Solutions</p>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn" href="#formular">Kostenlose Analyse anfragen</a>
+      </div>
+
+      <p class="trust-line">
+        <b>Readiness-Check statt Verkaufsgespräch</b> · <b>Verarbeitung nach DSGVO</b> · <b>Hosting in Deutschland</b>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 2 · PAIN-STATISTIKEN (hell) ============ -->
+  <section class="section sec--paper" aria-labelledby="stats-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Problem</p>
+        <h2 class="h2" id="stats-title">Die Zahlen, die kaum eine Kanzlei gerne liest</h2>
+        <p class="lead">Drei Zahlen aus dem Anwalts- und Mandantenumfeld — jede beschreibt ein Problem, das Kanzleien mit Firmenmandanten täglich erleben.</p>
+      </div>
+
+      <div class="stat-list reveal">
+        <div class="stat-row">
+          <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">190 Std.</span></div>
+          <div class="stat-body">
+            <p class="stat-lead">pro Jahr und Anwalt kann KI freisetzen — abrechenbare Zeit, die heute in Routine statt in Mandaten steckt.</p>
+            <p class="stat-cite">Thomson Reuters, <em>Future of Professionals 2025</em> — erwartete Zeitersparnis je Anwalt</p>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">95&nbsp;%</span></div>
+          <div class="stat-body">
+            <p class="stat-lead">der KI-Piloten erzielen keinen messbaren Effekt — weil generische Tools den Kontext der Kanzlei nicht kennen.</p>
+            <p class="stat-cite">MIT NANDA, <em>The GenAI Divide: State of AI in Business 2025</em> (300+ Deployments)</p>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">73&nbsp;%</span></div>
+          <div class="stat-body">
+            <p class="stat-lead">der Rechtsabteilungen erhöhen ihre KI-Ausgaben. Ihre Firmenmandanten erwarten Tempo, Transparenz und Effizienz — zunehmend auch von ihrer Kanzlei.</p>
+            <p class="stat-cite">Wolters Kluwer, <em>Future Ready Lawyer 2024</em></p>
+          </div>
+        </div>
+      </div>
+
+      <p class="abbinder reveal">Verlorene Zeit, ausbleibende Wirkung, wachsender Mandantendruck — der Grund ist fast immer derselbe: <b>Das Wissen Ihrer Kanzlei ist vorhanden — aber nicht zugänglich.</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 3 · PAIN-VERTIEFUNG (hell) ============ -->
+  <section class="section sec--white" aria-labelledby="pain-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Kanzlei-Alltag</p>
+        <h2 class="h2" id="pain-title">Vier Stellen, an denen Ihre Kanzlei jeden Monat Geld verliert</h2>
+        <p class="lead">Vier typische Verlustquellen im Kanzlei-Alltag — und warum generische KI sie bisher nicht schließt.</p>
+      </div>
+
+      <div class="pain-grid">
+        <article class="pain-card reveal">
+          <span class="pain-index" aria-hidden="true">01</span>
+          <span class="pain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <h3 class="h3">Verlorene abrechenbare Zeit</h3>
+          <p>Ein Firmenmandat kommt rein. Jemand sucht die passende Vertragsvorlage. Jemand sucht, wie ein vergleichbarer Fall vor zwei Jahren gelöst wurde. Jemand fragt nach, weil die Antwort nur in einer alten Mandats-E-Mail steht. Nichts davon steht auf der Rechnung — obwohl es Ihre teuerste Ressource verbraucht: abrechenbare Anwaltszeit. Rund ein Viertel der Arbeitswoche geht laut Atlassian für genau diese Suche drauf.</p>
+        </article>
+        <article class="pain-card reveal">
+          <span class="pain-index" aria-hidden="true">02</span>
+          <span class="pain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <h3 class="h3">Partner als Flaschenhals</h3>
+          <p>Zwei oder drei Partner wissen, wie ein komplexes Firmenmandat wirklich läuft — und werden deshalb den ganzen Tag unterbrochen. 54,7 % der Mittelständler stufen die Abhängigkeit vom Inhaber als hohes Risiko ein, 45,2 % die von Schlüsselpersonen (DMB Risiko-Report Mittelstand 2026). In einer Kanzlei ist genau dieses Wissen das eigentliche Kapital.</p>
+        </article>
+        <article class="pain-card reveal">
+          <span class="pain-index" aria-hidden="true">03</span>
+          <span class="pain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+          </span>
+          <h3 class="h3">Einarbeitung, die nie endet</h3>
+          <p>Jede neue Associate, jede neue Kraft fragt dieselben Dinge wie die letzte. Erfahrene Anwälte erklären, statt zu mandatieren. Und weil die Zahl der in Kanzleien niedergelassenen Anwältinnen und Anwälte seit 2017 zurückgeht (BRAK), trifft jeder Weggang doppelt — das Wissen geht mit hinaus.</p>
+        </article>
+        <article class="pain-card reveal">
+          <span class="pain-index" aria-hidden="true">04</span>
+          <span class="pain-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
+          </span>
+          <h3 class="h3">KI-Lizenzen ohne Wirkung</h3>
+          <p>ChatGPT ist gekauft. Copilot ist ausgerollt. Und trotzdem ändert sich nichts an der Arbeitslast. Der Grund ist nicht das Modell — es ist der fehlende Kontext. Gartner formuliert es deutlich: Öffentlich trainierte Sprachmodelle sind für sich genommen nicht wirksam bei der Lösung spezifischer Geschäftsprobleme. Erst mit Ihren eigenen Akten, Vertragsmustern und Standards steigt die Genauigkeit spürbar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · KOSTENBLOCK (dunkel) ============ -->
+  <section class="section sec--surface" aria-labelledby="cost-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Was es kostet</p>
+        <h2 class="h2" id="cost-title" style="color:#fff;">Was das rechnerisch bedeutet</h2>
+      </div>
+
+      <div class="equation reveal">
+        <p class="eq-line">10 Anwälte <span class="x">×</span> 190 Stunden rückgewinnbare Zeit pro Jahr</p>
+        <div class="eq-results">
+          <div class="eq-result">
+            <div class="num">1.900 Std.</div>
+            <div class="unit">pro Jahr</div>
+          </div>
+          <div class="eq-result">
+            <div class="num">≈ 1</div>
+            <div class="unit">zusätzlicher Anwalt (Vollzeit)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="warnbox reveal">
+        <b>Illustratives Rechenbeispiel auf Basis der von Thomson Reuters erwarteten Zeitersparnis — keine Zusage und kein Ergebnis Ihrer Kanzlei.</b> Die Zahl dient nur zur Veranschaulichung der Größenordnung. Ihren tatsächlichen Hebel ermitteln wir individuell in der Analyse. Pauschale ROI-Garantien geben wir bewusst nicht.
+      </div>
+
+      <p class="cost-abbinder reveal">Die Frage ist nicht, <b>ob</b> in Ihrer Kanzlei Zeit verloren geht. Die Frage ist, <b>wo genau</b> — und welche drei Maßnahmen den größten Teil davon zurückholen.</p>
+    </div>
+  </section>
+
+  <!-- ============ 5 · WARUM KI NICHT GELIEFERT HAT (hell) ============ -->
+  <section class="section sec--paper" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Der Unterschied</p>
+        <h2 class="h2" id="why-title">„KI haben wir probiert. Hat nicht viel gebracht.“</h2>
+        <p class="lead">Das liegt selten am Modell — es liegt am fehlenden Kontext. Derselbe Unterschied in zwei Bildern:</p>
+      </div>
+
+      <div class="vs-grid reveal">
+        <article class="vs-card vs-card--problem">
+          <div class="vs-top">
+            <span class="vs-badge vs-badge--x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+            <div>
+              <p class="vs-title">Öffentliche KI</p>
+              <p class="vs-sub">ChatGPT, Copilot &amp; Co.</p>
+            </div>
+          </div>
+          <p class="vs-line">Kennt das halbe Internet — aber nicht Ihre Kanzlei.</p>
+          <ul class="vs-list vs-list--x">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Kennt keine Ihrer Akten, Vorlagen oder Vertragsmuster</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Liefert allgemeine Textbausteine, die Sie ohnehin nachbauen müssen</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Nennt keine nachprüfbare Quelle aus Ihrem Haus</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Vertrauliche Mandantendaten dürfen Sie dort gar nicht eingeben — § 203 StGB und DSGVO verbieten es</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Ergebnis: 95 % der KI-Piloten ohne messbaren Effekt (MIT)</span></li>
+          </ul>
+        </article>
+
+        <article class="vs-card vs-card--solution">
+          <div class="vs-top">
+            <span class="vs-badge vs-badge--check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div>
+              <p class="vs-title">KI mit Kanzlei-Kontext</p>
+              <p class="vs-sub">Verbunden mit dem Wissen Ihrer Kanzlei</p>
+            </div>
+          </div>
+          <p class="vs-line">Kennt Ihr Wissen — und liefert sofort verwertbare Ergebnisse.</p>
+          <ul class="vs-list vs-list--check">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Kennt Ihre Vertragsmuster, Standards und Mandatslogik</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Antworten auf Basis Ihrer echten Akten und Prozesse</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jede Antwort mit nachvollziehbarer Quelle aus Ihrer Wissensbasis</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>DSGVO-konform und auf Berufsgeheimnisträger ausgelegt — Sie dürfen mit echten Mandatsdaten arbeiten</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ergebnis: prüfbar — genau das identifizieren wir in der Analyse</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="vs-bridge reveal">Genau diesen Unterschied machen wir in Ihrer Kanzlei sichtbar — kostenlos, in 60 Minuten. <a href="#formular">Kostenlose Analyse anfragen →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ VERTRAUEN & COMPLIANCE (dunkel) — direkt nach 'Der Unterschied' ============ -->
+  <section class="section sec--surface" aria-labelledby="trust-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Vertrauen &amp; Compliance</p>
+        <h2 class="h2" id="trust-title" style="color:#fff;">Gebaut für Berufsgeheimnisträger</h2>
+        <p class="lead">KI ist in der Kanzlei zulässig — wenn Verschwiegenheit, Verantwortung und Datenschutz gewahrt bleiben. Genau darauf ist unser Vorgehen ausgelegt.</p>
+      </div>
+
+      <div class="badges reveal">
+        <span class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>Verarbeitung nach DSGVO</span>
+        <span class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><path d="M6 6h.01"/><path d="M6 18h.01"/></svg>Hosting in Deutschland / EU</span>
+        <span class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>§ 203 StGB, § 43e BRAO, § 2 BORA berücksichtigt</span>
+        <span class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>AVV inkl. Berufsgeheimnis-Klausel möglich</span>
+        <span class="badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Keine Systemzugänge im ersten Schritt</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · DAS ANGEBOT (hell) ============ -->
+  <section class="section sec--white" aria-labelledby="offer-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Das Angebot</p>
+        <h2 class="h2" id="offer-title">Die kostenlose KI-Effizienz-Analyse</h2>
+        <p class="lead">60 Minuten, die sich rechnen: Sie gehen mit einem konkreten, priorisierten Maßnahmenplan raus — einem echten Fahrplan für mehr abrechenbare Zeit und effizientere Mandatsarbeit. Behalten dürfen Sie ihn so oder so.</p>
+      </div>
+
+      <div class="offer-layout reveal">
+        <div class="offer-value">
+          <h3 class="h3">Das nehmen Sie mit — in 48 Stunden:</h3>
+          <ul class="offer-list">
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihre <strong>drei größten Wissens- und Prozessverluste</strong>, klar priorisiert</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Drei konkrete KI-Anwendungen</strong> mit dem größten wirtschaftlichen Hebel</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihr <strong>Einsparpotenzial</strong> als plausibler Korridor — Zeit und Kosten</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Aufwand, Priorität und nächster Schritt je Anwendung</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Einen <strong>einseitigen Maßnahmenplan</strong> zum Weiterreichen — Ihrer, für immer</span></li>
+          </ul>
+          <p class="offer-effort"><strong>Ihr Aufwand:</strong> 2-Minuten-Fragebogen + 60-Minuten-Gespräch. Keine Systemzugänge, keine sensiblen Dokumente.</p>
+        </div>
+
+        <aside class="offer-price">
+          <p class="op-label">Im Wert von 500 €</p>
+          <div class="op-figures">
+            <span class="op-old">500 €</span>
+            <span class="op-arrow" aria-hidden="true">→</span>
+            <span class="op-new">0 €</span>
+          </div>
+          <p class="op-note">Für Ihre Kanzlei — einmalig <strong>kostenlos</strong>.</p>
+          <a class="btn btn--full" href="#formular">Kostenlose Analyse anfragen</a>
+          <p class="op-micro">Kein Verkaufsgespräch · Antwort in 24 Stunden</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · ABLAUF (hell) ============ -->
+  <section class="section sec--paper" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">In 3 Schritten</p>
+        <h2 class="h2" id="process-title">So läuft es ab</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="num">1</div>
+          <h3 class="h3">Anfrage &amp; Kurz-Qualifizierung</h3>
+          <p>Formular ausfüllen, 2 Minuten. Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">2</div>
+          <h3 class="h3">60-Minuten-Analyse</h3>
+          <p>Per Video-Call. Anhand unseres Fragebogens und einer Vier-Felder-Matrix beurteilen wir Ihr KI-Potenzial: wo es aktuell hakt, was gut läuft, was nicht — und wo wir ansetzen können.</p>
+        </div>
+        <div class="step reveal">
+          <div class="num">3</div>
+          <h3 class="h3">Maßnahmenplan in 48 Stunden</h3>
+          <p>Wir schicken Ihnen einen ausgearbeiteten Report — mit einer Mindmap und den drei größten Potenzialen Ihrer Kanzlei zur KI-Anwendung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11 · FORMULAR (hell) ============ -->
+  <section class="section sec--paper" id="formular" aria-labelledby="form-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Jetzt anfragen</p>
+        <h2 class="h2" id="form-title">Kostenlose KI-Effizienz-Analyse anfragen</h2>
+        <p class="lead prose" style="margin-top:16px;">Zwei Minuten. Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich die Analyse für Sie lohnt.</p>
+      </div>
+
+      <form class="form-card reveal" id="leadForm" novalidate>
+        <p class="form-legend"><span class="req">*</span> Pflichtfeld</p>
+        <div class="form-error-banner" id="formErrorBanner" role="alert">Bitte prüfen Sie die markierten Felder.</div>
+
+        <!-- 1 · Mandatstyp (Qualifizierung) -->
+        <div class="field" data-field="mandatstyp">
+          <label for="f-mandate" class="field-label">Welche Mandate bearbeiten Sie überwiegend? <span class="req">*</span></label>
+          <select class="select" id="f-mandate" name="mandatstyp" required aria-describedby="err-mandate">
+            <option value="" disabled selected>Bitte wählen …</option>
+            <option value="Überwiegend Firmenmandate">Überwiegend Firmenmandate</option>
+            <option value="Firmen- und Privatmandate gemischt">Firmen- und Privatmandate gemischt</option>
+            <option value="Überwiegend Privatmandate">Überwiegend Privatmandate</option>
+          </select>
+          <p class="error-msg" id="err-mandate">Bitte wählen Sie Ihren überwiegenden Mandatstyp.</p>
+        </div>
+
+        <!-- 2 · Rolle -->
+        <div class="field" data-field="rolle" role="group" aria-labelledby="lbl-rolle" aria-describedby="err-rolle">
+          <span class="field-label" id="lbl-rolle">Ihre Rolle in der Kanzlei <span class="req">*</span></span>
+          <div class="radio-cards">
+            <label class="radio-card"><input type="radio" name="rolle" value="Partner / Kanzleiinhaber" required><span class="rc-mark" aria-hidden="true"></span><span>Partner / Kanzleiinhaber</span></label>
+            <label class="radio-card"><input type="radio" name="rolle" value="Operativer Entscheider"><span class="rc-mark" aria-hidden="true"></span><span>Operativer Entscheider</span></label>
+            <label class="radio-card"><input type="radio" name="rolle" value="Andere"><span class="rc-mark" aria-hidden="true"></span><span>Andere</span></label>
+          </div>
+          <p class="error-msg" id="err-rolle">Bitte wählen Sie Ihre Rolle.</p>
+        </div>
+
+        <!-- 3 · Zeitverlust -->
+        <div class="field" data-field="zeitverlust">
+          <label for="f-zeitverlust" class="field-label">Wo verlieren Sie aktuell am meisten Zeit? <span class="req">*</span></label>
+          <select class="select" id="f-zeitverlust" name="zeitverlust" required aria-describedby="err-zeitverlust">
+            <option value="" disabled selected>Bitte wählen …</option>
+            <option value="Recherche & Informationssuche">Recherche &amp; Informationssuche</option>
+            <option value="Vertrags- & Dokumentenerstellung">Vertrags- &amp; Dokumentenerstellung</option>
+            <option value="Ständige Rückfragen an wenige Partner">Ständige Rückfragen an wenige Partner</option>
+            <option value="Einarbeitung neuer Anwälte">Einarbeitung neuer Anwälte</option>
+            <option value="Vorhandene KI bringt nichts">Vorhandene KI bringt nichts</option>
+            <option value="Weiß ich noch nicht">Weiß ich noch nicht</option>
+          </select>
+          <p class="error-msg" id="err-zeitverlust">Bitte wählen Sie einen Bereich.</p>
+        </div>
+
+        <!-- 4 · Zeitpunkt -->
+        <div class="field" data-field="zeitpunkt" role="group" aria-labelledby="lbl-zeitpunkt" aria-describedby="err-zeitpunkt">
+          <span class="field-label" id="lbl-zeitpunkt">Wann möchten Sie das angehen? <span class="req">*</span></span>
+          <div class="radio-cards cols-2">
+            <label class="radio-card"><input type="radio" name="zeitpunkt" value="Jetzt" required><span class="rc-mark" aria-hidden="true"></span><span>Jetzt</span></label>
+            <label class="radio-card"><input type="radio" name="zeitpunkt" value="In 3 Monaten"><span class="rc-mark" aria-hidden="true"></span><span>In 3 Monaten</span></label>
+            <label class="radio-card"><input type="radio" name="zeitpunkt" value="In 6 Monaten"><span class="rc-mark" aria-hidden="true"></span><span>In 6 Monaten</span></label>
+            <label class="radio-card"><input type="radio" name="zeitpunkt" value="Erst informieren"><span class="rc-mark" aria-hidden="true"></span><span>Erst informieren</span></label>
+          </div>
+          <p class="error-msg" id="err-zeitpunkt">Bitte wählen Sie einen Zeitpunkt.</p>
+        </div>
+
+        <!-- 5 · Firmenname -->
+        <div class="field" data-field="firmenname">
+          <label for="f-firma" class="field-label">Kanzlei / Firmenname <span class="req">*</span></label>
+          <input class="input" id="f-firma" name="firmenname" type="text" autocomplete="organization" required aria-describedby="err-firma" />
+          <p class="error-msg" id="err-firma">Bitte geben Sie den Namen Ihrer Kanzlei an.</p>
+        </div>
+
+        <!-- 6 · Name -->
+        <div class="field" data-field="name">
+          <label for="f-name" class="field-label">Ihr Name <span class="req">*</span></label>
+          <input class="input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name" />
+          <p class="error-msg" id="err-name">Bitte geben Sie Ihren Namen an.</p>
+        </div>
+
+        <!-- 7 · E-Mail -->
+        <div class="field" data-field="email">
+          <label for="f-email" class="field-label">Geschäftliche E-Mail-Adresse <span class="req">*</span></label>
+          <input class="input" id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="err-email" />
+          <p class="error-msg" id="err-email">Bitte geben Sie eine gültige E-Mail-Adresse an.</p>
+        </div>
+
+        <!-- 8 · Telefon (optional) -->
+        <div class="field" data-field="telefon">
+          <label for="f-tel" class="field-label">Telefonnummer <span class="field-hint">(optional)</span></label>
+          <input class="input" id="f-tel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" />
+        </div>
+
+        <!-- 9 · Einwilligung -->
+        <div class="field" data-field="einwilligung" style="margin-bottom:20px;">
+          <label class="consent">
+            <input type="checkbox" name="einwilligung" value="ja" required aria-describedby="err-einwilligung" />
+            <span class="cb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="cb-text">Ich willige ein, dass Flowstate AI Solutions meine Angaben verarbeitet, um mit mir Kontakt aufzunehmen und die kostenlose KI-Effizienz-Analyse vorzubereiten. Diese Einwilligung kann ich jederzeit mit Wirkung für die Zukunft widerrufen. Weitere Informationen in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
+          </label>
+          <p class="error-msg" id="err-einwilligung" style="margin-left:34px;">Bitte bestätigen Sie die Einwilligung, damit wir Sie kontaktieren dürfen.</p>
+        </div>
+
+        <button class="btn btn--full form-submit" type="submit" id="submitBtn">Kostenlose Analyse anfragen</button>
+        <p class="form-microcopy">Kein Verkaufsgespräch. Keine Systemzugänge. Antwort innerhalb von 24 Stunden.</p>
+      </form>
+
+      <!-- Erfolgs-Panel (wird nach Absenden eingeblendet) -->
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+        <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3 class="h3" id="successTitle">Vielen Dank — Ihre Anfrage ist eingegangen.</h3>
+        <p id="successText">Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich die Analyse für Sie lohnt.</p>
+      </div>
+
+      <p class="privacy-note reveal">Wir verarbeiten Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. a und lit. b DSGVO). Eine Weitergabe an Dritte zu Werbezwecken erfolgt nicht. Ihre Rechte auf Auskunft, Berichtigung, Löschung und Widerspruch entnehmen Sie unserer <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ 12 · FAQ (hell) ============ -->
+  <section class="section sec--white" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="h2" id="faq-title">Häufige Fragen</h2>
+      </div>
+
+      <div class="faq reveal" id="faq">
+        <div class="faq-item open">
+          <h3><button class="faq-q" type="button" aria-expanded="true">Ist die Analyse wirklich kostenlos?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Ja. Der Readiness-Check ist kostenlos und unverbindlich. Wir verdienen erst, wenn Sie sich nach dem Maßnahmenplan bewusst für eine Umsetzung entscheiden.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Wird hier am Ende nur etwas verkauft?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Nein. Erkennen wir keinen wirtschaftlich sinnvollen KI-Anwendungsfall, empfehlen wir keine Umsetzung. Sie behalten den Maßnahmenplan trotzdem.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Ist KI mit § 203 StGB und der Verschwiegenheitspflicht vereinbar?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">KI ist in Anwaltskanzleien zulässig, wenn Verantwortung, Verschwiegenheit und Datenschutz gewahrt bleiben — so auch die Handlungshinweise der Bundesrechtsanwaltskammer (BRAK) zum KI-Einsatz. Wichtig: Ein AVV nach Art. 28 DSGVO allein genügt nicht, es braucht zusätzlich die Einbindung nach § 203 StGB und die Vorgaben des § 43e BRAO. Genau diese Voraussetzungen prüfen wir mit.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Müssen wir Systemzugänge oder Mandantendaten herausgeben?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Nein. Für die kostenlose Analyse brauchen wir weder Systemzugänge noch sensible Dokumente. Das Gespräch läuft auf Prozessebene.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Wir haben schon ChatGPT und Copilot. Brauchen wir das überhaupt?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Diese Tools kennen Ihre Kanzlei nicht — weder Ihre Vorlagen noch Ihre Standards. Genau deshalb erzielen laut MIT 95 % der KI-Piloten keinen messbaren Effekt. Die Analyse zeigt, welche kanzleispezifischen Anwendungen bei Ihnen tatsächlich Hebel haben.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Wie lange dauert das und was müssen wir vorbereiten?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">60 Minuten für das Gespräch, keine Vorbereitung. Den Maßnahmenplan liefern wir innerhalb von 48 Stunden.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Ist das ein vollständiger KI-Audit?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Nein. Es ist eine fundierte Ersteinschätzung mit drei priorisierten Bereichen. Den tiefen Audit bieten wir im Anschluss als separate, bezahlte Leistung an.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Für welche Kanzleien ist das gedacht?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Für Anwaltskanzleien mit Firmenmandanten — unabhängig von der Größe. Gerade bei wirtschaftsrechtlichen, vertrags- und dokumentenlastigen Mandaten entstehen die Wissens- und Prozessverluste, bei denen sich KI wirtschaftlich rechnet.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" type="button" aria-expanded="false">Wer steckt hinter Flowstate?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
+          <div class="faq-a"><div class="faq-a-inner">Flowstate AI Solutions ist eine Agentur aus Dorfen in Bayern. Wir arbeiten an der Schnittstelle von Prozessanalyse und KI-Implementierung — mit Fokus auf messbaren wirtschaftlichen Effekt statt Technologie-Demos.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13 · SCHLUSS-CTA (dunkel) ============ -->
+  <section class="section sec--black" aria-labelledby="final-title">
+    <div class="container">
+      <div class="final-cta reveal">
+        <h2 class="h2" id="final-title">60 Minuten. Drei Antworten. Kein Risiko.</h2>
+        <p>Sie erfahren, wo Ihre Kanzlei Zeit und Geld verliert, welche drei KI-Anwendungen den größten Hebel hätten — und ob sich das für Sie überhaupt rechnet.</p>
+        <a class="btn" href="#formular">Kostenlose Analyse anfragen</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 14 · FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <p class="f-brand">Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Dorfen, Bayern</p>
+    <nav aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+      <button type="button" id="cookieSettingsBtn">Cookie-Einstellungen</button>
+    </nav>
+    <p class="f-legal">© <span id="year">2026</span> Flowstate AI Solutions. Alle Angaben auf dieser Seite dienen der Information und stellen keine rechtliche oder steuerliche Beratung dar.</p>
+  </div>
+</footer>
+
+<!-- Sticky Mini-CTA (nur mobil) -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <a class="btn btn--full" href="#formular">Kostenlose Analyse anfragen</a>
+</div>
+
+<!-- Cookie-Consent-Banner (§ 25 TDDDG) -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Einstellungen" hidden>
+  <div class="inner">
+    <p>Wir verwenden nur technisch notwendige Cookies. Zusätzlich möchten wir mit dem Meta-Pixel messen, wie gut unsere Anzeigen funktionieren — das ist nicht notwendig und wird erst mit Ihrer Einwilligung geladen. Sie können frei wählen. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <div class="actions">
+      <button class="btn-ghost" type="button" id="cookieReject">Ablehnen</button>
+      <button class="btn" type="button" id="cookieAccept">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Flowstate AI Solutions",
+  "description":"Kostenlose KI-Effizienz-Analyse für Anwaltskanzleien mit Firmenmandanten.",
+  "areaServed":"DE",
+  "address":{"@type":"PostalAddress","addressLocality":"Dorfen","addressRegion":"Bayern","addressCountry":"DE"},
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Kostenlose KI-Effizienz-Analyse"}
+}
+</script>
+
+<script>
+/* ============================================================
+   FLOWSTATE — Landingpage Interaktionen (Vanilla JS, kein Framework)
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ---- KONFIGURATION (bitte anpassen) ---------------------------------- */
+  // n8n-Webhook, der den Lead entgegennimmt (siehe README). Leer = Demo-Modus.
+  var FORM_ENDPOINT = '';
+  // Meta-Pixel-ID — lädt AUSSCHLIESSLICH nach aktiver Einwilligung.
+  var META_PIXEL_ID = '';
+  /* ---------------------------------------------------------------------- */
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function safe(fn){ try { fn(); } catch (e) { if (window.console) console.error('[Flowstate]', e); } }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Reveal zuerst & isoliert — Inhalte dürfen nie unsichtbar bleiben, falls ein Modul scheitert
+    safe(initReveal);
+    safe(function () {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+    safe(initVideo);
+    safe(initFaq);
+    safe(initStickyCta);
+    safe(initCookie);
+    safe(initForm);
+  });
+
+  // Sicherheitsnetz: falls Observer nie feuern, nach dem Laden alles sichtbar machen
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight) el.classList.add('is-visible');
+      });
+    }, 800);
+  });
+
+  /* ---- Video-Facade (kein Autoplay, Player erst bei Klick) ---- */
+  function initVideo() {
+    var frame = document.getElementById('videoFrame');
+    if (!frame) return;
+    function play() {
+      var src = frame.getAttribute('data-video-src');
+      if (!src) {
+        // Noch kein Video hinterlegt: dezenter Hinweis statt Fehler.
+        frame.setAttribute('data-state', 'pending');
+        var poster = frame.querySelector('img');
+        var btn = frame.querySelector('.play-btn');
+        if (btn) btn.style.display = 'none';
+        if (!frame.querySelector('.video-pending')) {
+          var note = document.createElement('div');
+          note.className = 'video-pending';
+          note.style.cssText = 'position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;color:#fff;background:rgba(0,0,0,.72);font-size:.95rem;line-height:1.5;';
+          note.textContent = 'Das Video wird in Kürze eingebunden.';
+          frame.appendChild(note);
+        }
+        return;
+      }
+      // Self-hosted MP4 oder Embed-URL einbetten
+      var isEmbed = /vimeo|cloudflare|youtube|iframe/i.test(src) || src.indexOf('http') === 0 && !/\.mp4($|\?)/i.test(src);
+      var el;
+      if (/\.mp4($|\?)/i.test(src)) {
+        el = document.createElement('video');
+        el.src = src; el.controls = true; el.autoplay = true; el.playsInline = true;
+        el.setAttribute('preload', 'auto');
+      } else {
+        el = document.createElement('iframe');
+        el.src = src + (src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+        el.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+        el.setAttribute('allowfullscreen', '');
+        el.setAttribute('title', 'Video: Lukas Sehorz, Flowstate AI Solutions');
+      }
+      frame.innerHTML = '';
+      frame.appendChild(el);
+    }
+    frame.addEventListener('click', play);
+    frame.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+  }
+
+  /* ---- FAQ-Accordion ---- */
+  function initFaq() {
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+  }
+
+  /* ---- Scroll-Reveal ---- */
+  function initReveal() {
+    var els = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---- Sticky Mini-CTA (mobil, nach Hero) ---- */
+  function initStickyCta() {
+    var cta = document.getElementById('stickyCta');
+    var hero = document.getElementById('top');
+    if (!cta || !hero) return;
+    function onScroll() {
+      var past = (hero.getBoundingClientRect().bottom < 0);
+      var bannerOpen = document.getElementById('cookieBanner').classList.contains('show');
+      if (past && !bannerOpen) {
+        cta.classList.add('show'); cta.setAttribute('aria-hidden', 'false');
+        document.body.style.setProperty('scroll-padding-bottom', '80px');
+      } else {
+        cta.classList.remove('show'); cta.setAttribute('aria-hidden', 'true');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---- Cookie-Consent (§ 25 TDDDG) ---- */
+  function initCookie() {
+    var banner = document.getElementById('cookieBanner');
+    var accept = document.getElementById('cookieAccept');
+    var reject = document.getElementById('cookieReject');
+    var settings = document.getElementById('cookieSettingsBtn');
+    var KEY = 'fs_consent';
+
+    function show() { banner.hidden = false; requestAnimationFrame(function () { banner.classList.add('show'); }); }
+    function hide() { banner.classList.remove('show'); setTimeout(function () { banner.hidden = true; }, 300); }
+
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+
+    if (stored === 'accepted') { loadMetaPixel(); }
+    else if (stored !== 'rejected') { show(); }
+
+    accept.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
+      hide(); loadMetaPixel();
+    });
+    reject.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, 'rejected'); } catch (e) {}
+      hide();
+    });
+    settings.addEventListener('click', function (e) {
+      e.preventDefault(); show();
+    });
+  }
+
+  /* ---- Meta-Pixel (lädt NUR nach Einwilligung) ---- */
+  var pixelLoaded = false;
+  function loadMetaPixel() {
+    if (pixelLoaded || !META_PIXEL_ID) return;
+    pixelLoaded = true;
+    /* eslint-disable */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+    /* eslint-enable */
+  }
+  function trackLead() {
+    if (window.fbq) { try { window.fbq('track', 'Lead'); } catch (e) {} }
+  }
+
+  /* ---- Formular: Validierung + Absenden ---- */
+  function initForm() {
+    var form = document.getElementById('leadForm');
+    if (!form) return;
+    var banner = document.getElementById('formErrorBanner');
+    var submitBtn = document.getElementById('submitBtn');
+
+    var validators = [
+      { key: 'mandatstyp',    test: function () { return form.mandatstyp.value !== ''; } },
+      { key: 'rolle',         test: function () { return !!form.querySelector('input[name="rolle"]:checked'); } },
+      { key: 'zeitverlust',   test: function () { return form.zeitverlust.value !== ''; } },
+      { key: 'zeitpunkt',     test: function () { return !!form.querySelector('input[name="zeitpunkt"]:checked'); } },
+      { key: 'firmenname',    test: function () { return form.firmenname.value.trim().length > 1; } },
+      { key: 'name',          test: function () { return form.name.value.trim().length > 1; } },
+      { key: 'email',         test: function () { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim()); } },
+      { key: 'einwilligung',  test: function () { return form.einwilligung.checked; } }
+    ];
+
+    function fieldEl(key) { return form.querySelector('[data-field="' + key + '"]'); }
+
+    function validate() {
+      var firstInvalid = null;
+      validators.forEach(function (v) {
+        var el = fieldEl(v.key);
+        if (!el) return;
+        if (v.test()) { el.classList.remove('has-error'); }
+        else { el.classList.add('has-error'); if (!firstInvalid) firstInvalid = el; }
+      });
+      return firstInvalid;
+    }
+
+    // Live-Fehler entfernen, sobald Feld korrekt ausgefüllt wird
+    form.addEventListener('input', function (e) {
+      var wrap = e.target.closest('[data-field]');
+      if (wrap && wrap.classList.contains('has-error')) {
+        var key = wrap.getAttribute('data-field');
+        var v = validators.filter(function (x) { return x.key === key; })[0];
+        if (v && v.test()) wrap.classList.remove('has-error');
+      }
+    });
+    form.addEventListener('change', function (e) {
+      var wrap = e.target.closest('[data-field]');
+      if (wrap && wrap.classList.contains('has-error')) {
+        var key = wrap.getAttribute('data-field');
+        var v = validators.filter(function (x) { return x.key === key; })[0];
+        if (v && v.test()) wrap.classList.remove('has-error');
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstInvalid = validate();
+      if (firstInvalid) {
+        banner.style.display = 'block';
+        var focusable = firstInvalid.querySelector('input,select,button,textarea');
+        if (focusable) focusable.focus();
+        firstInvalid.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        return;
+      }
+      banner.style.display = 'none';
+      submit();
+    });
+
+    function collect() {
+      return {
+        mandatstyp: form.mandatstyp.value,
+        rolle: (form.querySelector('input[name="rolle"]:checked') || {}).value || '',
+        zeitverlust: form.zeitverlust.value,
+        zeitpunkt: (form.querySelector('input[name="zeitpunkt"]:checked') || {}).value || '',
+        firmenname: form.firmenname.value.trim(),
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        telefon: form.telefon.value.trim(),
+        einwilligung: form.einwilligung.checked,
+        seite: 'ki-effizienz-analyse',
+        zeitstempel: new Date().toISOString()
+      };
+    }
+
+    function showSuccess(data) {
+      var out = (data.mandatstyp === 'Überwiegend Privatmandate');
+      var title = document.getElementById('successTitle');
+      var text = document.getElementById('successText');
+      if (out) {
+        title.textContent = 'Vielen Dank für Ihr Interesse.';
+        text.textContent = 'Unsere KI-Effizienz-Analyse ist auf Kanzleien mit überwiegend Firmenmandaten zugeschnitten. Wir haben Ihre Anfrage gespeichert und melden uns, falls ein passendes Angebot für Sie infrage kommt.';
+      } else {
+        title.textContent = 'Vielen Dank — Ihre Anfrage ist eingegangen.';
+        text.textContent = 'Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich die Analyse für Sie lohnt.';
+      }
+      form.style.display = 'none';
+      var success = document.getElementById('formSuccess');
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      trackLead();
+    }
+
+    function submit() {
+      var data = collect();
+      submitBtn.disabled = true;
+      var original = submitBtn.textContent;
+      submitBtn.textContent = 'Wird gesendet …';
+
+      if (!FORM_ENDPOINT) {
+        // Demo-Modus: kein Backend hinterlegt.
+        console.warn('[Flowstate] FORM_ENDPOINT ist leer — Lead wird nicht versendet (Demo-Modus). Daten:', data);
+        setTimeout(function () { showSuccess(data); submitBtn.disabled = false; submitBtn.textContent = original; }, 600);
+        return;
+      }
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        showSuccess(data);
+      }).catch(function (err) {
+        console.error('[Flowstate] Lead-Versand fehlgeschlagen:', err);
+        banner.textContent = 'Es gab ein technisches Problem beim Absenden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an kontakt@flowstate-ai.de.';
+        banner.style.display = 'block';
+        banner.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        submitBtn.disabled = false;
+        submitBtn.textContent = original;
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
