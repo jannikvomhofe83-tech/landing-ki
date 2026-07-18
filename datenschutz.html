@@ -10,107 +10,191 @@
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
 <style>
 @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/inter-variable.woff2') format('woff2');}
-:root{--gold:#C9A84C;--ink:#1A1A1A;--muted:#5B5B5B;--paper:#F5F5F5;--hairline:#E4E4E4;}
+:root{--gold:#C9A84C;--ink:#FFFFFF;--muted:#A6A6A6;--paper:#000000;--card:#141414;--hairline:rgba(255,255,255,.10);}
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
-.top{background:#000;color:#fff;padding:18px 24px;}
+body{margin:0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-wrap:break-word;}
+.top{background:#000;border-bottom:1px solid var(--hairline);padding:18px 24px;}
 .top a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;}
 .top .dot{width:6px;height:6px;border-radius:999px;background:var(--gold);}
 .wrap{max-width:720px;margin:0 auto;padding:56px 24px 80px;}
 h1{font-size:clamp(2rem,1.5rem+2vw,2.75rem);letter-spacing:-.02em;margin:0 0 8px;}
 .sub{color:var(--muted);margin:0 0 40px;}
-h2{font-size:1.3rem;margin:40px 0 12px;padding-top:8px;}
+h2{font-size:1.3rem;margin:40px 0 12px;scroll-margin-top:20px;}
 h3{font-size:1.05rem;margin:22px 0 8px;}
 p,li{margin:0 0 12px;}
 ul{padding-left:20px;}
-a{color:var(--ink);}
-.ph{color:#9a6b00;background:rgba(201,168,76,.12);padding:1px 6px;border-radius:4px;font-size:.95em;}
-.toc{background:#fff;border:1px solid var(--hairline);border-radius:12px;padding:20px 24px;margin-bottom:32px;}
+a{color:var(--gold);}
+table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:15px;}
+th,td{border:1px solid var(--hairline);padding:9px 12px;text-align:left;vertical-align:top;}
+th{background:rgba(255,255,255,.04);font-weight:700;}
+.toc{background:var(--card);border:1px solid var(--hairline);border-radius:12px;padding:20px 24px;margin-bottom:32px;}
 .toc ol{margin:8px 0 0;padding-left:20px;}
 .toc a{color:var(--ink);text-decoration:none;}
 .toc a:hover{text-decoration:underline;}
-.back{display:inline-block;margin-top:40px;color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
+.toc li{margin-bottom:6px;}
+.note{color:var(--muted);font-size:14px;}
+.back{display:inline-block;margin-top:40px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color:var(--muted);font-size:13px;}
+.scroll{overflow-x:auto;}
+@media (max-width:520px){body{font-size:16px;}.wrap{padding:40px 20px 64px;}.toc{padding:18px 20px;}}
 </style>
-<!-- HINWEIS (nicht sichtbar): Standardkonforme Vorlage nach Art. 13 DSGVO.
-     [Platzhalter] vor Livegang ausfüllen. Vor Veröffentlichung anwaltlich/DSB prüfen lassen.
-     Abschnitte zu Diensten (Meta-Pixel, Video-Hosting, E-Mail, CRM) nur behalten, wenn tatsächlich eingesetzt. -->
 </head>
 <body>
 <div class="top"><a href="index.html">FLOWSTATE <span class="dot"></span> AI SOLUTIONS</a></div>
 <main class="wrap">
   <h1>Datenschutzerklärung</h1>
-  <p class="sub">Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß Art. 13 DSGVO</p>
+  <p class="sub">Informationen zur Verarbeitung personenbezogener Daten gemäß Art. 13 und 14 DSGVO</p>
 
   <div class="toc">
     <strong>Übersicht</strong>
     <ol>
-      <li><a href="#verantwortlich">Verantwortlicher</a></li>
-      <li><a href="#allgemein">Allgemeines zur Datenverarbeitung</a></li>
-      <li><a href="#hosting">Hosting &amp; Server-Logfiles</a></li>
-      <li><a href="#formular">Kontaktformular „KI-Effizienz-Analyse“</a></li>
-      <li><a href="#cookies">Cookies &amp; Einwilligungsverwaltung</a></li>
-      <li><a href="#pixel">Meta-Pixel (Facebook/Instagram)</a></li>
-      <li><a href="#video">Video-Einbindung</a></li>
-      <li><a href="#fonts">Schriftarten (self-hosted)</a></li>
-      <li><a href="#rechte">Ihre Rechte</a></li>
+      <li><a href="#verantwortlich">Verantwortlicher und Kontakt</a></li>
+      <li><a href="#allgemein">Allgemeines, Begriffe und Rechtsgrundlagen</a></li>
+      <li><a href="#hosting">Hosting und Server-Logfiles</a></li>
+      <li><a href="#formular">Anfrageformular „AI Readiness Check“</a></li>
+      <li><a href="#kontakt">Kontaktaufnahme per E-Mail und Telefon</a></li>
+      <li><a href="#cookies">Cookies und Einwilligungsverwaltung</a></li>
+      <li><a href="#pixel">Meta-Pixel (Facebook / Instagram)</a></li>
+      <li><a href="#video">Video auf der Startseite</a></li>
+      <li><a href="#fonts">Schriftarten (lokal eingebunden)</a></li>
+      <li><a href="#empfaenger">Empfänger und Drittlandübermittlung</a></li>
       <li><a href="#speicherung">Speicherdauer</a></li>
+      <li><a href="#rechte">Ihre Rechte</a></li>
+      <li><a href="#pflicht">Erforderlichkeit der Bereitstellung</a></li>
+      <li><a href="#sicherheit">Datensicherheit</a></li>
+      <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
     </ol>
   </div>
 
-  <h2 id="verantwortlich">1. Verantwortlicher</h2>
+  <h2 id="verantwortlich">1. Verantwortlicher und Kontakt</h2>
   <p>
-    Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
-    Flowstate AI Solutions — Sehorz Lukas und vom Hofe Jannik GbR<br>
-    <span class="ph">[Straße und Hausnummer]</span>, <span class="ph">[PLZ]</span> Dorfen, Bayern<br>
-    E-Mail: <a href="mailto:kontakt@flowstate-ai.de">kontakt@flowstate-ai.de</a> · Telefon: <span class="ph">[Telefonnummer]</span>
+    Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO ist:<br>
+    <strong>Flowstate AI Solutions — Sehorz Lukas und vom Hofe Jannik GbR</strong><br>
+    Orlfing 1, 84405 Dorfen, Bayern, Deutschland<br>
+    Vertreten durch die Gesellschafter Lukas Sehorz und Jannik vom Hofe<br>
+    E-Mail: <a href="mailto:lukas.sehorz@flowstate-ai.net">lukas.sehorz@flowstate-ai.net</a> · Telefon: <a href="tel:+491723465896">0172 3465896</a>
   </p>
-  <p><span class="ph">[Sofern ein Datenschutzbeauftragter benannt ist: Name und Kontaktdaten hier ergänzen. Andernfalls diesen Satz entfernen.]</span></p>
+  <p>Ein Datenschutzbeauftragter ist nicht bestellt, da die gesetzlichen Voraussetzungen hierfür (Art. 37 DSGVO, § 38 BDSG) nicht vorliegen. Für alle Anliegen zum Datenschutz nutzen Sie bitte die vorstehenden Kontaktdaten.</p>
 
-  <h2 id="allgemein">2. Allgemeines zur Datenverarbeitung</h2>
-  <p>Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist oder Sie eingewilligt haben. Rechtsgrundlagen sind insbesondere Art. 6 Abs. 1 lit. a (Einwilligung), lit. b (Vertrag/vorvertragliche Maßnahmen) und lit. f (berechtigtes Interesse) DSGVO.</p>
-
-  <h2 id="hosting">3. Hosting &amp; Server-Logfiles</h2>
-  <p>Diese Website wird bei einem externen Dienstleister gehostet: <span class="ph">[Hosting-Anbieter, z. B. Netlify, Inc. — Anschrift]</span>. Der Anbieter verarbeitet in unserem Auftrag Daten, die beim Aufruf der Website technisch anfallen. Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO. <span class="ph">[Bei Anbietern mit möglichem Drittlandbezug: Hinweis auf EU-Standardvertragsklauseln ergänzen.]</span></p>
-  <p>Beim Aufruf der Seite werden automatisch Informationen in Server-Logfiles gespeichert (z. B. IP-Adresse in gekürzter/verarbeiteter Form, Datum und Uhrzeit, aufgerufene Seite, Browsertyp). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sicherer, stabiler Betrieb der Website).</p>
-
-  <h2 id="formular">4. Kontaktformular „KI-Effizienz-Analyse“</h2>
-  <p>Wenn Sie das Anfrageformular ausfüllen, verarbeiten wir die von Ihnen angegebenen Daten, um Ihre Anfrage zu bearbeiten und die kostenlose KI-Effizienz-Analyse vorzubereiten. Verarbeitet werden:</p>
+  <h2 id="allgemein">2. Allgemeines, Begriffe und Rechtsgrundlagen</h2>
+  <p>Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist, Sie eingewilligt haben oder eine sonstige Rechtsgrundlage besteht. „Personenbezogene Daten“ sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen.</p>
+  <p>Die Verarbeitung stützt sich je nach Vorgang auf folgende Rechtsgrundlagen:</p>
   <ul>
-    <li>Kanzleigröße, Ihre Rolle, Angabe zum größten Zeitverlust, gewünschter Zeitpunkt</li>
-    <li>Kanzlei-/Firmenname, Ihr Name, geschäftliche E-Mail-Adresse</li>
-    <li>Telefonnummer (freiwillige Angabe)</li>
-    <li>Ihre Einwilligung sowie Zeitpunkt der Absendung</li>
+    <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> — Ihre Einwilligung (z. B. Meta-Pixel, Absenden des Anfrageformulars).</li>
+    <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> — Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin sowie Vertragserfüllung.</li>
+    <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> — unsere berechtigten Interessen an einem sicheren, stabilen und bedarfsgerechten Betrieb der Website.</li>
+    <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> — Erfüllung rechtlicher Verpflichtungen, etwa handels- und steuerrechtlicher Aufbewahrungspflichten.</li>
+    <li><strong>§ 25 Abs. 1 und Abs. 2 TDDDG</strong> — Speicherung von Informationen auf Ihrem Endgerät bzw. Zugriff darauf.</li>
   </ul>
-  <p>Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sowie die Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin (Art. 6 Abs. 1 lit. b DSGVO). Eine Weitergabe an Dritte zu Werbezwecken erfolgt nicht.</p>
-  <p>Zur Verarbeitung der Anfrage setzen wir gegebenenfalls folgende Auftragsverarbeiter ein: <span class="ph">[Automatisierung/Workflow, z. B. n8n]</span>, <span class="ph">[CRM-System]</span> und <span class="ph">[E-Mail-Versand für die Bestätigung, z. B. Brevo]</span>. Mit diesen bestehen Verträge zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>
-  <p><strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. per E-Mail an <a href="mailto:kontakt@flowstate-ai.de">kontakt@flowstate-ai.de</a>. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
 
-  <h2 id="cookies">5. Cookies &amp; Einwilligungsverwaltung</h2>
-  <p>Wir verwenden technisch notwendige Speichertechniken, um die Grundfunktionen der Website bereitzustellen und Ihre Cookie-Entscheidung zu speichern (lokale Speicherung im Browser). Diese sind für den Betrieb erforderlich; Rechtsgrundlage ist § 25 Abs. 2 TDDDG bzw. Art. 6 Abs. 1 lit. f DSGVO.</p>
-  <p>Nicht notwendige Dienste (insbesondere das Meta-Pixel) werden erst geladen, nachdem Sie im Consent-Banner aktiv eingewilligt haben (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Sie können Ihre Auswahl jederzeit über den Link „Cookie-Einstellungen“ im Seitenfuß ändern.</p>
+  <h2 id="hosting">3. Hosting und Server-Logfiles</h2>
+  <p>Diese Website wird bei <strong>Netlify, Inc.</strong>, San Francisco, Kalifornien, USA, gehostet. Netlify verarbeitet in unserem Auftrag die Daten, die beim Aufruf der Website technisch anfallen. Mit Netlify besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>
+  <p>Da Netlify seinen Sitz in den USA hat, kann es zu einer Übermittlung personenbezogener Daten in ein Drittland kommen. Die Übermittlung wird durch die von der Europäischen Kommission erlassenen <strong>EU-Standardvertragsklauseln</strong> nach Art. 46 Abs. 2 lit. c DSGVO abgesichert, ergänzt um zusätzliche Schutzmaßnahmen (u. a. Transportverschlüsselung). Wir weisen darauf hin, dass in den USA trotz dieser Maßnahmen ein Zugriff staatlicher Stellen auf Daten nicht vollständig ausgeschlossen werden kann und das Schutzniveau nicht in jeder Hinsicht dem der EU entspricht.</p>
+  <p>Beim Aufruf der Seite werden automatisch Informationen in Server-Logfiles gespeichert, die Ihr Browser übermittelt:</p>
+  <ul>
+    <li>IP-Adresse des anfragenden Endgeräts</li>
+    <li>Datum und Uhrzeit des Zugriffs</li>
+    <li>Name und URL der abgerufenen Datei sowie übertragene Datenmenge</li>
+    <li>Meldung über den erfolgreichen Abruf, verwendeter Browsertyp und dessen Version, Betriebssystem</li>
+    <li>Referrer-URL (die zuvor besuchte Seite)</li>
+  </ul>
+  <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im technisch fehlerfreien Betrieb, in der Auslieferung der Inhalte und in der Abwehr von Angriffen. Eine Zusammenführung dieser Daten mit anderen Datenquellen zur Identifizierung einzelner Personen erfolgt nicht.</p>
 
-  <h2 id="pixel">6. Meta-Pixel (Facebook/Instagram)</h2>
-  <p>Sofern Sie eingewilligt haben, setzen wir das Meta-Pixel der Meta Platforms Ireland Ltd. ein, um die Wirksamkeit unserer Werbeanzeigen zu messen und auszuwerten. Dabei können Daten an Meta übermittelt und gegebenenfalls in Drittländer (u. a. USA) übertragen werden; Grundlage der Übermittlung sind die EU-Standardvertragsklauseln. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit mit Wirkung für die Zukunft widerrufen können.</p>
-  <p>Ohne Ihre Einwilligung wird kein Pixel geladen und es werden zu diesem Zweck keine Daten an Meta übermittelt. Weitere Informationen: <span class="ph">[Link zur Datenschutzrichtlinie von Meta]</span>.</p>
+  <h2 id="formular">4. Anfrageformular „AI Readiness Check“</h2>
+  <p>Über das Formular auf der Startseite können Sie den kostenlosen AI Readiness Check anfragen. Dabei verarbeiten wir folgende Angaben:</p>
+  <div class="scroll">
+  <table>
+    <tr><th>Angabe</th><th>Pflicht</th><th>Zweck</th></tr>
+    <tr><td>Überwiegend bearbeitete Mandatsart</td><td>ja</td><td>Prüfung, ob unser Angebot zu Ihrer Kanzlei passt</td></tr>
+    <tr><td>Ihre Rolle in der Kanzlei</td><td>ja</td><td>Einordnung der Entscheidungsebene</td></tr>
+    <tr><td>Größter aktueller Zeitverlust</td><td>ja</td><td>inhaltliche Vorbereitung des Termins</td></tr>
+    <tr><td>Gewünschter Zeitpunkt</td><td>ja</td><td>Terminplanung</td></tr>
+    <tr><td>Kanzlei- bzw. Firmenname</td><td>ja</td><td>Zuordnung der Anfrage</td></tr>
+    <tr><td>Ihr Name</td><td>ja</td><td>persönliche Ansprache</td></tr>
+    <tr><td>Geschäftliche E-Mail-Adresse</td><td>ja</td><td>Rückmeldung auf Ihre Anfrage</td></tr>
+    <tr><td>Telefonnummer</td><td>freiwillig</td><td>Rückruf, sofern von Ihnen gewünscht</td></tr>
+    <tr><td>Einwilligung und Zeitpunkt der Absendung</td><td>ja</td><td>Nachweis der Einwilligung nach Art. 7 Abs. 1 DSGVO</td></tr>
+  </table>
+  </div>
+  <p>Die Angaben werden über die Infrastruktur unseres Hosting-Dienstleisters Netlify übermittelt und uns per E-Mail zugeleitet. Es gelten die unter Ziffer 3 beschriebenen Hinweise zur Auftragsverarbeitung und zur Drittlandübermittlung.</p>
+  <p>Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO sowie die Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin nach Art. 6 Abs. 1 lit. b DSGVO. Eine Weitergabe Ihrer Daten an Dritte zu Werbezwecken findet nicht statt. Ein Verkauf von Daten findet nicht statt.</p>
+  <p><strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, formlos per E-Mail an <a href="mailto:lukas.sehorz@flowstate-ai.net">lukas.sehorz@flowstate-ai.net</a>. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
+  <p class="note">Hinweis: Für die Vorbereitung und Durchführung des AI Readiness Checks benötigen wir keine Mandanten- oder Falldaten und keine Zugänge zu Ihren Systemen. Bitte übermitteln Sie uns über dieses Formular keine dem Berufsgeheimnis unterliegenden Informationen.</p>
 
-  <h2 id="video">7. Video-Einbindung</h2>
-  <p>Auf der Startseite ist ein Video eingebunden. Das Video wird erst geladen, wenn Sie es aktiv starten (Klick auf das Vorschaubild). Vor dem Start werden keine Daten an den Video-Dienst übertragen. Anbieter des Videos: <span class="ph">[z. B. Cloudflare Stream / self-hosted / Vimeo — Anbieter und dessen Datenschutzhinweise ergänzen]</span>.</p>
+  <h2 id="kontakt">5. Kontaktaufnahme per E-Mail und Telefon</h2>
+  <p>Wenn Sie uns per E-Mail oder telefonisch kontaktieren, verarbeiten wir Ihre Angaben ausschließlich zur Bearbeitung Ihres Anliegens. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage auf einen Vertrag gerichtet ist, im Übrigen Art. 6 Abs. 1 lit. f DSGVO aufgrund unseres berechtigten Interesses an der Beantwortung von Anfragen.</p>
 
-  <h2 id="fonts">8. Schriftarten (self-hosted)</h2>
-  <p>Diese Website verwendet die Schriftart „Inter“, die lokal auf unserem Server gespeichert ist. Es besteht keine Verbindung zu Servern von Google Fonts; es werden zu diesem Zweck keine Daten an Dritte übertragen.</p>
+  <h2 id="cookies">6. Cookies und Einwilligungsverwaltung</h2>
+  <p>Diese Website setzt <strong>keine Tracking-Cookies ohne Ihre Einwilligung</strong>. Für die Speicherung Ihrer Cookie-Entscheidung nutzen wir den lokalen Speicher Ihres Browsers (Local Storage):</p>
+  <div class="scroll">
+  <table>
+    <tr><th>Bezeichnung</th><th>Zweck</th><th>Speicherdauer</th><th>Rechtsgrundlage</th></tr>
+    <tr><td>fs_consent</td><td>Speichert, ob Sie nicht notwendige Dienste akzeptiert oder abgelehnt haben, damit der Hinweis nicht erneut erscheint</td><td>bis zum Löschen durch Sie im Browser</td><td>§ 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich), Art. 6 Abs. 1 lit. f DSGVO</td></tr>
+  </table>
+  </div>
+  <p>Nicht notwendige Dienste — insbesondere das Meta-Pixel — werden erst geladen, nachdem Sie im Consent-Banner aktiv eingewilligt haben (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Lehnen Sie ab, wird kein solcher Dienst geladen. Sie können Ihre Auswahl jederzeit über den Link <strong>„Cookie-Einstellungen“</strong> im Seitenfuß ändern oder widerrufen. Zusätzlich können Sie in Ihrem Browser gespeicherte Daten jederzeit löschen.</p>
 
-  <h2 id="rechte">9. Ihre Rechte</h2>
-  <p>Sie haben nach der DSGVO folgende Rechte: Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen die Verarbeitung (Art. 21). Eine erteilte Einwilligung können Sie jederzeit widerrufen (Art. 7 Abs. 3).</p>
-  <p>Ihnen steht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde zu. Zuständig ist für uns: Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Ansbach.</p>
+  <h2 id="pixel">7. Meta-Pixel (Facebook / Instagram)</h2>
+  <p>Sofern Sie eingewilligt haben, setzen wir das Meta-Pixel der <strong>Meta Platforms Ireland Limited</strong>, Merrion Road, Dublin 4, D04 X2K5, Irland, ein. Damit messen wir die Wirksamkeit unserer Werbeanzeigen, erkennen, ob nach dem Klick auf eine Anzeige eine Anfrage zustande kommt, und optimieren die Ausspielung unserer Anzeigen.</p>
+  <p>Bei aktiviertem Pixel können Daten wie Ihre IP-Adresse, Informationen zu Ihrem Endgerät und Browser sowie Angaben zu den aufgerufenen Seiten und ausgelösten Ereignissen (z. B. Absenden des Formulars) an Meta übermittelt werden. Eine Übermittlung in Drittländer, insbesondere die USA, ist dabei möglich; Grundlage sind die EU-Standardvertragsklauseln nach Art. 46 DSGVO. Nach Angaben von Meta kann eine gemeinsame Verantwortlichkeit nach Art. 26 DSGVO für die Erhebung und Übermittlung der Daten bestehen.</p>
+  <p>Rechtsgrundlage ist ausschließlich Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Sie können diese jederzeit mit Wirkung für die Zukunft über die Cookie-Einstellungen widerrufen. <strong>Ohne Ihre Einwilligung wird das Pixel nicht geladen</strong> und es werden zu diesem Zweck keine Daten an Meta übermittelt.</p>
+  <p>Weitere Informationen finden Sie in der Datenschutzrichtlinie von Meta unter <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer">facebook.com/privacy/policy</a>.</p>
 
-  <h2 id="speicherung">10. Speicherdauer</h2>
-  <p>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen. Anfragedaten löschen wir, sobald sie für die Bearbeitung nicht mehr benötigt werden und keine Aufbewahrungspflichten entgegenstehen.</p>
+  <h2 id="video">8. Video auf der Startseite</h2>
+  <p>Auf der Startseite ist ein Video eingebunden. Es wird als Vorschaubild dargestellt und <strong>erst dann geladen, wenn Sie es aktiv durch Klick starten</strong> (sogenannte Zwei-Klick-Lösung). Vor dem Start werden keine Daten an einen externen Video-Dienst übertragen. Sofern das Video von einem externen Anbieter ausgeliefert wird, erfolgt die Übertragung Ihrer IP-Adresse an diesen Anbieter erst mit dem Start; Rechtsgrundlage ist dann Ihre durch den Klick erteilte Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO.</p>
 
-  <p style="margin-top:32px;color:var(--muted);font-size:14px;">Stand: <span class="ph">[Monat/Jahr]</span></p>
+  <h2 id="fonts">9. Schriftarten (lokal eingebunden)</h2>
+  <p>Diese Website verwendet die Schriftart „Inter“, die lokal auf dem Server gespeichert und von dort ausgeliefert wird. Es besteht <strong>keine Verbindung zu Servern von Google Fonts</strong>; Ihre IP-Adresse wird zu diesem Zweck nicht an Dritte übermittelt.</p>
+
+  <h2 id="empfaenger">10. Empfänger und Drittlandübermittlung</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Empfänger</th><th>Zweck</th><th>Grundlage / Drittland</th></tr>
+    <tr><td>Netlify, Inc., USA</td><td>Hosting der Website, Auslieferung der Inhalte, Übermittlung der Formularanfragen</td><td>Auftragsverarbeitung Art. 28 DSGVO, EU-Standardvertragsklauseln, Drittland USA</td></tr>
+    <tr><td>Meta Platforms Ireland Ltd., Irland</td><td>Reichweiten- und Werbemessung — <em>nur bei Einwilligung</em></td><td>Einwilligung Art. 6 Abs. 1 lit. a DSGVO, EU-Standardvertragsklauseln, Drittland USA möglich</td></tr>
+    <tr><td>E-Mail- und Telefonieanbieter</td><td>Kommunikation mit Ihnen</td><td>Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO</td></tr>
+    <tr><td>Steuerberatung, Behörden</td><td>Erfüllung gesetzlicher Pflichten</td><td>Art. 6 Abs. 1 lit. c DSGVO</td></tr>
+  </table>
+  </div>
+  <p>Eine darüber hinausgehende Weitergabe Ihrer Daten erfolgt nicht. Insbesondere verkaufen wir keine personenbezogenen Daten und geben sie nicht zu Werbezwecken an Dritte weiter.</p>
+
+  <h2 id="speicherung">11. Speicherdauer</h2>
+  <ul>
+    <li><strong>Server-Logfiles:</strong> Löschung bzw. Anonymisierung in der Regel nach spätestens 30 Tagen.</li>
+    <li><strong>Anfragen über das Formular sowie per E-Mail:</strong> Löschung, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Kommt kein Vertrag zustande, löschen wir die Daten spätestens nach sechs Monaten.</li>
+    <li><strong>Vertrags- und Abrechnungsdaten:</strong> Aufbewahrung entsprechend der handels- und steuerrechtlichen Fristen (regelmäßig sechs bzw. zehn Jahre gemäß § 257 HGB, § 147 AO).</li>
+    <li><strong>Einwilligungsnachweise:</strong> Aufbewahrung für die Dauer der Nachweispflicht nach Art. 7 Abs. 1 DSGVO.</li>
+    <li><strong>Cookie-Entscheidung (fs_consent):</strong> bis zur Löschung durch Sie im Browser.</li>
+  </ul>
+
+  <h2 id="rechte">12. Ihre Rechte</h2>
+  <p>Ihnen stehen als betroffene Person folgende Rechte zu:</p>
+  <ul>
+    <li><strong>Auskunft</strong> über die zu Ihrer Person verarbeiteten Daten (Art. 15 DSGVO)</li>
+    <li><strong>Berichtigung</strong> unrichtiger oder Vervollständigung unvollständiger Daten (Art. 16 DSGVO)</li>
+    <li><strong>Löschung</strong> Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO)</li>
+    <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+    <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+    <li><strong>Widerruf einer erteilten Einwilligung</strong> mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+  </ul>
+  <p><strong>Widerspruchsrecht nach Art. 21 DSGVO:</strong> Soweit wir Daten auf Grundlage berechtigter Interessen (Art. 6 Abs. 1 lit. f DSGVO) verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch einzulegen. Wir verarbeiten die Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen. Werden Daten zum Zwecke der Direktwerbung verarbeitet, können Sie jederzeit ohne Angabe von Gründen widersprechen.</p>
+  <p>Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an <a href="mailto:lukas.sehorz@flowstate-ai.net">lukas.sehorz@flowstate-ai.net</a>.</p>
+  <p><strong>Beschwerderecht:</strong> Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Für uns zuständig ist:<br>
+  Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 27, 91522 Ansbach.</p>
+
+  <h2 id="pflicht">13. Erforderlichkeit der Bereitstellung</h2>
+  <p>Die Bereitstellung Ihrer Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne die als Pflichtfelder gekennzeichneten Angaben können wir Ihre Anfrage jedoch nicht bearbeiten und den AI Readiness Check nicht vorbereiten. Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne des Art. 22 DSGVO statt.</p>
+
+  <h2 id="sicherheit">14. Datensicherheit</h2>
+  <p>Die Website wird ausschließlich über eine verschlüsselte Verbindung (TLS/HTTPS) ausgeliefert. Wir treffen darüber hinaus angemessene technische und organisatorische Maßnahmen nach Art. 32 DSGVO, um Ihre Daten gegen Verlust, Zerstörung, Manipulation und unberechtigten Zugriff zu schützen. Unsere Maßnahmen werden entsprechend der technischen Entwicklung fortlaufend überprüft.</p>
+
+  <h2 id="aenderungen">15. Änderungen dieser Erklärung</h2>
+  <p>Wir passen diese Datenschutzerklärung an, wenn sich die Rechtslage, unsere Leistungen oder die eingesetzten Dienste ändern. Für Ihren erneuten Besuch gilt die dann aktuelle Fassung.</p>
+
+  <p class="note" style="margin-top:32px;">Stand: Juli 2026</p>
 
   <a class="back" href="index.html">← Zurück zur Startseite</a>
 </main>
-<footer>Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Dorfen, Bayern</footer>
+<footer>Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Orlfing 1, 84405 Dorfen</footer>
 </body>
 </html>

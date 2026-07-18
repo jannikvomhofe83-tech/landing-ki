@@ -1,7 +1,7 @@
-# Flowstate AI Solutions — Landingpage „KI-Effizienz-Analyse“
+# Flowstate AI Solutions — Landingpage „AI Readiness Check“
 
 Konversionsoptimierte Landingpage für Meta-Ads-Traffic → vorqualifizierter Lead → 60-Minuten-Analysegespräch.
-Zielgruppe: **Anwaltskanzleien mit Firmenmandanten** (Wirtschaftsrecht/B2B) — ohne Größen­einschränkung.
+Zielgruppe: **Wirtschaftskanzleien** (Wirtschaftsrecht/B2B) — ohne Größen­einschränkung.
 
 Umgesetzt **1:1 nach** `01_LANDINGPAGE_INHALT_STRUKTUR` (Inhalt/Copy/Formular/Recht) und
 `02_LANDINGPAGE_DESIGN` (Silent-Luxury-Hybrid, WCAG-Farbmatrix, Typografie, Komponenten).

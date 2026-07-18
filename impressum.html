@@ -10,25 +10,26 @@
 <link rel="preload" href="fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
 <style>
 @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/inter-variable.woff2') format('woff2');}
-:root{--gold:#C9A84C;--ink:#1A1A1A;--muted:#5B5B5B;--paper:#F5F5F5;--hairline:#E4E4E4;}
+:root{--gold:#C9A84C;--ink:#FFFFFF;--muted:#A6A6A6;--paper:#000000;--card:#141414;--hairline:rgba(255,255,255,.10);}
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
-.top{background:#000;color:#fff;padding:18px 24px;}
+body{margin:0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-wrap:break-word;}
+.top{background:#000;border-bottom:1px solid var(--hairline);padding:18px 24px;}
 .top a{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;}
 .top .dot{width:6px;height:6px;border-radius:999px;background:var(--gold);}
 .wrap{max-width:720px;margin:0 auto;padding:56px 24px 80px;}
 h1{font-size:clamp(2rem,1.5rem+2vw,2.75rem);letter-spacing:-.02em;margin:0 0 8px;}
 .sub{color:var(--muted);margin:0 0 40px;}
-h2{font-size:1.25rem;margin:36px 0 10px;}
+h2{font-size:1.25rem;margin:32px 0 10px;}
+h2:first-child{margin-top:0;}
 p{margin:0 0 14px;}
-a{color:var(--ink);}
-.card{background:#fff;border:1px solid var(--hairline);border-radius:12px;padding:24px 28px;margin-bottom:20px;}
-.ph{color:#9a6b00;background:rgba(201,168,76,.12);padding:1px 6px;border-radius:4px;font-size:.95em;}
-.back{display:inline-block;margin-top:40px;color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
+a{color:var(--gold);}
+a:hover{text-decoration:none;}
+.card{background:var(--card);border:1px solid var(--hairline);border-radius:12px;padding:24px 28px;margin-bottom:20px;}
+.note{color:var(--muted);font-size:14px;}
+.back{display:inline-block;margin-top:40px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
 footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color:var(--muted);font-size:13px;}
+@media (max-width:520px){body{font-size:16px;}.wrap{padding:40px 20px 64px;}.card{padding:20px;}}
 </style>
-<!-- HINWEIS (nicht sichtbar): Dies ist eine standardkonforme Vorlage nach § 5 DDG.
-     Alle [Platzhalter] müssen vor dem Livegang ausgefüllt und rechtlich geprüft werden. -->
 </head>
 <body>
 <div class="top"><a href="index.html">FLOWSTATE <span class="dot"></span> AI SOLUTIONS</a></div>
@@ -41,8 +42,8 @@ footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color
     <p>
       Flowstate AI Solutions<br>
       Sehorz Lukas und vom Hofe Jannik GbR<br>
-      <span class="ph">[Straße und Hausnummer]</span><br>
-      <span class="ph">[PLZ]</span> Dorfen<br>
+      Orlfing 1<br>
+      84405 Dorfen<br>
       Bayern, Deutschland
     </p>
 
@@ -51,40 +52,49 @@ footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color
 
     <h2>Kontakt</h2>
     <p>
-      Telefon: <span class="ph">[Telefonnummer]</span><br>
-      E-Mail: <a href="mailto:kontakt@flowstate-ai.de">kontakt@flowstate-ai.de</a><br>
-      <span class="ph">[Web: www.flowstate-ai.de]</span>
+      Telefon: <a href="tel:+491723465896">0172 3465896</a><br>
+      E-Mail: <a href="mailto:lukas.sehorz@flowstate-ai.net">lukas.sehorz@flowstate-ai.net</a>
     </p>
 
+    <h2>Rechtsform und Registereintrag</h2>
+    <p>Die Gesellschaft ist eine Gesellschaft bürgerlichen Rechts (GbR). Eine Eintragung in das Handelsregister oder in das Gesellschaftsregister (eGbR) besteht nicht.</p>
+
     <h2>Umsatzsteuer-Identifikationsnummer</h2>
-    <p>
-      Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
-      <span class="ph">[USt-IdNr. — falls vorhanden; andernfalls diesen Abschnitt entfernen]</span>
-    </p>
+    <p>Eine Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz ist nicht vorhanden.</p>
 
     <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
     <p>
       Lukas Sehorz<br>
-      <span class="ph">[Anschrift wie oben]</span>
+      Orlfing 1, 84405 Dorfen
     </p>
   </div>
 
   <div class="card">
     <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
     <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <p class="note">Hinweis: Die Online-Streitbeilegungsplattform (OS-Plattform) der Europäischen Kommission wurde zum 20. Juli 2025 eingestellt. Ein Verweis darauf entfällt daher.</p>
   </div>
 
   <div class="card">
     <h2>Haftung für Inhalte</h2>
-    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
     <h2>Haftung für Links</h2>
-    <p>Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+    <p>Unser Angebot enthält gegebenenfalls Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft; rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
     <h2>Urheberrecht</h2>
-    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.</p>
+    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet und Beiträge Dritter als solche gekennzeichnet.</p>
   </div>
+
+  <div class="card">
+    <h2>Hinweis zu Studien und Kennzahlen</h2>
+    <p>Auf dieser Website genannte Studien, Statistiken und Kennzahlen (u. a. McKinsey, Thomson Reuters, Wolters Kluwer, MIT) stammen aus den jeweils angegebenen Quellen und dienen der Einordnung des Marktumfelds. Sie stellen keine Zusicherung eines bestimmten wirtschaftlichen Ergebnisses für den Einzelfall dar.</p>
+  </div>
+
+  <p class="note" style="margin-top:28px;">Stand: Juli 2026</p>
 
   <a class="back" href="index.html">← Zurück zur Startseite</a>
 </main>
-<footer>Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Dorfen, Bayern</footer>
+<footer>Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Orlfing 1, 84405 Dorfen</footer>
 </body>
 </html>
