@@ -7,3 +7,12 @@
 # Editor / OS
 Thumbs.db
 *.log
+
+# Video-Rohmaterial: zu gross fuer Git (GitHub blockt >100 MB).
+# Ausgeliefert wird nur die komprimierte Fassung in media/
+Bilder/*.mp4
+Bilder/*.mov
+Bilder/*.MOV
+
+# Bild-Rohmaterial: ausgeliefert wird nur die optimierte Fassung in media/
+Bilder/ChatGPT*.png
