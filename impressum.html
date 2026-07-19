@@ -27,7 +27,9 @@ a:hover{text-decoration:none;}
 .card{background:var(--card);border:1px solid var(--hairline);border-radius:12px;padding:24px 28px;margin-bottom:20px;}
 .note{color:var(--muted);font-size:14px;}
 .back{display:inline-block;margin-top:40px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
-footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color:var(--muted);font-size:13px;}
+footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6;}
+footer nav a{color:var(--gold);text-decoration:none;display:inline-block;padding:6px 2px;}
+footer nav a:hover{text-decoration:underline;}
 @media (max-width:520px){body{font-size:16px;}.wrap{padding:40px 20px 64px;}.card{padding:20px;}}
 </style>
 </head>
@@ -95,6 +97,14 @@ footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color
 
   <a class="back" href="index.html">← Zurück zur Startseite</a>
 </main>
-<footer>Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Orlfing 1, 84405 Dorfen</footer>
+<footer>
+  <nav aria-label="Rechtliches" style="margin-bottom:10px;">
+    <a href="index.html">Startseite</a> ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutzerklärung</a> ·
+    <a href="agb.html">AGB</a>
+  </nav>
+  Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Orlfing 1, 84405 Dorfen
+</footer>
 </body>
 </html>

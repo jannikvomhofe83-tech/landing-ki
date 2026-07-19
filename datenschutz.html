@@ -34,7 +34,9 @@ th{background:rgba(255,255,255,.04);font-weight:700;}
 .toc li{margin-bottom:6px;}
 .note{color:var(--muted);font-size:14px;}
 .back{display:inline-block;margin-top:40px;color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
-footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color:var(--muted);font-size:13px;}
+footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6;}
+footer nav a{color:var(--gold);text-decoration:none;display:inline-block;padding:6px 2px;}
+footer nav a:hover{text-decoration:underline;}
 .scroll{overflow-x:auto;}
 @media (max-width:520px){body{font-size:16px;}.wrap{padding:40px 20px 64px;}.toc{padding:18px 20px;}}
 </style>
@@ -112,7 +114,7 @@ footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color
     <tr><td>Kanzlei- bzw. Firmenname</td><td>ja</td><td>Zuordnung der Anfrage</td></tr>
     <tr><td>Ihr Name</td><td>ja</td><td>persönliche Ansprache</td></tr>
     <tr><td>Geschäftliche E-Mail-Adresse</td><td>ja</td><td>Rückmeldung auf Ihre Anfrage</td></tr>
-    <tr><td>Telefonnummer</td><td>freiwillig</td><td>Rückruf, sofern von Ihnen gewünscht</td></tr>
+    <tr><td>Telefonnummer</td><td>ja</td><td>telefonische Rückmeldung und Terminabstimmung</td></tr>
     <tr><td>Einwilligung und Zeitpunkt der Absendung</td><td>ja</td><td>Nachweis der Einwilligung nach Art. 7 Abs. 1 DSGVO</td></tr>
   </table>
   </div>
@@ -195,6 +197,14 @@ footer{border-top:1px solid var(--hairline);padding:24px;text-align:center;color
 
   <a class="back" href="index.html">← Zurück zur Startseite</a>
 </main>
-<footer>Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Orlfing 1, 84405 Dorfen</footer>
+<footer>
+  <nav aria-label="Rechtliches" style="margin-bottom:10px;">
+    <a href="index.html">Startseite</a> ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutzerklärung</a> ·
+    <a href="agb.html">AGB</a>
+  </nav>
+  Flowstate AI Solutions · Sehorz Lukas und vom Hofe Jannik GbR · Orlfing 1, 84405 Dorfen
+</footer>
 </body>
 </html>

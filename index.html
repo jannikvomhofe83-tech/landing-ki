@@ -669,6 +669,52 @@ html,body{ background:#000000; }
 .op-note strong{ font-weight:700; }
 .offer-price .btn{ margin-top:24px; }
 .op-micro{ margin-top:14px; text-align:center; font-size:.8125rem; color:var(--muted); }
+
+/* ---------- CTA-Band: wiederholte Handlungsaufforderung in langen Strecken ---------- */
+.cta-band{
+  margin-top:clamp(2rem,1.4rem + 2vw,2.75rem);
+  padding-top:clamp(1.5rem,1.1rem + 1.4vw,2rem);
+  border-top:1px solid var(--hairline);
+  display:flex; flex-wrap:wrap; align-items:center; gap:18px 32px;
+}
+.cta-band-text{
+  flex:1 1 340px; min-width:0; margin:0; color:#fff;
+  font-size:clamp(1.0625rem,1rem + .3vw,1.25rem); line-height:1.5;
+}
+.cta-band .btn{ flex:0 0 auto; }
+
+/* ============================================================
+   MOBILE-OPTIMIERUNG — greift ausschliesslich bis 767px Breite.
+   Desktop (>=768px) matcht diese Query nicht und bleibt unveraendert.
+   ============================================================ */
+@media (max-width:767px){
+  /* 1) Lesbarkeit: 13px-Texte auf 14px anheben */
+  .eyebrow{ font-size:.875rem; }
+  .hero-source{ font-size:.875rem; line-height:1.6; }
+  .stat-cite{ font-size:.875rem; }
+  .op-label{ font-size:.875rem; }
+  .op-micro{ font-size:.875rem; }
+  .form-legend{ font-size:.875rem; }
+  .privacy-note{ font-size:.875rem; line-height:1.6; }
+  .footer .f-legal{ font-size:.875rem; line-height:1.6; color:var(--muted); } /* 3.46:1 -> WCAG-AA konform */
+
+  /* 2) Tap-Targets auf >=44px (WCAG 2.5.5 / Apple HIG) */
+  .brand{ display:inline-flex; align-items:center; min-height:44px; }
+  .header-cta{ padding:13px 18px; font-size:.9375rem; min-height:44px; }
+  .vs-bridge a{ display:inline-flex; align-items:center; min-height:44px; }
+  .footer nav{ gap:2px 24px; }
+  .footer nav a,
+  .footer nav button{ display:inline-flex; align-items:center; min-height:44px; }
+
+  /* 3) Vollbreite Buttons: Beschriftung einzeilig halten */
+  .btn--full{ font-size:.9375rem; padding-left:14px; padding-right:14px; }
+  .cta-band{ gap:16px; }
+  .cta-band .btn{ width:100%; font-size:.9375rem; padding-left:14px; padding-right:14px; }
+}
+/* Sehr schmale Geraete (iPhone SE u. ae.): CTA-Beschriftungen einzeilig halten */
+@media (max-width:360px){
+  .btn{ font-size:.9375rem; padding-left:14px; padding-right:14px; }
+}
 </style>
 </head>
 <body>
@@ -756,6 +802,11 @@ html,body{ background:#000000; }
       </div>
 
       <p class="abbinder reveal">Verlorene Zeit, ausbleibende Wirkung, wachsender Mandantendruck — der Grund ist fast immer derselbe: <b>Das Wissen Ihrer Kanzlei ist vorhanden — aber nicht zugänglich.</b></p>
+
+      <div class="cta-band reveal">
+        <p class="cta-band-text">Wie viel davon trifft auf Ihre Kanzlei zu? Genau das machen wir sichtbar — in 60 Minuten.</p>
+        <a class="btn" href="#formular">AI Readiness Check – kostenlos</a>
+      </div>
     </div>
   </section>
 
@@ -832,6 +883,11 @@ html,body{ background:#000000; }
       </div>
 
       <p class="cost-abbinder reveal">Die Frage ist nicht, <b>ob</b> in Ihrer Kanzlei Zeit verloren geht. Die Frage ist, <b>wo genau</b> — und welche drei Maßnahmen den größten Teil davon zurückholen.</p>
+
+      <div class="cta-band reveal">
+        <p class="cta-band-text">Genau diese drei Maßnahmen bekommen Sie schriftlich — innerhalb von 48 Stunden.</p>
+        <a class="btn" href="#formular">AI Readiness Check – kostenlos</a>
+      </div>
     </div>
   </section>
 
@@ -1028,7 +1084,6 @@ html,body{ background:#000000; }
             <label class="radio-card"><input type="radio" name="zeitpunkt" value="Jetzt" required><span class="rc-mark" aria-hidden="true"></span><span>Jetzt</span></label>
             <label class="radio-card"><input type="radio" name="zeitpunkt" value="In 3 Monaten"><span class="rc-mark" aria-hidden="true"></span><span>In 3 Monaten</span></label>
             <label class="radio-card"><input type="radio" name="zeitpunkt" value="In 6 Monaten"><span class="rc-mark" aria-hidden="true"></span><span>In 6 Monaten</span></label>
-            <label class="radio-card"><input type="radio" name="zeitpunkt" value="Erst informieren"><span class="rc-mark" aria-hidden="true"></span><span>Erst informieren</span></label>
           </div>
           <p class="error-msg" id="err-zeitpunkt">Bitte wählen Sie einen Zeitpunkt.</p>
         </div>
@@ -1054,10 +1109,11 @@ html,body{ background:#000000; }
           <p class="error-msg" id="err-email">Bitte geben Sie eine gültige E-Mail-Adresse an.</p>
         </div>
 
-        <!-- 8 · Telefon (optional) -->
+        <!-- 8 · Telefon (Pflichtfeld) -->
         <div class="field" data-field="telefon">
-          <label for="f-tel" class="field-label">Telefonnummer <span class="field-hint">(optional)</span></label>
-          <input class="input" id="f-tel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" />
+          <label for="f-tel" class="field-label">Telefonnummer <span class="req">*</span></label>
+          <input class="input" id="f-tel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="err-telefon" />
+          <p class="error-msg" id="err-telefon">Bitte geben Sie eine Telefonnummer an.</p>
         </div>
 
         <!-- 9 · Einwilligung -->
@@ -1390,6 +1446,7 @@ html,body{ background:#000000; }
       { key: 'firmenname',    test: function () { return form.firmenname.value.trim().length > 1; } },
       { key: 'name',          test: function () { return form.name.value.trim().length > 1; } },
       { key: 'email',         test: function () { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim()); } },
+      { key: 'telefon',       test: function () { return form.telefon.value.replace(/[^0-9]/g, '').length >= 6; } },
       { key: 'einwilligung',  test: function () { return form.einwilligung.checked; } }
     ];
 
