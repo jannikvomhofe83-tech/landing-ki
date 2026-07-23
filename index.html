@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Kostenloser AI Readiness Check für Wirtschaftskanzleien | Flowstate AI Solutions</title>
-<meta name="description" content="Kostenloser AI Readiness Check für Wirtschaftskanzleien. In 60 Minuten Ihre drei größten Wissens- und Prozessverluste identifizieren – in 48 Stunden Ihr KI-Masterplan. Verarbeitung nach DSGVO, Hosting in Deutschland." />
+<meta name="description" content="Kostenloser AI Readiness Check für Wirtschaftskanzleien. In 60 Minuten Ihre drei größten Wissens- und Prozessverluste identifizieren, in 48 Stunden Ihr KI-Masterplan. Verarbeitung nach DSGVO, Hosting in Deutschland." />
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#000000" />
 <link rel="canonical" href="https://flowstate-ai.de/ki-effizienz-analyse" />
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:site_name" content="Flowstate AI Solutions" />
-<meta property="og:title" content="88 % der Unternehmen nutzen KI. Nur 7 % nutzen sie erfolgreich." />
+<meta property="og:title" content="88 % der Unternehmen nutzen KI. Nur 6 % nutzen sie erfolgreich." />
 <meta property="og:description" content="Kostenloser AI Readiness Check für Wirtschaftskanzleien. 60 Minuten Analyse, in 48 Stunden Ihr KI-Masterplan. Kein Verkaufsgespräch." />
 <meta property="og:image" content="https://flowstate-ai.de/media/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -133,7 +133,7 @@ p{ margin:0; }
 /* ---------- Hero ---------- */
 .hero{
   background:var(--black); color:var(--on-dark); text-align:center;
-  padding-block:clamp(2rem,1.2rem + 4vw,4rem) clamp(3.5rem,2rem + 7vw,6rem);
+  padding-block:clamp(1.25rem,.9rem + 1.6vw,2rem) clamp(3rem,2rem + 5vw,5rem);
   position:relative; overflow:hidden;
 }
 .hero::before{
@@ -150,9 +150,9 @@ p{ margin:0; }
 .logo .sub{ font-weight:500; letter-spacing:.22em; color:var(--on-dark-subtle); }
 
 .hero h1{ max-width:920px; margin-inline:auto; color:#fff; }
-.hero .subline{ max-width:var(--maxw-prose); margin:22px auto 0; color:var(--on-dark-muted); }
+.hero .subline{ max-width:var(--maxw-prose); margin:14px auto 0; color:var(--on-dark-muted); }
 
-.video-wrap{ max-width:var(--maxw-video); margin:clamp(2rem,1.4rem + 3vw,2.75rem) auto 0; }
+.video-wrap{ max-width:680px; margin:clamp(1.25rem,.9rem + 1.4vw,1.75rem) auto 0; }
 .video-frame{
   position:relative; aspect-ratio:16/9; border-radius:var(--r-card); overflow:hidden;
   border:1px solid rgba(201,168,76,.3); background:#0a0a0a; cursor:pointer;
@@ -170,8 +170,8 @@ p{ margin:0; }
   border-top:14px solid transparent; border-bottom:14px solid transparent; border-left:22px solid #000; }
 .video-caption{ margin-top:14px; font-size:.875rem; color:var(--on-dark-subtle); }
 
-.hero-cta{ margin-top:clamp(1.75rem,1.2rem + 2vw,2.5rem); }
-.trust-line{ margin-top:20px; font-size:.875rem; color:var(--on-dark-subtle); line-height:1.6; }
+.hero-cta{ margin-top:clamp(1.25rem,.9rem + 1.4vw,1.75rem); }
+.trust-line{ margin-top:16px; font-size:.875rem; color:var(--on-dark-subtle); line-height:1.6; }
 .trust-line b{ color:var(--on-dark-muted); font-weight:500; }
 
 /* ---------- Stat wall ---------- */
@@ -226,6 +226,7 @@ p{ margin:0; }
   padding:20px 24px; font-size:.9375rem; line-height:1.6; color:#fff;
 }
 .warnbox b{ color:#fff; font-weight:700; }
+.eq-note{ margin-top:18px; font-size:.875rem; line-height:1.5; color:var(--muted); }
 .cost-abbinder{ margin:clamp(1.75rem,1.2rem + 2vw,2.5rem) auto 0; max-width:760px; text-align:center; color:var(--on-dark-muted); font-size:clamp(1.0625rem,1rem + .3vw,1.1875rem); }
 .cost-abbinder b{ color:#fff; font-weight:600; }
 
@@ -523,12 +524,21 @@ html,body{ background:#000000; }
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:68px; padding-block:12px; }
+/* Ab Tablet/Desktop: CTA mittig zentriert (Marke bleibt links) */
+@media (min-width:768px){
+  .header-inner{ display:grid; grid-template-columns:1fr auto 1fr; }
+  .header-inner .brand{ grid-column:1; justify-self:start; }
+  .header-inner .header-cta{ grid-column:2; justify-self:center; }
+}
 .brand{ display:inline-flex; align-items:center; gap:12px; text-decoration:none; flex:0 0 auto; }
 .brand:focus-visible{ outline:3px solid var(--gold); outline-offset:4px; border-radius:4px; }
 .brand img{ display:block; width:auto; }
 .brand-mark{ height:34px; }
 .brand-word{ height:19px; }
 .header-cta{ flex:0 0 auto; padding:12px 22px; font-size:1rem; white-space:nowrap; }
+/* Header-CTA erst ab Sektion 2 einblenden (Layout bleibt stabil dank visibility) */
+.header-cta{ opacity:0; visibility:hidden; pointer-events:none; transition:opacity 200ms ease; }
+.header-cta.is-visible{ opacity:1; visibility:visible; pointer-events:auto; }
 .header-cta .cta-short{ display:none; }
 #top,#formular{ scroll-margin-top:84px; }
 /* Header ersetzt den unteren Sticky-CTA (kein doppelter CTA-Balken bei dieser ruhigen Zielgruppe) */
@@ -547,7 +557,7 @@ html,body{ background:#000000; }
 /* ---------- Hero: Stat-Headline ---------- */
 .hero .hl{ color:var(--gold); white-space:nowrap; }
 .hero-source{
-  margin:20px auto 0; max-width:660px; font-size:.8125rem; line-height:1.55;
+  margin:12px auto 0; max-width:660px; font-size:.8125rem; line-height:1.55;
   color:var(--on-dark-subtle);
 }
 .hero-source em{ font-style:italic; color:var(--on-dark-muted); }
@@ -621,6 +631,14 @@ html,body{ background:#000000; }
 .form-card,.form-success{ margin-inline:0; }
 .privacy-note{ margin-inline:0; text-align:left; }
 .form-microcopy{ text-align:left; }
+
+/* Formular-Sektion: zentrierter, fokussierter Conversion-Block */
+#formular .section-head{ text-align:center; }
+#formular .section-head .lead{ margin-inline:auto; }
+#formular .form-card,
+#formular .form-success{ margin-inline:auto; }
+#formular .form-microcopy{ text-align:center; }
+#formular .privacy-note{ margin-inline:auto; text-align:center; }
 
 /* ---------- Section 5: Öffentliche KI vs. Kanzlei-KI ---------- */
 .vs-grid{ display:grid; grid-template-columns:1fr; gap:20px; margin-top:clamp(2rem,1.4rem + 2vw,2.75rem); }
@@ -722,12 +740,12 @@ html,body{ background:#000000; }
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="Flowstate AI Solutions — zum Seitenanfang">
+    <a class="brand" href="#top" aria-label="Flowstate AI Solutions, zum Seitenanfang">
       <img class="brand-mark" src="media/logo-mark.png" width="194" height="227" alt="" decoding="async" />
       <img class="brand-word" src="media/logo-word.png" width="424" height="84" alt="Flowstate AI" decoding="async" />
     </a>
     <a class="btn header-cta" href="#formular">
-      <span class="cta-full">AI Readiness Check – kostenlos</span>
+      <span class="cta-full">Kostenloser AI Readiness Check</span>
       <span class="cta-short">Readiness Check</span>
     </a>
   </div>
@@ -738,11 +756,11 @@ html,body{ background:#000000; }
   <!-- ============ 1 · HERO (dunkel) ============ -->
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="container">
-      <h1 class="h1" id="hero-title"><span class="hl">88&nbsp;%</span> der Unternehmen nutzen KI. Nur <span class="hl">7&nbsp;%</span> nutzen sie erfolgreich.</h1>
+      <h1 class="h1" id="hero-title"><span class="hl">88&nbsp;%</span> der Unternehmen nutzen KI. Nur <span class="hl">6&nbsp;%</span> nutzen sie erfolgreich.</h1>
 
-      <p class="hero-source">Quelle: McKinsey, <em>The State of AI 2025</em> — weltweite Unternehmensbefragung.</p>
+      <p class="hero-source">Quelle: McKinsey, <em>The State of AI 2025</em> (weltweite Unternehmensbefragung).</p>
 
-      <p class="subline body-lg">Damit Ihre Kanzlei zu den 7 % gehört. Kostenloser AI Readiness Check für Wirtschaftskanzleien: <b>60 Minuten Gespräch</b>, <b>KI-Masterplan in 48 Stunden</b>.</p>
+      <p class="subline body-lg">Sichern Sie Ihrer Kanzlei den Platz unter den 6 %. Kostenloser Check: <b>60 Minuten Gespräch</b>, <b>KI-Masterplan in 48 Stunden</b>.</p>
 
       <div class="video-wrap">
         <div class="video-box">
@@ -751,7 +769,7 @@ html,body{ background:#000000; }
           <span class="vcorner vc-bl" aria-hidden="true"></span>
           <span class="vcorner vc-br" aria-hidden="true"></span>
           <div class="video-frame" id="videoFrame" data-video-src="media/hero-video.mp4" role="button" tabindex="0" aria-label="Video abspielen: Jannik vom Hofe erklärt den AI Readiness Check (4:03 Min)">
-            <img src="media/hero-poster.jpg" width="1672" height="941" alt="Videovorschau: Jannik vom Hofe — Warum 95 % der KI-Projekte scheitern" fetchpriority="high" decoding="async" />
+            <img src="Bilder/Thumbnail.png" width="1672" height="941" alt="Videovorschau: Jannik vom Hofe, warum 95 % der KI-Projekte scheitern" fetchpriority="high" decoding="async" />
             <button class="play-btn" type="button" aria-hidden="true" tabindex="-1"></button>
           </div>
         </div>
@@ -759,11 +777,11 @@ html,body{ background:#000000; }
       </div>
 
       <div class="hero-cta">
-        <a class="btn" href="#formular">AI Readiness Check – kostenlos</a>
+        <a class="btn" href="#formular">Kostenlosen AI Readiness Check sichern</a>
       </div>
 
       <p class="trust-line">
-        <b>Readiness-Check statt Verkaufsgespräch</b> · <b>Verarbeitung nach DSGVO</b> · <b>Hosting in Deutschland</b>
+        <b>Ehrliche Analyse statt Verkaufsgespräch</b> · <b>Verarbeitung nach DSGVO</b> · <b>Hosting in Deutschland</b>
       </p>
     </div>
   </section>
@@ -772,40 +790,40 @@ html,body{ background:#000000; }
   <section class="section sec--paper" aria-labelledby="stats-title">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">Problem</p>
-        <h2 class="h2" id="stats-title">Die Zahlen, die kaum eine Kanzlei gerne liest</h2>
-        <p class="lead">Drei Zahlen aus dem Anwalts- und Mandantenumfeld — jede beschreibt ein Problem, das Wirtschaftskanzleien täglich erleben.</p>
+        <p class="eyebrow">Der Markt bewegt sich</p>
+        <h2 class="h2" id="stats-title">Ihre Wettbewerber haben längst angefangen.</h2>
+        <p class="lead">Drei Zahlen aus dem Anwaltsmarkt zeigen, was gerade passiert. Jede ist eine Chance für die Kanzleien, die jetzt handeln, und ein Risiko für die, die abwarten.</p>
       </div>
 
       <div class="stat-list reveal">
         <div class="stat-row">
-          <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">190 Std.</span></div>
+          <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">240 Std.</span></div>
           <div class="stat-body">
-            <p class="stat-lead">pro Jahr und Anwalt kann KI freisetzen — abrechenbare Zeit, die heute in Routine statt in Mandaten steckt.</p>
-            <p class="stat-cite">Thomson Reuters, <em>Future of Professionals 2025</em> — erwartete Zeitersparnis je Anwalt</p>
+            <p class="stat-lead">pro Jahr und Anwalt kann KI freisetzen. Abrechenbare Zeit, die heute in Suche und Routine verschwindet, statt in Ihre Mandate zu fließen.</p>
+            <p class="stat-cite">Thomson Reuters, <em>Future of Professionals 2025</em> (erwartete Zeitersparnis je Anwalt, gegenüber 200&nbsp;Std. in 2024)</p>
           </div>
         </div>
         <div class="stat-row">
           <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">95&nbsp;%</span></div>
           <div class="stat-body">
-            <p class="stat-lead">der KI-Piloten erzielen keinen messbaren Effekt — weil generische Tools den Kontext der Kanzlei nicht kennen.</p>
+            <p class="stat-lead">der KI-Piloten bleiben ohne messbaren Effekt, weil generische Tools den Kontext einer Kanzlei nicht kennen. Genau hier entscheidet sich, wer KI wirklich zum Vorteil macht.</p>
             <p class="stat-cite">MIT NANDA, <em>The GenAI Divide: State of AI in Business 2025</em> (300+ Deployments)</p>
           </div>
         </div>
         <div class="stat-row">
           <div class="stat-figure"><span class="stat-rule" aria-hidden="true"></span><span class="stat-big">73&nbsp;%</span></div>
           <div class="stat-body">
-            <p class="stat-lead">der Rechtsabteilungen erhöhen ihre KI-Ausgaben. Ihre Mandanten erwarten Tempo, Transparenz und Effizienz — zunehmend auch von ihrer Kanzlei.</p>
+            <p class="stat-lead">der Rechtsabteilungen erhöhen ihre KI-Ausgaben. Ihre Mandanten erleben dieses Tempo bei anderen bereits und erwarten es zunehmend auch von Ihrer Kanzlei.</p>
             <p class="stat-cite">Wolters Kluwer, <em>Future Ready Lawyer 2024</em></p>
           </div>
         </div>
       </div>
 
-      <p class="abbinder reveal">Verlorene Zeit, ausbleibende Wirkung, wachsender Mandantendruck — der Grund ist fast immer derselbe: <b>Das Wissen Ihrer Kanzlei ist vorhanden — aber nicht zugänglich.</b></p>
+      <p class="abbinder reveal">Verlorene Zeit, ausbleibende Wirkung, steigender Mandantendruck: Dahinter steht fast immer dieselbe Ursache. <b>Das Wissen Ihrer Kanzlei ist da, aber es ist nicht nutzbar gemacht.</b> Die Kanzleien, die das zuerst lösen, ziehen an den anderen vorbei.</p>
 
       <div class="cta-band reveal">
-        <p class="cta-band-text">Wie viel davon trifft auf Ihre Kanzlei zu? 60 Minuten Gespräch — danach Ihr <b>KI-Masterplan in 48 Stunden</b>.</p>
-        <a class="btn" href="#formular">AI Readiness Check – kostenlos</a>
+        <p class="cta-band-text">Wie viel davon trifft auf Ihre Kanzlei zu? Der kostenlose Check zeigt es in 60 Minuten. Ihr <b>KI-Masterplan folgt in 48 Stunden</b>.</p>
+        <a class="btn" href="#formular">Kostenlosen AI Readiness Check sichern</a>
       </div>
     </div>
   </section>
@@ -816,41 +834,41 @@ html,body{ background:#000000; }
       <div class="section-head reveal">
         <p class="eyebrow">Kanzlei-Alltag</p>
         <h2 class="h2" id="pain-title">Vier Stellen, an denen Ihre Kanzlei jeden Monat Geld verliert</h2>
-        <p class="lead">Vier typische Verlustquellen im Kanzlei-Alltag — und warum generische KI sie bisher nicht schließt.</p>
+        <p class="lead">Vier typische Verlustquellen im Kanzlei-Alltag. Und der Grund, warum generische KI sie bisher nicht schließt.</p>
       </div>
 
       <div class="pain-grid">
         <article class="pain-card reveal">
           <span class="pain-index" aria-hidden="true">01</span>
           <span class="pain-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
           </span>
-          <h3 class="h3">Verlorene abrechenbare Zeit</h3>
-          <p>Ein Firmenmandat kommt rein. Jemand sucht die passende Vertragsvorlage. Jemand sucht, wie ein vergleichbarer Fall vor zwei Jahren gelöst wurde. Jemand fragt nach, weil die Antwort nur in einer alten Mandats-E-Mail steht. Nichts davon steht auf der Rechnung — obwohl es Ihre teuerste Ressource verbraucht: abrechenbare Anwaltszeit. Rund ein Viertel der Arbeitswoche geht laut Atlassian für genau diese Suche drauf.</p>
+          <h3 class="h3">KI-Lizenzen ohne Wirkung</h3>
+          <p>ChatGPT ist gekauft, Copilot ist ausgerollt. Und trotzdem sinkt die Arbeitslast nicht. Der Hebel liegt im Kontext: Erst wenn die KI Ihre Akten, Vertragsmuster und Standards kennt, steigt ihre Genauigkeit spürbar. Gartner ist hier eindeutig: Öffentlich trainierte Sprachmodelle lösen spezifische Fachprobleme allein nicht zuverlässig. So kostet die Lizenz jeden Monat Geld, ohne einen Euro zurückzuholen.</p>
         </article>
         <article class="pain-card reveal">
           <span class="pain-index" aria-hidden="true">02</span>
           <span class="pain-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </span>
-          <h3 class="h3">Partner als Flaschenhals</h3>
-          <p>Zwei oder drei Partner wissen, wie ein komplexes Firmenmandat wirklich läuft — und werden deshalb den ganzen Tag unterbrochen. 54,7 % der Mittelständler stufen die Abhängigkeit vom Inhaber als hohes Risiko ein, 45,2 % die von Schlüsselpersonen (DMB Risiko-Report Mittelstand 2026). In einer Kanzlei ist genau dieses Wissen das eigentliche Kapital.</p>
+          <h3 class="h3">Verlorene abrechenbare Zeit</h3>
+          <p>Ein Firmenmandat kommt herein. Eine Anwältin sucht die passende Vertragsvorlage. Ein Kollege sucht, wie ein vergleichbarer Fall vor zwei Jahren gelöst wurde. Ein anderer fragt nach, weil die Antwort nur in einer alten Mandats-E-Mail steht. Nichts davon landet auf der Rechnung, obwohl es Ihre teuerste Ressource verbraucht: abrechenbare Anwaltszeit. Laut Atlassian geht rund ein Viertel der Arbeitswoche für genau diese Suche verloren.</p>
         </article>
         <article class="pain-card reveal">
           <span class="pain-index" aria-hidden="true">03</span>
           <span class="pain-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </span>
-          <h3 class="h3">Einarbeitung, die nie endet</h3>
-          <p>Jede neue Associate, jede neue Kraft fragt dieselben Dinge wie die letzte. Erfahrene Anwälte erklären, statt zu mandatieren. Und weil die Zahl der in Kanzleien niedergelassenen Anwältinnen und Anwälte seit 2017 zurückgeht (BRAK), trifft jeder Weggang doppelt — das Wissen geht mit hinaus.</p>
+          <h3 class="h3">Partner als Flaschenhals</h3>
+          <p>Zwei, drei Partner wissen, wie ein komplexes Firmenmandat wirklich läuft. Genau deshalb werden sie den ganzen Tag unterbrochen. Ihr wertvollstes Wissen steckt in wenigen Köpfen und ist ausgerechnet dann nicht abrufbar, wenn das Team es braucht. Jeder Urlaub, jeder Krankheitstag, jeder Wechsel bremst die ganze Kanzlei. Dieses Wissen ist Ihr eigentliches Kapital, und heute hängt es an einzelnen Personen.</p>
         </article>
         <article class="pain-card reveal">
           <span class="pain-index" aria-hidden="true">04</span>
           <span class="pain-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
           </span>
-          <h3 class="h3">KI-Lizenzen ohne Wirkung</h3>
-          <p>ChatGPT ist gekauft. Copilot ist ausgerollt. Und trotzdem ändert sich nichts an der Arbeitslast. Der Grund ist nicht das Modell — es ist der fehlende Kontext. Gartner formuliert es deutlich: Öffentlich trainierte Sprachmodelle sind für sich genommen nicht wirksam bei der Lösung spezifischer Geschäftsprobleme. Erst mit Ihren eigenen Akten, Vertragsmustern und Standards steigt die Genauigkeit spürbar.</p>
+          <h3 class="h3">Einarbeitung, die nie endet</h3>
+          <p>Jede neue Associate, jede neue Kraft stellt dieselben Fragen wie die letzte. Erfahrene Anwälte erklären, statt zu mandatieren. Und weil die Zahl der in Kanzleien niedergelassenen Anwältinnen und Anwälte seit 2017 zurückgeht (BRAK), trifft jeder Weggang doppelt: Das Wissen verlässt mit der Person das Haus, und die Nächsten brauchen Monate, bis sie den Stand der Erfahrenen erreichen.</p>
         </article>
       </div>
     </div>
@@ -865,28 +883,25 @@ html,body{ background:#000000; }
       </div>
 
       <div class="equation reveal">
-        <p class="eq-line">10 Anwälte <span class="x">×</span> 190 Stunden rückgewinnbare Zeit pro Jahr</p>
+        <p class="eq-line">Rechnen Sie es auf Ihre Kanzlei hoch: <b>10 Anwälte</b> <span class="x">×</span> <b>240 Std.</b> rückgewinnbare Zeit pro Jahr.</p>
         <div class="eq-results">
           <div class="eq-result">
-            <div class="num">1.900 Std.</div>
-            <div class="unit">pro Jahr</div>
+            <div class="num">2.400 Std.</div>
+            <div class="unit">frei werdende Kapazität pro Jahr</div>
           </div>
           <div class="eq-result">
             <div class="num">≈ 1</div>
-            <div class="unit">zusätzlicher Anwalt (Vollzeit)</div>
+            <div class="unit">zusätzlicher Anwalt in Vollzeit, ohne neue Einstellung</div>
           </div>
         </div>
+        <p class="eq-note">Illustratives Rechenbeispiel auf Basis der von Thomson Reuters erwarteten Zeitersparnis.</p>
       </div>
 
-      <div class="warnbox reveal">
-        <b>Illustratives Rechenbeispiel auf Basis der von Thomson Reuters erwarteten Zeitersparnis — keine Zusage und kein Ergebnis Ihrer Kanzlei.</b> Die Zahl dient nur zur Veranschaulichung der Größenordnung. Ihren tatsächlichen Hebel ermitteln wir individuell in der Analyse. Pauschale ROI-Garantien geben wir bewusst nicht.
-      </div>
-
-      <p class="cost-abbinder reveal">Die Frage ist nicht, <b>ob</b> in Ihrer Kanzlei Zeit verloren geht. Die Frage ist, <b>wo genau</b> — und welche drei Maßnahmen den größten Teil davon zurückholen.</p>
+      <p class="cost-abbinder reveal">In fast jeder Kanzlei geht Zeit verloren. Entscheidend ist, <b>wo genau</b> und welche drei Maßnahmen den größten Teil davon zurückholen.</p>
 
       <div class="cta-band reveal">
-        <p class="cta-band-text">Genau diese drei Maßnahmen stehen in Ihrem <b>KI-Masterplan</b> — kostenlos, innerhalb von 48 Stunden.</p>
-        <a class="btn" href="#formular">AI Readiness Check – kostenlos</a>
+        <p class="cta-band-text">Genau diese drei Maßnahmen stehen in Ihrem <b>KI-Masterplan</b>. Kostenlos, in 48 Stunden.</p>
+        <a class="btn" href="#formular">Kostenlosen AI Readiness Check sichern</a>
       </div>
     </div>
   </section>
@@ -897,7 +912,7 @@ html,body{ background:#000000; }
       <div class="section-head reveal">
         <p class="eyebrow">Der Unterschied</p>
         <h2 class="h2" id="why-title">„KI haben wir probiert. Hat nicht viel gebracht.“</h2>
-        <p class="lead">Das liegt selten am Modell — es liegt am fehlenden Kontext. Derselbe Unterschied in zwei Bildern:</p>
+        <p class="lead">Der Grund liegt fast nie im Modell. Er liegt im fehlenden Kontext. Denselben Unterschied zeigen zwei Bilder:</p>
       </div>
 
       <div class="vs-grid reveal">
@@ -909,13 +924,13 @@ html,body{ background:#000000; }
               <p class="vs-sub">ChatGPT, Copilot &amp; Co.</p>
             </div>
           </div>
-          <p class="vs-line">Kennt das halbe Internet — aber nicht Ihre Kanzlei.</p>
+          <p class="vs-line">Sieht das Wissen Ihrer Kanzlei bestenfalls durch ein Schlüsselloch. Aus diesem schmalen Ausschnitt können nie zu 100 % passende Antworten entstehen.</p>
           <ul class="vs-list vs-list--x">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Kennt keine Ihrer Akten, Vorlagen oder Vertragsmuster</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Liefert allgemeine Textbausteine, die Sie ohnehin nachbauen müssen</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Nennt keine nachprüfbare Quelle aus Ihrem Haus</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Vertrauliche Mandantendaten dürfen Sie dort gar nicht eingeben — § 203 StGB und DSGVO verbieten es</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Ergebnis: 95 % der KI-Piloten ohne messbaren Effekt (MIT)</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Vertrauliche Mandantendaten dürfen dort gar nicht eingegeben werden. § 203 StGB und DSGVO verbieten es.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg><span>Ergebnis: 95 % der KI-Piloten bleiben ohne messbaren Effekt (MIT)</span></li>
           </ul>
         </article>
 
@@ -927,18 +942,21 @@ html,body{ background:#000000; }
               <p class="vs-sub">Verbunden mit dem Wissen Ihrer Kanzlei</p>
             </div>
           </div>
-          <p class="vs-line">Kennt Ihr Wissen — und liefert sofort verwertbare Ergebnisse.</p>
+          <p class="vs-line">Kennt das Wissen Ihrer Kanzlei vollständig und liefert Antworten, mit denen Sie sofort ins Mandat gehen.</p>
           <ul class="vs-list vs-list--check">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Kennt Ihre Vertragsmuster, Standards und Mandatslogik</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Antworten auf Basis Ihrer echten Akten und Prozesse</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jede Antwort mit nachvollziehbarer Quelle aus Ihrer Wissensbasis</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>DSGVO-konform und auf Berufsgeheimnisträger ausgelegt — Sie dürfen mit echten Mandatsdaten arbeiten</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ergebnis: prüfbar — genau das identifizieren wir in der Analyse</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Greift auf Ihre echten Vertragsmuster, Standards und Mandatslogik zu</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Antwortet in Sekunden so, wie es Ihr erfahrenster Partner tun würde</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Belegt jede Antwort mit der nachprüfbaren Quelle aus Ihrer Wissensbasis</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>DSGVO-konform und für Berufsgeheimnisträger gebaut. Sie arbeiten mit echten Mandatsdaten.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Macht neue Anwälte ab dem ersten Tag produktiv, ohne Dauer-Rückfragen an die Partner</span></li>
           </ul>
         </article>
       </div>
 
-      <p class="vs-bridge reveal">Genau diesen Unterschied machen wir in Ihrer Kanzlei sichtbar — kostenlos, in 60 Minuten. <a href="#formular">AI Readiness Check – kostenlos →</a></p>
+      <div class="cta-band reveal">
+        <p class="cta-band-text">Genau diesen Unterschied machen wir in Ihrer Kanzlei sichtbar. Kostenlos, in 60 Minuten.</p>
+        <a class="btn" href="#formular">Kostenlosen AI Readiness Check sichern</a>
+      </div>
     </div>
   </section>
 
@@ -948,7 +966,7 @@ html,body{ background:#000000; }
       <div class="section-head reveal">
         <p class="eyebrow">Vertrauen &amp; Compliance</p>
         <h2 class="h2" id="trust-title" style="color:#fff;">Gebaut für Berufsgeheimnisträger</h2>
-        <p class="lead">KI ist in der Kanzlei zulässig — wenn Verschwiegenheit, Verantwortung und Datenschutz gewahrt bleiben. Genau darauf ist unser Vorgehen ausgelegt.</p>
+        <p class="lead">KI ist in der Kanzlei zulässig, sofern Verschwiegenheit, Verantwortung und Datenschutz gewahrt bleiben. Genau darauf ist unser Vorgehen ausgelegt.</p>
       </div>
 
       <div class="badges reveal">
@@ -967,20 +985,20 @@ html,body{ background:#000000; }
       <div class="section-head reveal">
         <p class="eyebrow">Das Angebot</p>
         <h2 class="h2" id="offer-title">Der kostenlose AI Readiness Check</h2>
-        <p class="lead">60 Minuten, die sich rechnen: Sie gehen mit einem konkreten, priorisierten KI-Masterplan raus — einem echten Fahrplan für mehr abrechenbare Zeit und effizientere Mandatsarbeit. Behalten dürfen Sie ihn so oder so.</p>
+        <p class="lead">60 Minuten, die sich rechnen: Sie gehen mit einem konkreten, priorisierten KI-Masterplan heraus. Ein echter Fahrplan für mehr abrechenbare Zeit und effizientere Mandatsarbeit. Behalten dürfen Sie ihn in jedem Fall.</p>
       </div>
 
       <div class="offer-layout reveal">
         <div class="offer-value">
-          <h3 class="h3">Das nehmen Sie mit — in 48 Stunden:</h3>
+          <h3 class="h3">Das nehmen Sie mit, in 48 Stunden:</h3>
           <ul class="offer-list">
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihre <strong>drei größten Wissens- und Prozessverluste</strong>, klar priorisiert</span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Drei konkrete KI-Anwendungen</strong> mit dem größten wirtschaftlichen Hebel</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihr <strong>Einsparpotenzial</strong> als plausibler Korridor — Zeit und Kosten</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihr <strong>Einsparpotenzial</strong> als plausibler Korridor aus Zeit und Kosten</span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Aufwand, Priorität und nächster Schritt je Anwendung</span></li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihren <strong>einseitigen KI-Masterplan</strong> zum Weiterreichen — Ihrer, für immer</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ihren <strong>einseitigen KI-Masterplan</strong> zum Weiterreichen. Ihrer, für immer.</span></li>
           </ul>
-          <p class="offer-effort"><strong>Ihr Aufwand:</strong> 2-Minuten-Fragebogen + 60-Minuten-Gespräch. Keine Systemzugänge, keine sensiblen Dokumente.</p>
+          <p class="offer-effort"><strong>Ihr Aufwand:</strong> 2-Minuten-Fragebogen und 60-Minuten-Gespräch. Keine Systemzugänge, keine sensiblen Dokumente.</p>
         </div>
 
         <aside class="offer-price">
@@ -990,8 +1008,8 @@ html,body{ background:#000000; }
             <span class="op-arrow" aria-hidden="true">→</span>
             <span class="op-new">0 €</span>
           </div>
-          <p class="op-note">Für Ihre Kanzlei — einmalig <strong>kostenlos</strong>.</p>
-          <a class="btn btn--full" href="#formular">AI Readiness Check – kostenlos</a>
+          <p class="op-note">Für Ihre Kanzlei einmalig <strong>kostenlos</strong>.</p>
+          <a class="btn btn--full" href="#formular">Kostenlosen AI Readiness Check sichern</a>
           <p class="op-micro">Kein Verkaufsgespräch · Antwort in 24 Stunden</p>
         </aside>
       </div>
@@ -1015,12 +1033,12 @@ html,body{ background:#000000; }
         <div class="step reveal">
           <div class="num">2</div>
           <h3 class="h3">60-Minuten-Analyse</h3>
-          <p>Per Video-Call. Anhand unseres Fragebogens und einer Vier-Felder-Matrix beurteilen wir Ihr KI-Potenzial: wo es aktuell hakt, was gut läuft, was nicht — und wo wir ansetzen können.</p>
+          <p>Per Video-Call. Anhand unseres Fragebogens und einer Vier-Felder-Matrix beurteilen wir Ihr KI-Potenzial: wo aktuell die größten Hebel liegen und wo wir als Erstes ansetzen.</p>
         </div>
         <div class="step reveal">
           <div class="num">3</div>
           <h3 class="h3">KI-Masterplan in 48 Stunden</h3>
-          <p>Wir schicken Ihnen einen ausgearbeiteten Report — mit einer Mindmap und den drei größten Potenzialen Ihrer Kanzlei zur KI-Anwendung.</p>
+          <p>Wir schicken Ihnen einen ausgearbeiteten Report: mit einer Mindmap und den drei größten KI-Potenzialen Ihrer Kanzlei.</p>
         </div>
       </div>
     </div>
@@ -1062,18 +1080,18 @@ html,body{ background:#000000; }
           <p class="error-msg" id="err-rolle">Bitte wählen Sie Ihre Rolle.</p>
         </div>
 
-        <!-- 3 · Zeitverlust -->
-        <div class="field" data-field="zeitverlust">
-          <label for="f-zeitverlust" class="field-label">Wo verlieren Sie aktuell am meisten Zeit? <span class="field-hint">(optional)</span></label>
-          <select class="select" id="f-zeitverlust" name="zeitverlust">
+        <!-- 3 · Mitarbeiteranzahl (Pflichtfeld) -->
+        <div class="field" data-field="mitarbeiter">
+          <label for="f-mitarbeiter" class="field-label">Mitarbeiteranzahl in Ihrer Kanzlei <span class="req">*</span></label>
+          <select class="select" id="f-mitarbeiter" name="mitarbeiter" required aria-describedby="err-mitarbeiter">
             <option value="" disabled selected>Bitte wählen …</option>
-            <option value="Recherche & Informationssuche">Recherche &amp; Informationssuche</option>
-            <option value="Vertrags- & Dokumentenerstellung">Vertrags- &amp; Dokumentenerstellung</option>
-            <option value="Ständige Rückfragen an wenige Partner">Ständige Rückfragen an wenige Partner</option>
-            <option value="Einarbeitung neuer Anwälte">Einarbeitung neuer Anwälte</option>
-            <option value="Vorhandene KI bringt nichts">Vorhandene KI bringt nichts</option>
-            <option value="Weiß ich noch nicht">Weiß ich noch nicht</option>
+            <option value="1 bis 5">1 bis 5</option>
+            <option value="6 bis 20">6 bis 20</option>
+            <option value="21 bis 50">21 bis 50</option>
+            <option value="51 bis 100">51 bis 100</option>
+            <option value="Über 100">Über 100</option>
           </select>
+          <p class="error-msg" id="err-mitarbeiter">Bitte wählen Sie Ihre Mitarbeiteranzahl.</p>
         </div>
 
         <!-- 4 · Zeitpunkt -->
@@ -1131,7 +1149,7 @@ html,body{ background:#000000; }
       <!-- Erfolgs-Panel (wird nach Absenden eingeblendet) -->
       <div class="form-success" id="formSuccess" role="status" aria-live="polite">
         <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3 class="h3" id="successTitle">Vielen Dank — Ihre Anfrage ist eingegangen.</h3>
+        <h3 class="h3" id="successTitle">Vielen Dank, Ihre Anfrage ist eingegangen.</h3>
         <p id="successText">Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich der Check für Sie lohnt. Danach: 60 Minuten Gespräch und Ihr KI-Masterplan in 48 Stunden.</p>
       </div>
 
@@ -1158,7 +1176,7 @@ html,body{ background:#000000; }
         </div>
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false">Ist KI mit § 203 StGB und der Verschwiegenheitspflicht vereinbar?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
-          <div class="faq-a"><div class="faq-a-inner">KI ist in Anwaltskanzleien zulässig, wenn Verantwortung, Verschwiegenheit und Datenschutz gewahrt bleiben — so auch die Handlungshinweise der Bundesrechtsanwaltskammer (BRAK) zum KI-Einsatz. Wichtig: Ein AVV nach Art. 28 DSGVO allein genügt nicht, es braucht zusätzlich die Einbindung nach § 203 StGB und die Vorgaben des § 43e BRAO. Genau diese Voraussetzungen prüfen wir mit.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">KI ist in Anwaltskanzleien zulässig, wenn Verantwortung, Verschwiegenheit und Datenschutz gewahrt bleiben, so auch die Handlungshinweise der Bundesrechtsanwaltskammer (BRAK) zum KI-Einsatz. Wichtig: Ein AVV nach Art. 28 DSGVO allein genügt nicht, es braucht zusätzlich die Einbindung nach § 203 StGB und die Vorgaben des § 43e BRAO. Genau diese Voraussetzungen prüfen wir mit.</div></div>
         </div>
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false">Müssen wir Systemzugänge oder Mandantendaten herausgeben?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
@@ -1166,7 +1184,7 @@ html,body{ background:#000000; }
         </div>
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false">Wir haben schon ChatGPT und Copilot. Brauchen wir das überhaupt?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
-          <div class="faq-a"><div class="faq-a-inner">Diese Tools kennen Ihre Kanzlei nicht — weder Ihre Vorlagen noch Ihre Standards. Genau deshalb erzielen laut MIT 95 % der KI-Piloten keinen messbaren Effekt. Die Analyse zeigt, welche kanzleispezifischen Anwendungen bei Ihnen tatsächlich Hebel haben.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Diese Tools kennen Ihre Kanzlei nicht, weder Ihre Vorlagen noch Ihre Standards. Genau deshalb erzielen laut MIT 95 % der KI-Piloten keinen messbaren Effekt. Die Analyse zeigt, welche kanzleispezifischen Anwendungen bei Ihnen tatsächlich Hebel haben.</div></div>
         </div>
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false">Wie lange dauert das und was müssen wir vorbereiten?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
@@ -1178,11 +1196,11 @@ html,body{ background:#000000; }
         </div>
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false">Für welche Kanzleien ist das gedacht?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
-          <div class="faq-a"><div class="faq-a-inner">Für Wirtschaftskanzleien — unabhängig von der Größe. Gerade bei wirtschaftsrechtlichen, vertrags- und dokumentenlastigen Mandaten entstehen die Wissens- und Prozessverluste, bei denen sich KI wirtschaftlich rechnet.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Für Wirtschaftskanzleien, unabhängig von der Größe. Gerade bei wirtschaftsrechtlichen, vertrags- und dokumentenlastigen Mandaten entstehen die Wissens- und Prozessverluste, bei denen sich KI wirtschaftlich rechnet.</div></div>
         </div>
         <div class="faq-item">
           <h3><button class="faq-q" type="button" aria-expanded="false">Wer steckt hinter Flowstate?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></h3>
-          <div class="faq-a"><div class="faq-a-inner">Flowstate AI Solutions ist eine Agentur aus Dorfen in Bayern. Wir arbeiten an der Schnittstelle von Prozessanalyse und KI-Implementierung — mit Fokus auf messbaren wirtschaftlichen Effekt statt Technologie-Demos.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Flowstate AI Solutions ist eine Agentur aus Dorfen in Bayern. Wir arbeiten an der Schnittstelle von Prozessanalyse und KI-Implementierung, mit Fokus auf messbaren wirtschaftlichen Effekt statt Technologie-Demos.</div></div>
         </div>
       </div>
     </div>
@@ -1192,9 +1210,9 @@ html,body{ background:#000000; }
   <section class="section sec--black" aria-labelledby="final-title">
     <div class="container">
       <div class="final-cta reveal">
-        <h2 class="h2" id="final-title">60 Minuten. Ihr KI-Masterplan. Kein Risiko.</h2>
-        <p>Sie erfahren, wo Ihre Kanzlei Zeit und Geld verliert, welche drei KI-Anwendungen den größten Hebel hätten — und ob sich das für Sie überhaupt rechnet. Alles schriftlich in Ihrem kostenlosen KI-Masterplan, innerhalb von 48 Stunden.</p>
-        <a class="btn" href="#formular">AI Readiness Check – kostenlos</a>
+        <h2 class="h2" id="final-title">Ihre Konkurrenz wartet nicht. Sie sollten es auch nicht.</h2>
+        <p>Im kostenlosen AI Readiness Check sehen Sie in 60 Minuten, wo Ihre Kanzlei Zeit und Geld verliert und welche drei KI-Anwendungen den größten Hebel haben. Alles schriftlich in Ihrem KI-Masterplan, in 48 Stunden. Sichern Sie sich jetzt den Platz unter den 6 %.</p>
+        <a class="btn" href="#formular">Kostenlosen AI Readiness Check sichern</a>
       </div>
     </div>
   </section>
@@ -1217,13 +1235,13 @@ html,body{ background:#000000; }
 
 <!-- Sticky Mini-CTA (nur mobil) -->
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
-  <a class="btn btn--full" href="#formular">AI Readiness Check – kostenlos</a>
+  <a class="btn btn--full" href="#formular">Kostenlosen AI Readiness Check sichern</a>
 </div>
 
 <!-- Cookie-Consent-Banner (§ 25 TDDDG) -->
 <div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Einstellungen" hidden>
   <div class="inner">
-    <p>Wir verwenden nur technisch notwendige Cookies. Zusätzlich möchten wir mit dem Meta-Pixel messen, wie gut unsere Anzeigen funktionieren — das ist nicht notwendig und wird erst mit Ihrer Einwilligung geladen. Sie können frei wählen. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <p>Wir verwenden nur technisch notwendige Cookies. Zusätzlich möchten wir mit dem Meta-Pixel messen, wie gut unsere Anzeigen funktionieren. Das ist nicht notwendig und wird erst mit Ihrer Einwilligung geladen. Sie können frei wählen. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <div class="actions">
       <button class="btn-ghost" type="button" id="cookieReject">Ablehnen</button>
       <button class="btn" type="button" id="cookieAccept">Akzeptieren</button>
@@ -1272,6 +1290,7 @@ html,body{ background:#000000; }
     safe(initVideo);
     safe(initFaq);
     safe(initStickyCta);
+    safe(initHeaderCta);
     safe(initCookie);
     safe(initForm);
   });
@@ -1380,6 +1399,20 @@ html,body{ background:#000000; }
     onScroll();
   }
 
+  /* ---- Header-CTA erst ab Sektion 2 einblenden ---- */
+  function initHeaderCta() {
+    var cta = document.querySelector('.header-cta');
+    var sec2 = document.querySelector('[aria-labelledby="stats-title"]');
+    if (!cta || !sec2) return;
+    function onScroll() {
+      // Sichtbar, sobald Sektion 2 den Bereich unter dem Sticky-Header erreicht (und darunter dauerhaft)
+      var show = sec2.getBoundingClientRect().top <= 80;
+      cta.classList.toggle('is-visible', show);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---- Cookie-Consent (§ 25 TDDDG) ---- */
   function initCookie() {
     var banner = document.getElementById('cookieBanner');
@@ -1439,6 +1472,7 @@ html,body{ background:#000000; }
     var validators = [
       { key: 'mandatstyp',    test: function () { return form.mandatstyp.value !== ''; } },
       { key: 'rolle',         test: function () { return !!form.querySelector('input[name="rolle"]:checked'); } },
+      { key: 'mitarbeiter',   test: function () { return form.mitarbeiter.value !== ''; } },
       { key: 'firmenname',    test: function () { return form.firmenname.value.trim().length > 1; } },
       { key: 'name',          test: function () { return form.name.value.trim().length > 1; } },
       { key: 'email',         test: function () { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim()); } },
@@ -1495,7 +1529,7 @@ html,body{ background:#000000; }
       return {
         mandatstyp: form.mandatstyp.value,
         rolle: (form.querySelector('input[name="rolle"]:checked') || {}).value || '',
-        zeitverlust: form.zeitverlust.value,
+        mitarbeiter: form.mitarbeiter.value,
         zeitpunkt: (form.querySelector('input[name="zeitpunkt"]:checked') || {}).value || '',
         firmenname: form.firmenname.value.trim(),
         name: form.name.value.trim(),
@@ -1515,7 +1549,7 @@ html,body{ background:#000000; }
         title.textContent = 'Vielen Dank für Ihr Interesse.';
         text.textContent = 'Unser AI Readiness Check ist auf Wirtschaftskanzleien zugeschnitten. Wir haben Ihre Anfrage gespeichert und melden uns, falls ein passendes Angebot für Sie infrage kommt.';
       } else {
-        title.textContent = 'Vielen Dank — Ihre Anfrage ist eingegangen.';
+        title.textContent = 'Vielen Dank, Ihre Anfrage ist eingegangen.';
         text.textContent = 'Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich die Analyse für Sie lohnt.';
       }
       form.style.display = 'none';
