@@ -13,7 +13,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:site_name" content="Flowstate AI Solutions" />
-<meta property="og:title" content="88 % der Unternehmen nutzen KI. Nur 6 % nutzen sie erfolgreich." />
+<meta property="og:title" content="88 % der Unternehmen nutzen KI. Nur 7 % nutzen sie erfolgreich." />
 <meta property="og:description" content="Kostenloser AI Readiness Check für Wirtschaftskanzleien. 60 Minuten Analyse, in 48 Stunden Ihr KI-Masterplan. Kein Verkaufsgespräch." />
 <meta property="og:image" content="https://flowstate-ai.de/media/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -733,6 +733,46 @@ html,body{ background:#000000; }
 @media (max-width:360px){
   .btn{ font-size:.9375rem; padding-left:14px; padding-right:14px; }
 }
+
+/* ============================================================
+   TERMINBUCHUNG — Calendly-Inline-Widget (Section 11b)
+   Hinweis: Der Kalender laeuft in einem iframe von Calendly.
+   Sein Inneres ist NICHT per CSS stylebar — die Farbanpassung
+   passiert ueber URL-Parameter (siehe CALENDLY_EMBED_STYLE im JS).
+   ============================================================ */
+#termin-buchen{ scroll-margin-top:84px; }
+#termin-buchen .section-head{ text-align:center; }
+#termin-buchen .section-head .lead{ margin-inline:auto; }
+
+.calendly-shell{
+  max-width:900px; margin-inline:auto;
+  background:var(--white);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--r-card);
+  box-shadow:0 12px 40px rgba(0,0,0,0.5);
+  padding:8px; overflow:hidden;
+}
+.calendly-shell .calendly-inline-widget{
+  width:100%; border-radius:8px; overflow:hidden; background:transparent;
+}
+.calendly-shell iframe{ width:100%; height:100%; border:0; display:block; }
+
+.calendly-note{
+  max-width:900px; margin:22px auto 0;
+  font-size:.8125rem; line-height:1.6; color:var(--muted); text-align:center;
+}
+.calendly-note a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
+
+/* Mobil: mehr Hoehe, damit der Kalender nicht abgeschnitten wirkt.
+   !important, weil die Basis-Hoehe als Inline-Style am Element haengt. */
+@media (max-width:767px){
+  #calendly-embed{ height:840px !important; }
+  .calendly-note{ font-size:.875rem; }
+}
+@media (max-width:480px){
+  #calendly-embed{ height:900px !important; }
+  .calendly-shell{ padding:6px; }
+}
 </style>
 </head>
 <body>
@@ -756,11 +796,11 @@ html,body{ background:#000000; }
   <!-- ============ 1 · HERO (dunkel) ============ -->
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="container">
-      <h1 class="h1" id="hero-title"><span class="hl">88&nbsp;%</span> der Unternehmen nutzen KI. Nur <span class="hl">6&nbsp;%</span> nutzen sie erfolgreich.</h1>
+      <h1 class="h1" id="hero-title"><span class="hl">88&nbsp;%</span> der Unternehmen nutzen KI. Nur <span class="hl">7&nbsp;%</span> nutzen sie erfolgreich.</h1>
 
       <p class="hero-source">Quelle: McKinsey, <em>The State of AI 2025</em> (weltweite Unternehmensbefragung).</p>
 
-      <p class="subline body-lg">Sichern Sie Ihrer Kanzlei den Platz unter den 6 %. Kostenloser Check: <b>60 Minuten Gespräch</b>, <b>KI-Masterplan in 48 Stunden</b>.</p>
+      <p class="subline body-lg">Sichern Sie Ihrer Kanzlei den Platz unter den 7 %. Kostenloser Check: <b>60 Minuten Gespräch</b>, <b>KI-Masterplan in 48 Stunden</b>.</p>
 
       <div class="video-wrap">
         <div class="video-box">
@@ -818,8 +858,6 @@ html,body{ background:#000000; }
           </div>
         </div>
       </div>
-
-      <p class="abbinder reveal">Verlorene Zeit, ausbleibende Wirkung, steigender Mandantendruck: Dahinter steht fast immer dieselbe Ursache. <b>Das Wissen Ihrer Kanzlei ist da, aber es ist nicht nutzbar gemacht.</b> Die Kanzleien, die das zuerst lösen, ziehen an den anderen vorbei.</p>
 
       <div class="cta-band reveal">
         <p class="cta-band-text">Wie viel davon trifft auf Ihre Kanzlei zu? Der kostenlose Check zeigt es in 60 Minuten. Ihr <b>KI-Masterplan folgt in 48 Stunden</b>.</p>
@@ -1157,6 +1195,23 @@ html,body{ background:#000000; }
     </div>
   </section>
 
+  <!-- ============ 11b · TERMIN BUCHEN (Calendly, direkt unter dem Formular) ============ -->
+  <section class="section sec--paper" id="termin-buchen" aria-labelledby="calendly-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Direkt buchen</p>
+        <h2 class="h2" id="calendly-title">Wählen Sie jetzt Ihren Wunschtermin</h2>
+        <p class="lead prose" style="margin-top:16px;">60 Minuten per Video-Call, kostenlos und unverbindlich. Suchen Sie sich den Slot aus, der in Ihren Kanzleialltag passt — die Bestätigung erhalten Sie sofort per E-Mail.</p>
+      </div>
+
+      <div class="calendly-shell reveal">
+        <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:700px;"></div>
+      </div>
+
+      <p class="calendly-note">Kein Verkaufsgespräch. Der Termin ist jederzeit kostenfrei verschiebbar oder absagbar. Die Terminvergabe läuft über den Dienst Calendly (Calendly LLC, USA); dabei werden die von Ihnen im Buchungsformular angegebenen Daten an Calendly übermittelt. Näheres in unserer <a href="datenschutz.html#calendly">Datenschutzerklärung</a>.</p>
+    </div>
+  </section>
+
   <!-- ============ 12 · FAQ (hell) ============ -->
   <section class="section sec--white" aria-labelledby="faq-title">
     <div class="container">
@@ -1211,7 +1266,7 @@ html,body{ background:#000000; }
     <div class="container">
       <div class="final-cta reveal">
         <h2 class="h2" id="final-title">Ihre Konkurrenz wartet nicht. Sie sollten es auch nicht.</h2>
-        <p>Im kostenlosen AI Readiness Check sehen Sie in 60 Minuten, wo Ihre Kanzlei Zeit und Geld verliert und welche drei KI-Anwendungen den größten Hebel haben. Alles schriftlich in Ihrem KI-Masterplan, in 48 Stunden. Sichern Sie sich jetzt den Platz unter den 6 %.</p>
+        <p>Im kostenlosen AI Readiness Check sehen Sie in 60 Minuten, wo Ihre Kanzlei Zeit und Geld verliert und welche drei KI-Anwendungen den größten Hebel haben. Alles schriftlich in Ihrem KI-Masterplan, in 48 Stunden. Sichern Sie sich jetzt den Platz unter den 7 %.</p>
         <a class="btn" href="#formular">Kostenlosen AI Readiness Check sichern</a>
       </div>
     </div>
@@ -1261,6 +1316,78 @@ html,body{ background:#000000; }
   "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","name":"Kostenloser AI Readiness Check"}
 }
 </script>
+
+<!-- ============ Calendly-Terminbuchung (gehoert zu Section 11b) ============ -->
+<script>
+/* ============================================================
+   FLOWSTATE — Calendly-Inline-Widget + UTM-Durchreichung
+   Vollstaendig in eine IIFE gekapselt, damit keine globalen
+   Variablen/Funktionsnamen mit anderen Skripten kollidieren.
+   Nach aussen sichtbar ist nur window.showCalendlyWithPrefill(),
+   das der Formular-Submit-Handler nach erfolgreichem Absenden ruft.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var CALENDLY_URL = "https://calendly.com/jannikvomhofe-flowstate-ai/kostenloser-ai-readiness-check-fur-kanzleien";
+
+  /* Das iframe-Innere laesst sich NICHT per CSS stylen. Calendly erlaubt die
+     Anpassung an das dunkle Seiten-Design nur ueber diese URL-Parameter.
+     (Werden von Calendly ignoriert, falls der Tarif keine Farbanpassung
+     unterstuetzt — der Kalender bleibt dann funktionsfaehig, nur hell.) */
+  var CALENDLY_EMBED_STYLE = {
+    background_color: '141414',  /* = var(--white) im Dark-Theme */
+    text_color: 'FFFFFF',
+    primary_color: 'C9A84C'      /* = var(--gold) */
+  };
+
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+  function buildCalendlyUrl(baseUrl, name, email) {
+    var params = new URLSearchParams(window.location.search);
+    var url = new URL(baseUrl);
+    if (name)  url.searchParams.set('name', name);
+    if (email) url.searchParams.set('email', email);
+    UTM_KEYS.forEach(function (key) {
+      if (params.has(key)) url.searchParams.set(key, params.get(key));
+    });
+    Object.keys(CALENDLY_EMBED_STYLE).forEach(function (key) {
+      url.searchParams.set(key, CALENDLY_EMBED_STYLE[key]);
+    });
+    return url.toString();
+  }
+
+  var embed = document.getElementById('calendly-embed');
+
+  /* Start-URL (ohne Vorausfuellung, aber MIT UTM-Parametern) setzen, bevor
+     widget.js ausgefuehrt wird — das Skript liest data-url beim Auto-Init. */
+  if (embed) embed.setAttribute('data-url', buildCalendlyUrl(CALENDLY_URL, '', ''));
+
+  function showCalendlyWithPrefill(name, email) {
+    var parent = document.getElementById('calendly-embed');
+    var section = document.getElementById('termin-buchen');
+    if (!parent || !section) return false;
+
+    var url = buildCalendlyUrl(CALENDLY_URL, name, email);
+    parent.setAttribute('data-url', url);
+
+    if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
+      parent.innerHTML = '';
+      parent.removeAttribute('data-processed');
+      window.Calendly.initInlineWidget({ url: url, parentElement: parent });
+    }
+    /* Sonst: widget.js ist noch nicht geladen und initialisiert das Widget
+       beim Laden selbst mit der gerade gesetzten data-url. */
+
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    section.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    return true;
+  }
+
+  window.showCalendlyWithPrefill = showCalendlyWithPrefill;
+})();
+</script>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
 /* ============================================================
@@ -1547,16 +1674,34 @@ html,body{ background:#000000; }
       var text = document.getElementById('successText');
       if (out) {
         title.textContent = 'Vielen Dank für Ihr Interesse.';
-        text.textContent = 'Unser AI Readiness Check ist auf Wirtschaftskanzleien zugeschnitten. Wir haben Ihre Anfrage gespeichert und melden uns, falls ein passendes Angebot für Sie infrage kommt.';
+        text.textContent = 'Unser AI Readiness Check ist auf Wirtschaftskanzleien zugeschnitten. Wählen Sie unten dennoch gern einen Termin — wir sagen Ihnen im Gespräch offen, ob und wie sich der Einsatz für Sie lohnt.';
       } else {
         title.textContent = 'Vielen Dank, Ihre Anfrage ist eingegangen.';
-        text.textContent = 'Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich die Analyse für Sie lohnt.';
+        text.textContent = 'Wählen Sie jetzt unten direkt Ihren Wunschtermin für die 60 Minuten. Falls kein Termin passt, melden wir uns innerhalb von 24 Stunden bei Ihnen.';
       }
       form.style.display = 'none';
       var success = document.getElementById('formSuccess');
       success.style.display = 'block';
-      success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
       trackLead();
+
+      /* ---- Calendly: Kalender mit Vorausfuellung (Name/E-Mail) anzeigen ----
+         Bewusst OHNE Vorfilterung: solange die Auslastung es zulaesst, darf
+         jede Anfrage einen Termin buchen — auch die als nicht ideal
+         eingestufte. Erst bei zu hohem Andrang wieder qualifizieren. */
+      var openedCalendar = false;
+      if (typeof window.showCalendlyWithPrefill === 'function') {
+        try {
+          openedCalendar = (window.showCalendlyWithPrefill(data.name, data.email) === true);
+        } catch (err) {
+          if (window.console) console.error('[Flowstate] Calendly:', err);
+        }
+      }
+
+      /* Nur EIN Smooth-Scroll: zum Kalender — oder, falls dieser nicht
+         verfuegbar ist, wie bisher zum Erfolgs-Panel. */
+      if (!openedCalendar) {
+        success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      }
     }
 
     function submit() {
