@@ -64,6 +64,8 @@
 @media (min-width:1024px){ :root{ --pad-x:48px; } }
 
 *,*::before,*::after{ box-sizing:border-box; }
+/* hidden muss jede Display-Regel schlagen (z. B. .section, .calendly-skeleton) */
+[hidden]{ display:none !important; }
 html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
 body{
   margin:0; background:var(--paper); color:var(--ink);
@@ -349,34 +351,11 @@ p{ margin:0; }
 .radio-card:has(input:checked){ border-color:var(--gold); background:rgba(201,168,76,.06); }
 .radio-card input:focus-visible ~ .rc-mark{ box-shadow:0 0 0 3px rgba(201,168,76,.35); border-radius:999px; }
 
-.consent{ display:flex; gap:12px; align-items:flex-start; margin-bottom:8px; cursor:pointer; }
-.consent input{ position:absolute; opacity:0; width:0; height:0; }
-.consent .cb{
-  width:22px; height:22px; flex:0 0 auto; border:2px solid #CFCFCF; border-radius:5px; margin-top:2px;
-  display:grid; place-items:center; transition:background 120ms ease, border-color 120ms ease;
-}
-.consent .cb svg{ width:14px; height:14px; opacity:0; color:#000; transition:opacity 120ms ease; }
-.consent input:checked ~ .cb{ background:var(--gold); border-color:var(--gold); }
-.consent input:checked ~ .cb svg{ opacity:1; }
-.consent input:focus-visible ~ .cb{ box-shadow:0 0 0 3px rgba(201,168,76,.35); }
-.consent .cb-text{ font-size:.875rem; line-height:1.55; color:var(--muted); }
-.consent .cb-text a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
-.field.has-error .consent .cb{ border-color:var(--error); }
-
 .form-submit{ margin-top:8px; }
 .form-microcopy{ margin-top:14px; text-align:center; font-size:.875rem; color:var(--muted); }
 .privacy-note{ max-width:var(--maxw-form); margin:22px auto 0; font-size:.8125rem; line-height:1.6; color:var(--muted); text-align:center; }
 .privacy-note a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
 
-/* Form success */
-.form-success{
-  display:none; max-width:var(--maxw-form); margin-inline:auto; background:var(--white);
-  border-radius:var(--r-card); padding:clamp(28px,18px + 3vw,44px); box-shadow:var(--shadow-form); text-align:center;
-}
-.form-success .ok{ width:56px; height:56px; border-radius:999px; background:rgba(46,125,50,.1); color:var(--success); display:grid; place-items:center; margin:0 auto 20px; }
-.form-success .ok svg{ width:30px; height:30px; }
-.form-success h3{ margin-bottom:12px; }
-.form-success p{ color:var(--muted); }
 .form-error-banner{ display:none; margin-bottom:20px; background:rgba(198,40,40,.07); border:1px solid rgba(198,40,40,.3); border-radius:8px; padding:14px 16px; font-size:.9375rem; color:var(--error); line-height:1.5; }
 
 /* ---------- FAQ ---------- */
@@ -485,7 +464,7 @@ html,body{ background:#000000; }
 
 /* Karten heben sich vom schwarzen Grund ab (Rahmen statt Schatten) */
 .stat-card,.pain-card,.offer-col,.compare{ border-color:rgba(255,255,255,0.08); box-shadow:none; }
-.form-card,.form-success{ border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.5); }
+.form-card{ border:1px solid rgba(255,255,255,0.08); box-shadow:0 12px 40px rgba(0,0,0,0.5); }
 
 /* Vergleichstabelle */
 .c-solution{ background:rgba(201,168,76,0.06); }
@@ -505,7 +484,7 @@ html,body{ background:#000000; }
 .input,.select,.radio-card{ background-color:#0d0d0d; border-color:rgba(255,255,255,0.18); }
 .input::placeholder{ color:#7d7d7d; }
 .radio-card:hover{ border-color:rgba(255,255,255,0.32); }
-.radio-card .rc-mark,.consent .cb{ border-color:rgba(255,255,255,0.30); }
+.radio-card .rc-mark{ border-color:rgba(255,255,255,0.30); }
 .select option{ background:#141414; color:#fff; }
 .select{
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23A6A6A6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
@@ -628,15 +607,14 @@ html,body{ background:#000000; }
 .compare{ margin-inline:0; }
 .faq{ margin-inline:0; }
 .scope{ margin-inline:0; }
-.form-card,.form-success{ margin-inline:0; }
+.form-card{ margin-inline:0; }
 .privacy-note{ margin-inline:0; text-align:left; }
 .form-microcopy{ text-align:left; }
 
 /* Formular-Sektion: zentrierter, fokussierter Conversion-Block */
 #formular .section-head{ text-align:center; }
 #formular .section-head .lead{ margin-inline:auto; }
-#formular .form-card,
-#formular .form-success{ margin-inline:auto; }
+#formular .form-card{ margin-inline:auto; }
 #formular .form-microcopy{ text-align:center; }
 #formular .privacy-note{ margin-inline:auto; text-align:center; }
 
@@ -736,26 +714,74 @@ html,body{ background:#000000; }
 
 /* ============================================================
    TERMINBUCHUNG — Calendly-Inline-Widget (Section 11b)
+   Wird erst NACH dem Absenden des Formulars eingeblendet
+   (Attribut hidden am <section>, gesetzt im Markup).
    Hinweis: Der Kalender laeuft in einem iframe von Calendly.
    Sein Inneres ist NICHT per CSS stylebar — die Farbanpassung
    passiert ueber URL-Parameter (siehe CALENDLY_EMBED_STYLE im JS).
+   Die Hoehe steht bewusst NUR hier (nicht als Inline-Style am
+   Element), damit die Media Queries unten ohne !important greifen.
    ============================================================ */
 #termin-buchen{ scroll-margin-top:84px; }
-#termin-buchen .section-head{ text-align:center; }
+#termin-buchen .section-head{ text-align:center; margin-bottom:clamp(1.5rem,1.1rem + 1.6vw,2.25rem); }
 #termin-buchen .section-head .lead{ margin-inline:auto; }
 
+/* Bestaetigung der Formularangaben + Ruecksprung ins Formular */
+.booking-confirm{
+  max-width:900px; margin:0 auto clamp(1.5rem,1.1rem + 1.6vw,2.25rem);
+  display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px;
+  background:var(--white); border:1px solid rgba(201,168,76,0.30);
+  border-radius:var(--r-card); padding:16px 20px;
+}
+.booking-confirm .bc-ok{
+  width:30px; height:30px; flex:0 0 auto; border-radius:999px;
+  background:rgba(201,168,76,.14); color:var(--gold); display:grid; place-items:center;
+}
+.booking-confirm .bc-ok svg{ width:17px; height:17px; }
+.booking-confirm .bc-text{ flex:1 1 260px; min-width:0; font-size:.9375rem; line-height:1.5; color:var(--ink); }
+.booking-confirm .bc-edit{
+  flex:0 0 auto; background:none; border:0; padding:8px 2px; min-height:44px;
+  font-family:inherit; font-size:.875rem; color:var(--muted); cursor:pointer;
+  text-decoration:underline; text-underline-offset:3px;
+}
+.booking-confirm .bc-edit:hover{ color:var(--gold); }
+
 .calendly-shell{
+  position:relative;
   max-width:900px; margin-inline:auto;
   background:var(--white);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:var(--r-card);
   box-shadow:0 12px 40px rgba(0,0,0,0.5);
-  padding:8px; overflow:hidden;
+  padding:8px; overflow:visible;      /* KEINE innere Scrollleiste */
 }
-.calendly-shell .calendly-inline-widget{
-  width:100%; border-radius:8px; overflow:hidden; background:transparent;
+.calendly-shell #calendly-embed{
+  width:100%; min-width:320px; border-radius:8px; background:transparent;
+  overflow:visible;                    /* KEINE innere Scrollleiste */
+  height:750px; min-height:750px;      /* Desktop-Richtwert */
 }
-.calendly-shell iframe{ width:100%; height:100%; border:0; display:block; }
+.calendly-shell iframe{ width:100%; height:100%; min-height:750px; border:0; display:block; }
+
+/* Skeleton, solange widget.js/iframe laedt (dunkles Seiten-Design) */
+.calendly-skeleton{
+  position:absolute; inset:8px; z-index:1; border-radius:8px;
+  background:#141414; border:1px solid rgba(255,255,255,.08);
+  display:grid; align-content:center; justify-items:center; gap:18px;
+  padding:28px 24px; text-align:center;
+}
+.calendly-skeleton .sk-label{ font-size:.9375rem; line-height:1.5; color:var(--on-dark-muted); }
+.calendly-skeleton .sk-bars{ width:min(420px,100%); display:grid; gap:12px; }
+.calendly-skeleton .sk-bar{
+  height:14px; border-radius:999px;
+  background:linear-gradient(90deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.14) 50%,rgba(255,255,255,.05) 100%);
+  background-size:220% 100%; animation:sk-shimmer 1.5s linear infinite;
+}
+.calendly-skeleton .sk-bar:nth-child(2){ width:82%; }
+.calendly-skeleton .sk-bar:nth-child(3){ width:64%; }
+.calendly-skeleton .sk-fallback{ font-size:.9375rem; line-height:1.6; color:var(--on-dark-muted); max-width:460px; }
+.calendly-skeleton .sk-fallback a{ color:var(--gold); }
+@keyframes sk-shimmer{ from{ background-position:220% 0; } to{ background-position:-220% 0; } }
+@media (prefers-reduced-motion:reduce){ .calendly-skeleton .sk-bar{ animation:none; } }
 
 .calendly-note{
   max-width:900px; margin:22px auto 0;
@@ -763,15 +789,18 @@ html,body{ background:#000000; }
 }
 .calendly-note a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
 
-/* Mobil: mehr Hoehe, damit der Kalender nicht abgeschnitten wirkt.
-   !important, weil die Basis-Hoehe als Inline-Style am Element haengt. */
+/* Mobil: mehr Hoehe, damit der Kalender vollstaendig hineinpasst
+   (375x812 zeigt Datumsraster + Slot-Liste ohne inneren Scrollbalken). */
 @media (max-width:767px){
-  #calendly-embed{ height:840px !important; }
+  .calendly-shell #calendly-embed{ height:900px; min-height:900px; }
+  .calendly-shell iframe{ min-height:900px; }
   .calendly-note{ font-size:.875rem; }
+  .booking-confirm{ padding:14px 16px; }
+  .booking-confirm .bc-text{ font-size:.9375rem; }
 }
 @media (max-width:480px){
-  #calendly-embed{ height:900px !important; }
   .calendly-shell{ padding:6px; }
+  .calendly-skeleton{ inset:6px; }
 }
 </style>
 </head>
@@ -1086,9 +1115,9 @@ html,body{ background:#000000; }
   <section class="section sec--paper" id="formular" aria-labelledby="form-title">
     <div class="container">
       <div class="section-head reveal">
-        <p class="eyebrow">Jetzt anfragen</p>
+        <p class="eyebrow">Schritt 1 von 2</p>
         <h2 class="h2" id="form-title">Kostenlosen AI Readiness Check anfragen</h2>
-        <p class="lead prose" style="margin-top:16px;">Zwei Minuten. Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich der Check für Sie lohnt. Danach: 60 Minuten Gespräch und Ihr KI-Masterplan in 48 Stunden.</p>
+        <p class="lead prose" style="margin-top:16px;">Fünf kurze Fragen, keine Kontaktdaten. Im Anschluss wählen Sie direkt Ihren Wunschtermin: 60 Minuten Gespräch und Ihr KI-Masterplan in 48 Stunden.</p>
       </div>
 
       <form class="form-card reveal" id="leadForm" novalidate>
@@ -1149,66 +1178,44 @@ html,body{ background:#000000; }
           <p class="error-msg" id="err-firma">Bitte geben Sie den Namen Ihrer Kanzlei an.</p>
         </div>
 
-        <!-- 6 · Name -->
-        <div class="field" data-field="name">
-          <label for="f-name" class="field-label">Ihr Name <span class="req">*</span></label>
-          <input class="input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="err-name" />
-          <p class="error-msg" id="err-name">Bitte geben Sie Ihren Namen an.</p>
-        </div>
-
-        <!-- 7 · E-Mail -->
-        <div class="field" data-field="email">
-          <label for="f-email" class="field-label">Geschäftliche E-Mail-Adresse <span class="req">*</span></label>
-          <input class="input" id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="err-email" />
-          <p class="error-msg" id="err-email">Bitte geben Sie eine gültige E-Mail-Adresse an.</p>
-        </div>
-
-        <!-- 8 · Telefon (Pflichtfeld) -->
-        <div class="field" data-field="telefon">
-          <label for="f-tel" class="field-label">Telefonnummer <span class="req">*</span></label>
-          <input class="input" id="f-tel" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="err-telefon" />
-          <p class="error-msg" id="err-telefon">Bitte geben Sie eine Telefonnummer an.</p>
-        </div>
-
-        <!-- 9 · Einwilligung -->
-        <div class="field" data-field="einwilligung" style="margin-bottom:20px;">
-          <label class="consent">
-            <input type="checkbox" name="einwilligung" value="ja" required aria-describedby="err-einwilligung" />
-            <span class="cb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <span class="cb-text">Ich willige ein, dass Flowstate AI Solutions meine Angaben verarbeitet, um mit mir Kontakt aufzunehmen und den kostenlosen AI Readiness Check vorzubereiten. Diese Einwilligung kann ich jederzeit mit Wirkung für die Zukunft widerrufen. Weitere Informationen in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</span>
-          </label>
-          <p class="error-msg" id="err-einwilligung" style="margin-left:34px;">Bitte bestätigen Sie die Einwilligung, damit wir Sie kontaktieren dürfen.</p>
-        </div>
-
         <button class="btn btn--full form-submit" type="submit" id="submitBtn">AI Readiness Check anfragen</button>
-        <p class="form-microcopy">Kein Verkaufsgespräch. Keine Systemzugänge. Antwort innerhalb von 24 Stunden.</p>
+        <p class="form-microcopy">Kein Verkaufsgespräch. Keine Systemzugänge. Im nächsten Schritt wählen Sie Ihren Wunschtermin.</p>
       </form>
 
-      <!-- Erfolgs-Panel (wird nach Absenden eingeblendet) -->
-      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-        <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3 class="h3" id="successTitle">Vielen Dank, Ihre Anfrage ist eingegangen.</h3>
-        <p id="successText">Wir melden uns innerhalb von 24 Stunden mit einer ehrlichen Einschätzung, ob sich der Check für Sie lohnt. Danach: 60 Minuten Gespräch und Ihr KI-Masterplan in 48 Stunden.</p>
-      </div>
-
-      <p class="privacy-note reveal">Wir verarbeiten Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. a und lit. b DSGVO). Eine Weitergabe an Dritte zu Werbezwecken erfolgt nicht. Ihre Rechte auf Auskunft, Berichtigung, Löschung und Widerspruch entnehmen Sie unserer <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
+      <p class="privacy-note reveal">Diese Angaben verlassen Ihren Browser nicht: Wir übertragen sie an keinen Server, sondern übergeben sie beim nächsten Schritt ausschließlich als kurze Zusammenfassung an den Buchungskalender (Calendly), damit wir den Termin vorbereiten können. Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer geben Sie erst dort ein. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und lit. f DSGVO. Näheres in unserer <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>
     </div>
   </section>
 
-  <!-- ============ 11b · TERMIN BUCHEN (Calendly, direkt unter dem Formular) ============ -->
-  <section class="section sec--paper" id="termin-buchen" aria-labelledby="calendly-title">
+  <!-- ============ 11b · TERMIN BUCHEN (Calendly) ============
+       Beim Seitenaufruf per hidden komplett aus dem Dokumentfluss genommen.
+       Wird ausschliesslich vom Formular-Submit eingeblendet (siehe JS). -->
+  <section class="section sec--paper" id="termin-buchen" aria-labelledby="calendly-title" hidden>
     <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Direkt buchen</p>
+      <div class="booking-confirm" id="bookingConfirm" role="status" aria-live="polite">
+        <span class="bc-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p class="bc-text" id="bookingConfirmText">Ihre Angaben sind gespeichert — wählen Sie jetzt Ihren Wunschtermin.</p>
+        <button class="bc-edit" type="button" id="editAnswersBtn">← Angaben ändern</button>
+      </div>
+
+      <div class="section-head">
+        <p class="eyebrow">Schritt 2 von 2</p>
         <h2 class="h2" id="calendly-title">Wählen Sie jetzt Ihren Wunschtermin</h2>
         <p class="lead prose" style="margin-top:16px;">60 Minuten per Video-Call, kostenlos und unverbindlich. Suchen Sie sich den Slot aus, der in Ihren Kanzleialltag passt — die Bestätigung erhalten Sie sofort per E-Mail.</p>
       </div>
 
-      <div class="calendly-shell reveal">
-        <div id="calendly-embed" class="calendly-inline-widget" style="min-width:320px;height:700px;"></div>
+      <div class="calendly-shell">
+        <div id="calendly-embed"></div>
+        <div class="calendly-skeleton" id="calendlySkeleton" aria-hidden="true">
+          <p class="sk-label">Kalender wird geladen …</p>
+          <div class="sk-bars">
+            <span class="sk-bar"></span>
+            <span class="sk-bar"></span>
+            <span class="sk-bar"></span>
+          </div>
+        </div>
       </div>
 
-      <p class="calendly-note">Kein Verkaufsgespräch. Der Termin ist jederzeit kostenfrei verschiebbar oder absagbar. Die Terminvergabe läuft über den Dienst Calendly (Calendly LLC, USA); dabei werden die von Ihnen im Buchungsformular angegebenen Daten an Calendly übermittelt. Näheres in unserer <a href="datenschutz.html#calendly">Datenschutzerklärung</a>.</p>
+      <p class="calendly-note">Kein Verkaufsgespräch. Der Termin ist jederzeit kostenfrei verschiebbar oder absagbar. Die Terminvergabe läuft über den Dienst Calendly (Calendly LLC, USA); dabei werden Ihre Angaben aus dem Formular als Zusammenfassung sowie die von Ihnen im Buchungsformular eingegebenen Daten an Calendly übermittelt. Näheres in unserer <a href="datenschutz.html#calendly">Datenschutzerklärung</a>.</p>
     </div>
   </section>
 
@@ -1323,13 +1330,14 @@ html,body{ background:#000000; }
    FLOWSTATE — Calendly-Inline-Widget + UTM-Durchreichung
    Vollstaendig in eine IIFE gekapselt, damit keine globalen
    Variablen/Funktionsnamen mit anderen Skripten kollidieren.
-   Nach aussen sichtbar ist nur window.showCalendlyWithPrefill(),
-   das der Formular-Submit-Handler nach erfolgreichem Absenden ruft.
+   Nach aussen sichtbar sind nur window.showCalendlyWithAnswers() und
+   window.hideCalendlySection(), die der Formular-Handler aufruft.
    ============================================================ */
 (function () {
   'use strict';
 
   var CALENDLY_URL = "https://calendly.com/jannikvomhofe-flowstate-ai/kostenloser-ai-readiness-check-fur-kanzleien";
+  var WIDGET_SRC   = "https://assets.calendly.com/assets/external/widget.js";
 
   /* Das iframe-Innere laesst sich NICHT per CSS stylen. Calendly erlaubt die
      Anpassung an das dunkle Seiten-Design nur ueber diese URL-Parameter.
@@ -1343,51 +1351,134 @@ html,body{ background:#000000; }
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
-  function buildCalendlyUrl(baseUrl, name, email) {
-    var params = new URLSearchParams(window.location.search);
-    var url = new URL(baseUrl);
-    if (name)  url.searchParams.set('name', name);
-    if (email) url.searchParams.set('email', email);
+  /* Kampagnenparameter aus der Seiten-URL — jeweils nur, wenn vorhanden. */
+  function collectUtmParams() {
+    var pageParams = new URLSearchParams(window.location.search);
+    var found = {};
     UTM_KEYS.forEach(function (key) {
-      if (params.has(key)) url.searchParams.set(key, params.get(key));
+      var value = pageParams.get(key);
+      if (value) found[key] = value;
     });
+    return found;
+  }
+
+  /* answerSummary landet in der Calendly-Freitextfrage (URL-Parameter a1). */
+  function buildCalendlyUrl(baseUrl, answerSummary) {
+    var url = new URL(baseUrl);
+    if (answerSummary) url.searchParams.set('a1', answerSummary);
+
+    var utm = collectUtmParams();
+    Object.keys(utm).forEach(function (key) { url.searchParams.set(key, utm[key]); });
+
     Object.keys(CALENDLY_EMBED_STYLE).forEach(function (key) {
       url.searchParams.set(key, CALENDLY_EMBED_STYLE[key]);
     });
+
+    /* URLSearchParams serialisiert Leerzeichen als "+", Calendly zeigt das im
+       Freitextfeld woertlich an. Echte Pluszeichen sind zu diesem Zeitpunkt
+       bereits als %2B kodiert, ein rohes "+" ist hier also immer ein
+       Leerzeichen und wird sicher auf %20 normalisiert. */
+    url.search = url.searchParams.toString().replace(/\+/g, '%20');
     return url.toString();
   }
 
-  var embed = document.getElementById('calendly-embed');
+  /* ---- widget.js: genau EINMAL nachladen (einmaliges Promise) ---------- */
+  var widgetPromise = null;
+  function loadCalendlyWidget() {
+    if (widgetPromise) return widgetPromise;
+    widgetPromise = new Promise(function (resolve, reject) {
+      if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') { resolve(); return; }
+      var s = document.createElement('script');
+      s.src = WIDGET_SRC;
+      s.async = true;
+      s.onload = function () { resolve(); };
+      s.onerror = function () {
+        widgetPromise = null;  /* erneuter Versuch bleibt moeglich */
+        reject(new Error('Calendly widget.js konnte nicht geladen werden.'));
+      };
+      document.head.appendChild(s);
+    });
+    return widgetPromise;
+  }
 
-  /* Start-URL (ohne Vorausfuellung, aber MIT UTM-Parametern) setzen, bevor
-     widget.js ausgefuehrt wird — das Skript liest data-url beim Auto-Init. */
-  if (embed) embed.setAttribute('data-url', buildCalendlyUrl(CALENDLY_URL, '', ''));
+  function skeleton() { return document.getElementById('calendlySkeleton'); }
+  function setSkeleton(visible) { var sk = skeleton(); if (sk) sk.hidden = !visible; }
 
-  function showCalendlyWithPrefill(name, email) {
+  var skeletonTimer = null;
+
+  function initWidget(url) {
     var parent = document.getElementById('calendly-embed');
+    if (!parent) return;
+    parent.innerHTML = '';
+    parent.removeAttribute('data-processed');
+    window.Calendly.initInlineWidget({ url: url, parentElement: parent });
+
+    var frame = parent.querySelector('iframe');
+    if (frame) frame.addEventListener('load', function () { setSkeleton(false); }, { once: true });
+    /* Sicherheitsnetz: Skeleton verschwindet auch ohne load-Event. */
+    clearTimeout(skeletonTimer);
+    skeletonTimer = setTimeout(function () { setSkeleton(false); }, 6000);
+  }
+
+  function showCalendlyWithAnswers(answerSummary) {
     var section = document.getElementById('termin-buchen');
-    if (!parent || !section) return false;
+    var parent  = document.getElementById('calendly-embed');
+    if (!section || !parent) return false;
 
-    var url = buildCalendlyUrl(CALENDLY_URL, name, email);
-    parent.setAttribute('data-url', url);
+    section.hidden = false;
+    setSkeleton(true);
 
-    if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
-      parent.innerHTML = '';
-      parent.removeAttribute('data-processed');
-      window.Calendly.initInlineWidget({ url: url, parentElement: parent });
-    }
-    /* Sonst: widget.js ist noch nicht geladen und initialisiert das Widget
-       beim Laden selbst mit der gerade gesetzten data-url. */
+    var url = buildCalendlyUrl(CALENDLY_URL, answerSummary || '');
+
+    loadCalendlyWidget().then(function () {
+      initWidget(url);
+    }).catch(function (err) {
+      if (window.console) console.error('[Flowstate] Calendly:', err);
+      var sk = skeleton();
+      if (sk) {
+        sk.hidden = false;
+        sk.innerHTML = '<p class="sk-fallback">Der Buchungskalender lässt sich gerade nicht laden. Bitte laden Sie die Seite neu oder schreiben Sie uns an <a href="mailto:kontakt@flowstate-ai.de">kontakt@flowstate-ai.de</a> — wir stimmen den Termin dann persönlich mit Ihnen ab.</p>';
+      }
+    });
 
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     section.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     return true;
   }
 
-  window.showCalendlyWithPrefill = showCalendlyWithPrefill;
+  function hideCalendlySection() {
+    var section = document.getElementById('termin-buchen');
+    if (section) section.hidden = true;
+  }
+
+  /* ---- Vorwaermen: widget.js laden, sobald das Formular in die Naehe
+         des Viewports kommt — dann steht der Kalender beim Einblenden
+         sofort. Ohne IntersectionObserver greift der Ladepfad im Submit. */
+  function prewarmWidget() {
+    var formSection = document.getElementById('formular');
+    if (!formSection || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          io.disconnect();
+          loadCalendlyWidget().catch(function () { /* stiller Fehlschlag, Retry beim Submit */ });
+          return;
+        }
+      }
+    }, { rootMargin: '400px 0px 400px 0px' });
+    io.observe(formSection);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', prewarmWidget);
+  } else {
+    prewarmWidget();
+  }
+
+  window.showCalendlyWithAnswers = showCalendlyWithAnswers;
+  window.hideCalendlySection = hideCalendlySection;
 })();
 </script>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
 /* ============================================================
@@ -1396,9 +1487,10 @@ html,body{ background:#000000; }
 (function () {
   'use strict';
 
-  /* ---- KONFIGURATION (bitte anpassen) ---------------------------------- */
-  // n8n-Webhook, der den Lead entgegennimmt (siehe README). Leer = Demo-Modus.
-  var FORM_ENDPOINT = '';
+  /* ---- KONFIGURATION (bitte anpassen) ----------------------------------
+     Hinweis: Das Formular sendet bewusst NICHTS mehr an ein Backend.
+     Die Antworten bleiben im Browser und werden ausschliesslich als
+     Zusammenfassung (Parameter a1) an Calendly uebergeben. */
   // Meta-Pixel-ID — lädt AUSSCHLIESSLICH nach aktiver Einwilligung.
   var META_PIXEL_ID = '';
   /* ---------------------------------------------------------------------- */
@@ -1589,22 +1681,21 @@ html,body{ background:#000000; }
     if (window.fbq) { try { window.fbq('track', 'Lead'); } catch (e) {} }
   }
 
-  /* ---- Formular: Validierung + Absenden ---- */
+  /* ---- Formular: Validierung + Uebergabe an den Kalender ---- */
   function initForm() {
     var form = document.getElementById('leadForm');
     if (!form) return;
+    var formSection = document.getElementById('formular');
     var banner = document.getElementById('formErrorBanner');
     var submitBtn = document.getElementById('submitBtn');
+    var lastData = null;
 
+    /* Kontaktdaten (Name, E-Mail, Telefon) erhebt ausschliesslich Calendly. */
     var validators = [
       { key: 'mandatstyp',    test: function () { return form.mandatstyp.value !== ''; } },
       { key: 'rolle',         test: function () { return !!form.querySelector('input[name="rolle"]:checked'); } },
       { key: 'mitarbeiter',   test: function () { return form.mitarbeiter.value !== ''; } },
-      { key: 'firmenname',    test: function () { return form.firmenname.value.trim().length > 1; } },
-      { key: 'name',          test: function () { return form.name.value.trim().length > 1; } },
-      { key: 'email',         test: function () { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim()); } },
-      { key: 'telefon',       test: function () { return form.telefon.value.replace(/[^0-9]/g, '').length >= 6; } },
-      { key: 'einwilligung',  test: function () { return form.einwilligung.checked; } }
+      { key: 'firmenname',    test: function () { return form.firmenname.value.trim().length > 1; } }
     ];
 
     function fieldEl(key) { return form.querySelector('[data-field="' + key + '"]'); }
@@ -1654,84 +1745,114 @@ html,body{ background:#000000; }
 
     function collect() {
       return {
+        firmenname: form.firmenname.value.trim(),
         mandatstyp: form.mandatstyp.value,
         rolle: (form.querySelector('input[name="rolle"]:checked') || {}).value || '',
         mitarbeiter: form.mitarbeiter.value,
-        zeitpunkt: (form.querySelector('input[name="zeitpunkt"]:checked') || {}).value || '',
-        firmenname: form.firmenname.value.trim(),
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        telefon: form.telefon.value.trim(),
-        einwilligung: form.einwilligung.checked,
-        seite: 'ki-effizienz-analyse',
-        zeitstempel: new Date().toISOString()
+        zeitpunkt: (form.querySelector('input[name="zeitpunkt"]:checked') || {}).value || ''
       };
     }
 
-    function showSuccess(data) {
-      var out = (data.mandatstyp === 'Überwiegend Privatmandate');
-      var title = document.getElementById('successTitle');
-      var text = document.getElementById('successText');
-      if (out) {
-        title.textContent = 'Vielen Dank für Ihr Interesse.';
-        text.textContent = 'Unser AI Readiness Check ist auf Wirtschaftskanzleien zugeschnitten. Wählen Sie unten dennoch gern einen Termin — wir sagen Ihnen im Gespräch offen, ob und wie sich der Einsatz für Sie lohnt.';
-      } else {
-        title.textContent = 'Vielen Dank, Ihre Anfrage ist eingegangen.';
-        text.textContent = 'Wählen Sie jetzt unten direkt Ihren Wunschtermin für die 60 Minuten. Falls kein Termin passt, melden wir uns innerhalb von 24 Stunden bei Ihnen.';
+    /* Labels und Reihenfolge der Calendly-Freitextfrage (URL-Parameter a1).
+       Format: "Label: Wert", Felder mit " | " getrennt, Mehrfachauswahlen
+       mit ", " verbunden, leere/optionale Felder werden weggelassen. */
+    var A1_FIELDS = [
+      { label: 'Kanzlei',      key: 'firmenname'  },
+      { label: 'Mandate',      key: 'mandatstyp'  },
+      { label: 'Rolle',        key: 'rolle'       },
+      { label: 'Mitarbeiter',  key: 'mitarbeiter' },
+      { label: 'Zeithorizont', key: 'zeitpunkt'   }
+    ];
+
+    function buildAnswerSummary(data) {
+      var parts = [];
+      A1_FIELDS.forEach(function (f) {
+        var raw = data[f.key];
+        var value = Array.isArray(raw)
+          ? raw.filter(Boolean).join(', ')
+          : String(raw === null || raw === undefined ? '' : raw).trim();
+        if (value) parts.push(f.label + ': ' + value);
+      });
+      return parts.join(' | ');
+    }
+
+    function setRadio(name, value) {
+      var inputs = form.querySelectorAll('input[name="' + name + '"]');
+      Array.prototype.forEach.call(inputs, function (input) {
+        input.checked = (!!value && input.value === value);
+      });
+    }
+
+    /* Antworten wiederherstellen ("← Angaben ändern"). Das Formular wird nur
+       ausgeblendet, nie zurueckgesetzt — dies ist die explizite Absicherung. */
+    function restore(data) {
+      if (!data) return;
+      if (data.mandatstyp)  form.mandatstyp.value  = data.mandatstyp;
+      if (data.mitarbeiter) form.mitarbeiter.value = data.mitarbeiter;
+      if (data.firmenname)  form.firmenname.value  = data.firmenname;
+      setRadio('rolle', data.rolle);
+      setRadio('zeitpunkt', data.zeitpunkt);
+    }
+
+    function reopenForm() {
+      if (typeof window.hideCalendlySection === 'function') window.hideCalendlySection();
+      if (formSection) formSection.hidden = false;
+      restore(lastData);
+      if (formSection) formSection.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+      var first = form.querySelector('select,input,textarea');
+      if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+    }
+
+    var editBtn = document.getElementById('editAnswersBtn');
+    if (editBtn) editBtn.addEventListener('click', reopenForm);
+
+    /* Alle CTA-Anker zeigen weiterhin auf #formular. Ist das Formular gerade
+       ausgeblendet (Kalender sichtbar), blenden wir es wieder ein, statt den
+       Anker ins Leere laufen zu lassen. */
+    document.addEventListener('click', function (e) {
+      if (!e.target || !e.target.closest) return;
+      var link = e.target.closest('a[href="#formular"]');
+      if (!link || !formSection || !formSection.hidden) return;
+      e.preventDefault();
+      reopenForm();
+    });
+
+    function showBooking(data) {
+      var confirmText = document.getElementById('bookingConfirmText');
+      if (confirmText) {
+        confirmText.textContent = (data.mandatstyp === 'Überwiegend Privatmandate')
+          ? 'Ihre Angaben sind gespeichert. Unser AI Readiness Check ist auf Wirtschaftskanzleien zugeschnitten — wählen Sie dennoch gern einen Termin, wir sagen Ihnen im Gespräch offen, ob und wie sich der Einsatz für Sie lohnt.'
+          : 'Ihre Angaben sind gespeichert — wählen Sie jetzt Ihren Wunschtermin.';
       }
-      form.style.display = 'none';
-      var success = document.getElementById('formSuccess');
-      success.style.display = 'block';
+
+      /* Formular komplett ausblenden: danach steht nur noch EIN
+         Handlungsaufruf auf dem Bildschirm — der Kalender. */
+      if (formSection) formSection.hidden = true;
       trackLead();
 
-      /* ---- Calendly: Kalender mit Vorausfuellung (Name/E-Mail) anzeigen ----
-         Bewusst OHNE Vorfilterung: solange die Auslastung es zulaesst, darf
-         jede Anfrage einen Termin buchen — auch die als nicht ideal
-         eingestufte. Erst bei zu hohem Andrang wieder qualifizieren. */
-      var openedCalendar = false;
-      if (typeof window.showCalendlyWithPrefill === 'function') {
+      var opened = false;
+      if (typeof window.showCalendlyWithAnswers === 'function') {
         try {
-          openedCalendar = (window.showCalendlyWithPrefill(data.name, data.email) === true);
+          opened = (window.showCalendlyWithAnswers(buildAnswerSummary(data)) === true);
         } catch (err) {
           if (window.console) console.error('[Flowstate] Calendly:', err);
         }
       }
 
-      /* Nur EIN Smooth-Scroll: zum Kalender — oder, falls dieser nicht
-         verfuegbar ist, wie bisher zum Erfolgs-Panel. */
-      if (!openedCalendar) {
-        success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      /* Notfall: Kalender-Sektion fehlt — Formular sichtbar lassen. */
+      if (!opened) {
+        if (formSection) formSection.hidden = false;
+        banner.textContent = 'Der Buchungskalender lässt sich gerade nicht öffnen. Bitte laden Sie die Seite neu oder schreiben Sie uns an kontakt@flowstate-ai.de.';
+        banner.style.display = 'block';
+        banner.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
       }
     }
 
+    /* Kein Backend, kein Versand: die Antworten bleiben im Browser und
+       werden ausschliesslich an den Kalender uebergeben. */
     function submit() {
-      var data = collect();
-      submitBtn.disabled = true;
-      var original = submitBtn.textContent;
-      submitBtn.textContent = 'Wird gesendet …';
-
-      if (!FORM_ENDPOINT) {
-        // Demo-Modus: kein Backend hinterlegt.
-        console.warn('[Flowstate] FORM_ENDPOINT ist leer — Lead wird nicht versendet (Demo-Modus). Daten:', data);
-        setTimeout(function () { showSuccess(data); submitBtn.disabled = false; submitBtn.textContent = original; }, 600);
-        return;
-      }
-
-      fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        showSuccess(data);
-      }).catch(function (err) {
-        console.error('[Flowstate] Lead-Versand fehlgeschlagen:', err);
-        banner.textContent = 'Es gab ein technisches Problem beim Absenden. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an kontakt@flowstate-ai.de.';
-        banner.style.display = 'block';
-        banner.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
-        submitBtn.disabled = false;
-        submitBtn.textContent = original;
-      });
+      lastData = collect();
+      showBooking(lastData);
     }
   }
 })();
