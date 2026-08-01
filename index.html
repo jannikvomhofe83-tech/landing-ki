@@ -719,8 +719,11 @@ html,body{ background:#000000; }
    Hinweis: Der Kalender laeuft in einem iframe von Calendly.
    Sein Inneres ist NICHT per CSS stylebar — die Farbanpassung
    passiert ueber URL-Parameter (siehe CALENDLY_EMBED_STYLE im JS).
-   Die Hoehe steht bewusst NUR hier (nicht als Inline-Style am
-   Element), damit die Media Queries unten ohne !important greifen.
+   HOEHE: Das Widget laeuft mit resize:true. Calendly meldet per
+   postMessage (calendly.page_height) die echte Inhaltshoehe und
+   setzt sie als Inline-Style am #calendly-embed. Deshalb steht hier
+   KEIN height und KEIN !important — nur eine min-height fuer die
+   Skeleton-Phase, die mit .is-sized wieder entfaellt.
    ============================================================ */
 #termin-buchen{ scroll-margin-top:84px; }
 #termin-buchen .section-head{ text-align:center; margin-bottom:clamp(1.5rem,1.1rem + 1.6vw,2.25rem); }
@@ -758,9 +761,12 @@ html,body{ background:#000000; }
 .calendly-shell #calendly-embed{
   width:100%; min-width:320px; border-radius:8px; background:transparent;
   overflow:visible;                    /* KEINE innere Scrollleiste */
-  height:750px; min-height:750px;      /* Desktop-Richtwert */
 }
-.calendly-shell iframe{ width:100%; height:100%; min-height:750px; border:0; display:block; }
+/* Nur solange Calendly noch keine Hoehe gemeldet hat: Platzhalter fuer das
+   Skeleton. Sobald calendly.page_height eintrifft, setzt das JS .is-sized
+   und ab da bestimmt allein Calendlys Inline-Hoehe die Groesse. */
+.calendly-shell:not(.is-sized) #calendly-embed{ min-height:680px; }
+.calendly-shell iframe{ width:100%; height:100%; border:0; display:block; }
 
 /* Skeleton, solange widget.js/iframe laedt (dunkles Seiten-Design) */
 .calendly-skeleton{
@@ -789,11 +795,10 @@ html,body{ background:#000000; }
 }
 .calendly-note a{ color:var(--ink); text-decoration:underline; text-underline-offset:2px; }
 
-/* Mobil: mehr Hoehe, damit der Kalender vollstaendig hineinpasst
-   (375x812 zeigt Datumsraster + Slot-Liste ohne inneren Scrollbalken). */
+/* Mobil ist Calendlys Inhalt hoeher — nur der Skeleton-Platzhalter waechst
+   mit, die echte Hoehe kommt weiterhin von Calendly selbst. */
 @media (max-width:767px){
-  .calendly-shell #calendly-embed{ height:900px; min-height:900px; }
-  .calendly-shell iframe{ min-height:900px; }
+  .calendly-shell:not(.is-sized) #calendly-embed{ min-height:900px; }
   .calendly-note{ font-size:.875rem; }
   .booking-confirm{ padding:14px 16px; }
   .booking-confirm .bc-text{ font-size:.9375rem; }
@@ -1403,15 +1408,42 @@ html,body{ background:#000000; }
 
   function skeleton() { return document.getElementById('calendlySkeleton'); }
   function setSkeleton(visible) { var sk = skeleton(); if (sk) sk.hidden = !visible; }
+  function shell() { return document.querySelector('.calendly-shell'); }
 
   var skeletonTimer = null;
+
+  /* Vor jedem (Neu-)Aufbau: Calendlys Inline-Hoehe vom letzten Durchlauf
+     entfernen und wieder auf die Skeleton-Platzhalterhoehe zurueckfallen. */
+  function resetEmbedSizing(parent) {
+    var sh = shell();
+    if (sh) sh.classList.remove('is-sized');
+    if (parent) parent.style.removeProperty('height');
+  }
+
+  /* Calendly meldet die echte Inhaltshoehe per postMessage und setzt sie
+     zugleich als Inline-Style am parentElement (resize:true). Das ist das
+     zuverlaessigste Signal dafuer, dass der Kalender wirklich steht. */
+  var CALENDLY_ORIGIN = /^https?:\/\/([a-z0-9-]+\.)*calendly\.com$/i;
+
+  window.addEventListener('message', function (e) {
+    if (!CALENDLY_ORIGIN.test(e.origin)) return;
+    var d = e.data;
+    if (!d || typeof d !== 'object' || d.event !== 'calendly.page_height') return;
+    var sh = shell();
+    if (sh) sh.classList.add('is-sized');   /* ab jetzt bestimmt Calendly die Hoehe */
+    clearTimeout(skeletonTimer);
+    setSkeleton(false);
+  });
 
   function initWidget(url) {
     var parent = document.getElementById('calendly-embed');
     if (!parent) return;
     parent.innerHTML = '';
     parent.removeAttribute('data-processed');
-    window.Calendly.initInlineWidget({ url: url, parentElement: parent });
+    resetEmbedSizing(parent);
+    /* resize:true -> Calendly passt die Hoehe des parentElement selbst an die
+       Inhaltshoehe an. Ohne das scrollt der Kalender innerhalb des iframes. */
+    window.Calendly.initInlineWidget({ url: url, parentElement: parent, resize: true });
 
     var frame = parent.querySelector('iframe');
     if (frame) frame.addEventListener('load', function () { setSkeleton(false); }, { once: true });
@@ -1427,6 +1459,7 @@ html,body{ background:#000000; }
 
     section.hidden = false;
     setSkeleton(true);
+    resetEmbedSizing(parent);
 
     var url = buildCalendlyUrl(CALENDLY_URL, answerSummary || '');
 
