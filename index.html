@@ -4,6 +4,34 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
+<!-- Google Consent Mode v2 — muss VOR dem Tag Manager stehen.
+     Alle messenden Kategorien starten auf "denied". Erst die Einwilligung im
+     Cookie-Banner schaltet sie frei (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  functionality_storage: 'granted',
+  security_storage: 'granted',
+  wait_for_update: 500
+});
+try {
+  if (localStorage.getItem('fs_consent') === 'accepted') {
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+  }
+} catch (e) {}
+</script>
+<!-- End Google Consent Mode v2 -->
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1321,7 +1349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Cookie-Consent-Banner (§ 25 TDDDG) -->
 <div class="cookie" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie-Einstellungen" hidden>
   <div class="inner">
-    <p>Wir verwenden nur technisch notwendige Cookies. Zusätzlich möchten wir mit dem Meta-Pixel messen, wie gut unsere Anzeigen funktionieren. Das ist nicht notwendig und wird erst mit Ihrer Einwilligung geladen. Sie können frei wählen. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <p>Wir verwenden technisch notwendige Cookies. Zusätzlich möchten wir mit Google Analytics (über den Google Tag Manager) und dem Meta-Pixel messen, wie gut unsere Anzeigen funktionieren. Diese Messung ist optional und startet erst mit Ihrer Einwilligung. Sie können frei wählen. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <div class="actions">
       <button class="btn-ghost" type="button" id="cookieReject">Ablehnen</button>
       <button class="btn" type="button" id="cookieAccept">Akzeptieren</button>
@@ -1704,14 +1732,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     accept.addEventListener('click', function () {
       try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
-      hide(); loadMetaPixel();
+      hide(); grantConsent(); loadMetaPixel();
     });
     reject.addEventListener('click', function () {
       try { localStorage.setItem(KEY, 'rejected'); } catch (e) {}
-      hide();
+      hide(); denyConsent();
     });
     settings.addEventListener('click', function (e) {
       e.preventDefault(); show();
+    });
+  }
+
+  /* ---- Google Consent Mode: Freigabe bzw. Widerruf ----
+     Der Tag Manager laedt zwar sofort, seine messenden Tags feuern aber erst,
+     wenn hier auf 'granted' geschaltet wird. */
+  function grantConsent() {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('consent', 'update', {
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
+    });
+  }
+  function denyConsent() {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('consent', 'update', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
     });
   }
 
